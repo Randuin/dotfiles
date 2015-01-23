@@ -1,7 +1,8 @@
 ZSH=$HOME/.oh-my-zsh
 
-ZSH_THEME="wedisagree"
+ZSH_THEME="nanotech"
 alias railstags="ctags -R --exclude=.git --exclude=log *"
+alias be="bundle exec"
 alias vi="vim"
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -14,7 +15,7 @@ DISABLE_AUTO_TITLE="true"
 
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 # COMPLETION_WAITING_DOTS="true"
-plugins=(git osx ruby rails)
+plugins=(git osx ruby rails git-extras)
 source $ZSH/oh-my-zsh.sh
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
