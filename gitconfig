@@ -1,0 +1,17 @@
+[user]
+	email = randuin@gmail.com
+	name = Robin Liao
+[core]
+	editor = /usr/local/bin/vim
+	excludesfile = /Users/randuin/.gitignore_global
+[color]
+	ui = auto
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
