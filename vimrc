@@ -35,7 +35,6 @@ Plug 'majutsushi/tagbar'
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 Plug 'groenewege/vim-less', { 'for': 'less' }
-
 Plug 'rainerborene/vim-reek'
 
 let g:reek_on_loading = 0
@@ -44,11 +43,6 @@ call plug#end()
 
 " Required:
 filetype plugin indent on
-
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
-"End NeoBundle Scripts-------------------------
 
 set background=dark
 " " let base16colorspace=256
