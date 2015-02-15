@@ -1,6 +1,6 @@
 ZSH=$HOME/.oh-my-zsh
 
-ZSH_THEME="nanotech"
+ZSH_THEME="sorin"
 alias railstags="ctags -R --exclude=.git --exclude=log *"
 alias be="bundle exec"
 alias vi="vim"
@@ -41,7 +41,7 @@ export GOPATH="$HOME/Projects/Go"
 export GOBIN="$GOPATH/bin"
 export PATH="$GOBIN:$PATH"
 
-BASE16_SCHEME="flat.dark"
+BASE16_SCHEME="tomorrow.dark"
 BASE16_SHELL="$HOME/.config/base16-shell/base16-$BASE16_SCHEME.sh"
 [[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
 

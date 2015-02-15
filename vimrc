@@ -12,6 +12,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'kchmck/vim-coffee-script'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-rails'
+Plug 'tpope/vim-dispatch'
 Plug 'AndrewRadev/switch.vim'
 Plug 'nanotech/jellybeans.vim'
 Plug 'terryma/vim-multiple-cursors'
@@ -34,8 +35,14 @@ Plug 'majutsushi/tagbar'
 " File type specific
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
+Plug 'jgdavey/vim-blockle', { 'for': 'ruby' }
+Plug 'ecomba/vim-ruby-refactoring', { 'for': 'ruby' }
 Plug 'groenewege/vim-less', { 'for': 'less' }
 Plug 'rainerborene/vim-reek'
+
+Plug 'janko-m/vim-test'
+Plug 'scrooloose/syntastic'
+Plug 'ngmy/vim-rubocop'
 
 let g:reek_on_loading = 0
 
@@ -281,22 +288,6 @@ function! ShowRoutes()
 endfunction
 map <leader>gR :call ShowRoutes()<cr>
 
-""""" TESTING
-
-nnoremap <leader>a :call RunCurrentTest()<cr>
-function! RunCurrentTest()
-  call SetTestFile()
-  :topleft 100 :split __TestResults__
-  :set buftype=nofile
-  :normal 1GdG
-  exe ":0r! bin/testunit " . t:rand_test_file
-  :normal G
-endfunction
-
-function! SetTestFile()
-  let t:rand_test_file=@%
-endfunction
-
 map <leader>xm <Plug>(xmpfilter-mark)
 map <leader>xr <Plug>(xmpfilter-run)
 map <C-c> :NERDTreeToggle<CR>
@@ -309,3 +300,19 @@ au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
+
+nmap <silent> <leader>rr :TestNearest<CR>
+nmap <silent> <leader>ra :TestFile<CR>
+nmap <silent> <leader>rs :TestSuite<CR>
+nmap <silent> <leader>rl :TestLast<CR>
+
+let g:test#strategy = 'dispatch'
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
