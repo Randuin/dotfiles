@@ -9,9 +9,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'rking/ag.vim'
 Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-fugitive'
-Plug 'kchmck/vim-coffee-script'
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-rails'
 Plug 'tpope/vim-dispatch'
 Plug 'AndrewRadev/switch.vim'
 Plug 'nanotech/jellybeans.vim'
@@ -19,26 +17,31 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 't9md/vim-ruby-xmpfilter'
 Plug 'jnwhiteh/vim-golang'
 Plug 'tpope/vim-vinegar'
-Plug 'mhinz/vim-signify'
+Plug 'airblade/vim-gitgutter'
 Plug 'bling/vim-airline'
 Plug 'w0ng/vim-hybrid'
 Plug 'zeekay/vim-js2coffee'
 Plug 'Shougo/neocomplete.vim'
 Plug 'mustache/vim-mustache-handlebars'
-Plug 'scrooloose/nerdtree'
-Plug 'wavded/vim-stylus'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'majutsushi/tagbar'
+
+Plug 'junegunn/vim-peekaboo'
 
 " File type specific
 Plug 'fatih/vim-go', { 'for': 'go' }
+Plug 'tpope/vim-rails'
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 Plug 'jgdavey/vim-blockle', { 'for': 'ruby' }
 Plug 'ecomba/vim-ruby-refactoring', { 'for': 'ruby' }
 Plug 'groenewege/vim-less', { 'for': 'less' }
 Plug 'rainerborene/vim-reek'
+Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
+Plug 'wavded/vim-stylus', { 'for': 'stylus' }
 
 Plug 'janko-m/vim-test'
 Plug 'scrooloose/syntastic'
@@ -316,3 +319,26 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_fuzzy_completion = 1
+let g:neocomplete_enable_fuzzy_completion_start_length = 2
+let g:neocomplete_enable_camel_case_completion = 0
+let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#enable_auto_delimiter = 1
+let g:neocomplete#max_list = 100
+let g:neocomplete#force_overwrite_completefunc = 1
+let g:neocomplete#enable_auto_select = 1
+
+autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1 
+autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+
+if !exists('g:neocomplete#force_omni_input_patterns')
+  let g:neocomplete#force_omni_input_patterns = {}
+endif
+let g:neocomplete#force_omni_input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
+
+nnoremap <leader>gt :GitGutterLineHighlightsToggle<cr>
+nmap ]h <Plug>GitGutterNextHunk
+nmap [h <Plug>GitGutterPrevHunk
