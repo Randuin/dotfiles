@@ -74,3 +74,5 @@ ftags() {
   ) && $EDITOR $(cut -f3 <<< "$line") -c "set nocst" \
     -c "silent tag $(cut -f2 <<< "$line")"
 }
+
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
