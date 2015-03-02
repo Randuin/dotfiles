@@ -15,7 +15,6 @@ Plug 'AndrewRadev/switch.vim'
 Plug 'nanotech/jellybeans.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 't9md/vim-ruby-xmpfilter'
-Plug 'jnwhiteh/vim-golang'
 Plug 'tpope/vim-vinegar'
 Plug 'airblade/vim-gitgutter'
 Plug 'bling/vim-airline'
@@ -319,6 +318,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_enable_go_checker = 0
 
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_fuzzy_completion = 1
@@ -342,3 +342,8 @@ let g:neocomplete#force_omni_input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
 nnoremap <leader>gt :GitGutterLineHighlightsToggle<cr>
 nmap ]h <Plug>GitGutterNextHunk
 nmap [h <Plug>GitGutterPrevHunk
+
+let g:go_fmt_command = "goimports"
+let g:go_highlight_functions = 0
+let g:go_highlight_methods = 0
+let g:go_highlight_structs = 0
