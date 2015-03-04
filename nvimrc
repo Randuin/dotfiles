@@ -317,6 +317,7 @@ nnoremap <leader>gt :GitGutterLineHighlightsToggle<cr>
 nmap ]h <Plug>GitGutterNextHunk
 nmap [h <Plug>GitGutterPrevHunk
 
+" let g:go_fmt_command = "goimports"
 let g:go_highlight_functions = 0
 let g:go_highlight_methods = 0
 let g:go_highlight_structs = 0

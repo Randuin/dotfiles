@@ -9,9 +9,9 @@ export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X1
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias railstags="ctags -R --exclude=.git --exclude=log *"
 alias be="bundle exec"
-alias vi="vim"
+alias vi="nvim"
 
-export EDITOR="vim"
+export EDITOR="nvim"
 
 # export CC=/usr/local/bin/gcc-4.2
 # export CC=gcc
