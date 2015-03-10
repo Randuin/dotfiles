@@ -33,7 +33,8 @@ BASE16_SCHEME="tomorrow.dark"
 BASE16_SHELL="$HOME/.config/base16-shell/base16-$BASE16_SCHEME.sh"
 [[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
 
-eval "$(rbenv init -)"
+source /usr/local/opt/chruby/share/chruby/chruby.sh
+source /usr/local/opt/chruby/share/chruby/auto.sh
 
 export DOCKER_HOST=tcp://192.168.59.103:2375
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
