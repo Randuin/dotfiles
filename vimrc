@@ -40,10 +40,13 @@ Plug 'groenewege/vim-less', { 'for': 'less' }
 Plug 'rainerborene/vim-reek'
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 Plug 'wavded/vim-stylus', { 'for': 'stylus' }
+Plug 'mxw/vim-jsx', { 'for': 'jsx' }
 
 Plug 'janko-m/vim-test'
 Plug 'scrooloose/syntastic'
 Plug 'ngmy/vim-rubocop'
+Plug 'Chiel92/vim-autoformat'
+Plug 'yegappan/greplace'
 
 let g:reek_on_loading = 0
 

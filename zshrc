@@ -1,7 +1,7 @@
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="sorin"
 DISABLE_AUTO_TITLE="true"
-plugins=(git osx ruby rails git-extras)
+plugins=(git osx ruby rails)
 source $ZSH/oh-my-zsh.sh
 
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
