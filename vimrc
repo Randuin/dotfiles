@@ -22,7 +22,6 @@ Plug 'w0ng/vim-hybrid'
 Plug 'zeekay/vim-js2coffee'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-Plug 'kien/rainbow_parentheses.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -41,12 +40,17 @@ Plug 'rainerborene/vim-reek'
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 Plug 'wavded/vim-stylus', { 'for': 'stylus' }
 Plug 'mxw/vim-jsx', { 'for': 'jsx' }
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 
 Plug 'janko-m/vim-test'
 Plug 'scrooloose/syntastic'
 Plug 'ngmy/vim-rubocop'
 Plug 'Chiel92/vim-autoformat'
 Plug 'yegappan/greplace'
+
+Plug 'maksimr/vim-jsbeautify'
+Plug 'einars/js-beautify'
+Plug 'skwp/greplace.vim'
 
 let g:reek_on_loading = 0
 
@@ -202,7 +206,7 @@ nnoremap [ctrlp]rs :FZF spec/<cr>
 nnoremap <leader>d :noh<cr>
 
 set noswapfile
-" au BufRead,BufNewFile *.handlebars,*.hbs set ft=html syntax=handlebars
+let g:syntastic_filetype_map = { 'html.handlebars': 'handlebars' }
 
 " set colorcolumn=81
 "
@@ -300,11 +304,6 @@ map <C-t> :TagbarToggle<CR>
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
-
 nmap <silent> <leader>rr :TestNearest<CR>
 nmap <silent> <leader>ra :TestFile<CR>
 nmap <silent> <leader>rs :TestSuite<CR>
@@ -323,3 +322,5 @@ nmap [h <Plug>GitGutterPrevHunk
 let g:go_highlight_functions = 0
 let g:go_highlight_methods = 0
 let g:go_highlight_structs = 0
+set grepprg=ag
+let g:grep_cmd_opts = '--line-numbers --noheading'
