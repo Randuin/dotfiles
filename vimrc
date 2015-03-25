@@ -12,13 +12,16 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-dispatch'
 Plug 'AndrewRadev/switch.vim'
-Plug 'nanotech/jellybeans.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 't9md/vim-ruby-xmpfilter'
 Plug 'tpope/vim-vinegar'
 Plug 'airblade/vim-gitgutter'
 Plug 'bling/vim-airline'
+
 Plug 'w0ng/vim-hybrid'
+Plug 'nanotech/jellybeans.vim'
+Plug 'chriskempson/base16-vim'
+
 Plug 'zeekay/vim-js2coffee'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
@@ -60,9 +63,9 @@ call plug#end()
 " Required:
 filetype plugin indent on
 
-set background=dark
-" " let base16colorspace=256
-colorscheme hybrid
+set background=light
+let base16colorspace=256
+colorscheme base16-flat
 
 set fileencoding=utf-8
 filetype plugin indent on

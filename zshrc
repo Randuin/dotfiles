@@ -29,7 +29,7 @@ export RUBY_HEAP_SLOTS_INCREMENT=1
 # export GOBIN="$GOPATH/bin"
 # export PATH="$GOBIN:$PATH"
 
-BASE16_SCHEME="tomorrow.dark"
+BASE16_SCHEME="flat"
 BASE16_SHELL="$HOME/.config/base16-shell/base16-$BASE16_SCHEME.sh"
 [[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
 
