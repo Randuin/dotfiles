@@ -23,6 +23,7 @@ Plug 'zeekay/vim-js2coffee'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+Plug 'kyuhi/vim-emoji-complete'
 
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'majutsushi/tagbar'
