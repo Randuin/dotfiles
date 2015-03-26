@@ -55,15 +55,17 @@ Plug 'yegappan/greplace'
 Plug 'maksimr/vim-jsbeautify'
 Plug 'einars/js-beautify'
 Plug 'skwp/greplace.vim'
+Plug 'idanarye/vim-merginal'
 
 let g:reek_on_loading = 0
+set synmaxcol=500
 
 call plug#end()
 
 " Required:
 filetype plugin indent on
 
-set background=light
+set background=dark
 let base16colorspace=256
 colorscheme base16-flat
 
@@ -328,3 +330,9 @@ let g:go_highlight_methods = 0
 let g:go_highlight_structs = 0
 set grepprg=ag
 let g:grep_cmd_opts = '--line-numbers --noheading'
+
+au BufEnter *.rb syn match error contained "\<binding.pry\>"
+au BufEnter *.js syn match error contained "\<debugger\>"
+au BufEnter *.coffee syn match error contained "\<debugger\>"
+au BufEnter *.js syn match error contained "\<console.log\>"
+au BufEnter *.coffee syn match error contained "\<console.log\>"
