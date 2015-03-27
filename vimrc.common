@@ -29,7 +29,7 @@ Plug 'majutsushi/tagbar'
 Plug 'junegunn/vim-peekaboo'
 
 " File type specific
-Plug 'mustache/vim-mustache-handlebars', { 'for': 'handlebars' }
+Plug 'mustache/vim-mustache-handlebars'
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 Plug 'tpope/vim-rails'
@@ -40,7 +40,8 @@ Plug 'groenewege/vim-less', { 'for': 'less' }
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 Plug 'wavded/vim-stylus', { 'for': 'stylus' }
 Plug 'mxw/vim-jsx', { 'for': 'jsx' }
-Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'othree/yajs.vim', { 'for': 'javascript' }
+Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
 
 Plug 'janko-m/vim-test'
 Plug 'scrooloose/syntastic'
