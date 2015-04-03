@@ -36,6 +36,8 @@ source /usr/local/opt/chruby/share/chruby/chruby.sh
 source /usr/local/opt/chruby/share/chruby/auto.sh
 
 export DOCKER_HOST=tcp://192.168.59.103:2375
+export FZF_DEFAULT_COMMAND='ag -l -g ""'
+export FZF_DEFAULT_OPTIONS='--ansi'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 fe() {
@@ -43,8 +45,6 @@ fe() {
   file=$(fzf --query="$1" --select-1 --exit-0)
   [ -n "$file" ] && ${EDITOR:-vim} "$file"
 }
-
-export FZF_DEFAULT_COMMAND='ag -l -g ""'
 
 fbr() {
   local branches branch

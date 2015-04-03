@@ -12,7 +12,7 @@ Plug 'AndrewRadev/switch.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 't9md/vim-ruby-xmpfilter'
 Plug 'airblade/vim-gitgutter'
-Plug 'bling/vim-airline'
+Plug 'itchyny/lightline.vim'
 
 Plug 'w0ng/vim-hybrid'
 Plug 'nanotech/jellybeans.vim'
@@ -25,8 +25,10 @@ Plug 'kyuhi/vim-emoji-complete'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tpope/vim-vinegar'
 Plug 'majutsushi/tagbar'
+Plug 'junegunn/rainbow_parentheses.vim'
 
 Plug 'junegunn/vim-peekaboo'
+Plug 'osyo-manga/vim-over'
 
 " File type specific
 Plug 'mustache/vim-mustache-handlebars'
@@ -180,11 +182,11 @@ function! BufOpen(e)
   execute 'buffer '. matchstr(a:e, '^[ 0-9]*')
 endfunction
 
-nnoremap [ctrlp] <Nop>
-nmap <space> [ctrlp]
+nnoremap [FuzzySearch] <Nop>
+nmap <space> [FuzzySearch]
 
-nnoremap [ctrlp]t :<C-u>FZF<cr>
-nnoremap <silent> [ctrlp]e :call fzf#run({
+nnoremap [FuzzySearch]t :<C-u>FZF<cr>
+nnoremap <silent> [FuzzySearch]e :call fzf#run({
 \   'source':      reverse(BufList()),
 \   'sink':        function('BufOpen'),
 \   'options':     '+m',
@@ -192,23 +194,21 @@ nnoremap <silent> [ctrlp]e :call fzf#run({
 \ })<CR>
 
 
-nnoremap <silent> [ctrlp]/ :<C-u>Ag 
+nnoremap <silent> [FuzzySearch]/ :<C-u>Ag 
 
-nnoremap [ctrlp]rm :FZF app/models<cr>
-nnoremap [ctrlp]rv :FZF app/views<cr>
-nnoremap [ctrlp]rc :FZF app/controllers<cr>
-nnoremap [ctrlp]ra :FZF app/assets<cr>
-nnoremap [ctrlp]rh :FZF app/helpers<cr>
-nnoremap [ctrlp]rl :FZF app/<cr>
-nnoremap [ctrlp]rs :FZF spec/<cr>
+nnoremap [FuzzySearch]rm :<C-u>FZF app/models<cr>
+nnoremap [FuzzySearch]rv :<C-u>FZF app/views<cr>
+nnoremap [FuzzySearch]rc :<C-u>FZF app/controllers<cr>
+nnoremap [FuzzySearch]ra :<C-u>FZF app/assets<cr>
+nnoremap [FuzzySearch]rh :<C-u>FZF app/helpers<cr>
+nnoremap [FuzzySearch]rl :<C-u>FZF app/<cr>
+nnoremap [FuzzySearch]rs :<C-u>FZF spec/<cr>
 
 nnoremap <leader>d :noh<cr>
 
 set noswapfile
 let g:syntastic_filetype_map = { 'html.handlebars': 'handlebars' }
 
-" set colorcolumn=81
-"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " OPEN FILES IN DIRECTORY OF CURRENT FILE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -329,5 +329,3 @@ au BufEnter *.js syn match error contained "\<debugger\>"
 au BufEnter *.coffee syn match error contained "\<debugger\>"
 au BufEnter *.js syn match error contained "\<console.log\>"
 au BufEnter *.coffee syn match error contained "\<console.log\>"
-
-let g:vimfiler_as_default_explorer = 1
