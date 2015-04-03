@@ -182,6 +182,11 @@ function! BufOpen(e)
   execute 'buffer '. matchstr(a:e, '^[ 0-9]*')
 endfunction
 
+command! FZFTag if !empty(tagfiles()) | call fzf#run({
+      \   'source': "sed '/^\\!/d;s/\t.*//' " . join(tagfiles()) . ' | uniq',
+      \   'sink':   'tag',
+      \ }) | else | echo 'No tags' | endif
+
 nnoremap [FuzzySearch] <Nop>
 nmap <space> [FuzzySearch]
 
@@ -203,6 +208,7 @@ nnoremap [FuzzySearch]ra :<C-u>FZF app/assets<cr>
 nnoremap [FuzzySearch]rh :<C-u>FZF app/helpers<cr>
 nnoremap [FuzzySearch]rl :<C-u>FZF app/<cr>
 nnoremap [FuzzySearch]rs :<C-u>FZF spec/<cr>
+nnoremap [FuzzySearch]rt :FZFTag<cr>
 
 nnoremap <leader>d :noh<cr>
 
