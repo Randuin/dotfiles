@@ -1,61 +1,9 @@
 " vim:set ts=2 sts=2 sw=2 expandtab:
-set nocompatible
-filetype off
 set shell=zsh
-call plug#begin('~/.vim/plugged')
-
-Plug 'rking/ag.vim'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-dispatch'
-Plug 'AndrewRadev/switch.vim'
-Plug 'terryma/vim-multiple-cursors'
-Plug 't9md/vim-ruby-xmpfilter'
-Plug 'airblade/vim-gitgutter'
-Plug 'itchyny/lightline.vim'
-
-Plug 'w0ng/vim-hybrid'
-Plug 'nanotech/jellybeans.vim'
-Plug 'chriskempson/base16-vim'
-
-Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
-Plug 'kyuhi/vim-emoji-complete'
-
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'tpope/vim-vinegar'
-Plug 'majutsushi/tagbar'
-Plug 'junegunn/rainbow_parentheses.vim'
-
-Plug 'junegunn/vim-peekaboo'
-Plug 'osyo-manga/vim-over'
-
-" File type specific
-Plug 'mustache/vim-mustache-handlebars'
-Plug 'fatih/vim-go', { 'for': 'go' }
-Plug 'tpope/vim-markdown', { 'for': 'markdown' }
-Plug 'tpope/vim-rails'
-Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
-Plug 'jgdavey/vim-blockle', { 'for': 'ruby' }
-Plug 'ecomba/vim-ruby-refactoring', { 'for': 'ruby' }
-Plug 'groenewege/vim-less', { 'for': 'less' }
-Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
-Plug 'wavded/vim-stylus', { 'for': 'stylus' }
-Plug 'mxw/vim-jsx', { 'for': 'jsx' }
-Plug 'othree/yajs.vim', { 'for': 'javascript' }
-Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
-
-Plug 'janko-m/vim-test'
-Plug 'scrooloose/syntastic'
-Plug 'ngmy/vim-rubocop'
-Plug 'yegappan/greplace'
-Plug 'idanarye/vim-merginal'
 
 let g:reek_on_loading = 0
-set synmaxcol=500
+set synmaxcol=200
 set clipboard=unnamed
-
-call plug#end()
 
 " Required:
 filetype plugin indent on
@@ -170,50 +118,10 @@ set cursorline
 nnoremap <leader>s :Switch<cr>
 nmap <Leader>R :source $MYVIMRC<cr>
 
-" List of buffers
-function! BufList()
-  redir => ls
-  silent ls
-  redir END
-  return split(ls, '\n')
-endfunction
-
-function! BufOpen(e)
-  execute 'buffer '. matchstr(a:e, '^[ 0-9]*')
-endfunction
-
-command! FZFTag if !empty(tagfiles()) | call fzf#run({
-      \   'source': "sed '/^\\!/d;s/\t.*//' " . join(tagfiles()) . ' | uniq',
-      \   'sink':   'tag',
-      \ }) | else | echo 'No tags' | endif
-
-nnoremap [FuzzySearch] <Nop>
-nmap <space> [FuzzySearch]
-
-nnoremap [FuzzySearch]t :<C-u>FZF<cr>
-nnoremap <silent> [FuzzySearch]e :call fzf#run({
-\   'source':      reverse(BufList()),
-\   'sink':        function('BufOpen'),
-\   'options':     '+m',
-\   'tmux_height': '40%'
-\ })<CR>
-
-
-nnoremap <silent> [FuzzySearch]/ :<C-u>Ag 
-
-nnoremap [FuzzySearch]rm :<C-u>FZF app/models<cr>
-nnoremap [FuzzySearch]rv :<C-u>FZF app/views<cr>
-nnoremap [FuzzySearch]rc :<C-u>FZF app/controllers<cr>
-nnoremap [FuzzySearch]ra :<C-u>FZF app/assets<cr>
-nnoremap [FuzzySearch]rh :<C-u>FZF app/helpers<cr>
-nnoremap [FuzzySearch]rl :<C-u>FZF app/<cr>
-nnoremap [FuzzySearch]rs :<C-u>FZF spec/<cr>
-nnoremap [FuzzySearch]rt :FZFTag<cr>
 
 nnoremap <leader>d :noh<cr>
 
 set noswapfile
-let g:syntastic_filetype_map = { 'html.handlebars': 'handlebars' }
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " OPEN FILES IN DIRECTORY OF CURRENT FILE
@@ -315,10 +223,6 @@ nmap <silent> <leader>rs :TestSuite<CR>
 nmap <silent> <leader>rl :TestLast<CR>
 
 let g:test#strategy = 'dispatch'
-
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
 
 nnoremap <leader>gt :GitGutterLineHighlightsToggle<cr>
 nmap ]h <Plug>GitGutterNextHunk
