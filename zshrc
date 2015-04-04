@@ -12,21 +12,12 @@ alias be="bundle exec"
 alias vi="vim"
 export EDITOR="vim"
 
-# export CC=/usr/local/bin/gcc-4.2
-# export CC=gcc
-# export CPPFLAGS=-I/opt/X11/include
-# export CXX=g++
-# export CFLAGS=-Wno-error=shorten-64-to-32
 export RUBYOPT=-rrubygems
-# export RUBY_CONFIGURE_OPTS=--with-readline-dir="$(brew --prefix readline)"
-# export CONFIGURE_OPTS=--with-openssl-dir=`brew --prefix openssl`
 export RUBY_GC_MALLOC_LIMIT=8000000
 export RUBY_GC_HEAP_INIT_SLOTS=10000
 export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1,8
 export RUBY_HEAP_SLOTS_INCREMENT=1
-# export GOPATH="$HOME/Projects/Go"
-# export GOBIN="$GOPATH/bin"
-# export PATH="$GOBIN:$PATH"
+export NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 BASE16_SCHEME="flat.dark"
 BASE16_SHELL="$HOME/.config/base16-shell/base16-$BASE16_SCHEME.sh"
