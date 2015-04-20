@@ -48,6 +48,12 @@ Plug 'ngmy/vim-rubocop'
 Plug 'yegappan/greplace'
 Plug 'idanarye/vim-merginal'
 
+Plug 'junegunn/limelight.vim'
+Plug 'junegunn/goyo.vim'
+
+autocmd User GoyoEnter Limelight
+autocmd User GoyoLeave Limelight!
+
 call plug#end()
 
 so ~/.dotfiles/vimscripts/fzf.vim
