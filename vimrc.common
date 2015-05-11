@@ -57,6 +57,7 @@ set ruler " Show ruler
 
 " show trailing whitespace ***************************************************
 set list listchars=tab:»·,trail:·
+autocmd BufNewFile,BufRead *.go set nolist
 set showbreak=↪
 
 if has("gui_running")

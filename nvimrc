@@ -1,4 +1,4 @@
 so ~/.dotfiles/vimscripts/plugins.vim
 so ~/.vimrc.common
 
-tnoremap <esc> <C-\><C-n>
+tnoremap <esc><esc> <C-\><C-n>
