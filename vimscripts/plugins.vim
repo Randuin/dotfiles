@@ -54,6 +54,8 @@ Plug 'maksimr/vim-jsbeautify'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 
+Plugin 'lambdalisue/vim-gita'
+
 call plug#end()
 
 so ~/.dotfiles/vimscripts/fzf.vim
