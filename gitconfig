@@ -2,7 +2,7 @@
 	email = randuin@gmail.com
 	name = Robin Liao
 [core]
-	editor = /usr/local/bin/vim
+	editor = /usr/local/bin/nvim
 	excludesfile = /Users/randuin/.gitignore_global
 [color]
 	ui = auto
