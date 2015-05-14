@@ -55,6 +55,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 
 Plug 'lambdalisue/vim-gita'
+Plug 'kassio/neoterm'
 
 call plug#end()
 

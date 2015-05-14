@@ -9,8 +9,8 @@ export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X1
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias railstags="ripper-tags -R --exclude=.git --exclude=log --exclude=node_modules --exclude=vendor --exclude=tmp --exclude=db --exclude=coverage *"
 alias be="bundle exec"
-alias vi="vim"
-export EDITOR="vim"
+alias vi="nvim"
+export EDITOR="nvim"
 
 export RUBYOPT=-rrubygems
 export RUBY_GC_MALLOC_LIMIT=8000000
