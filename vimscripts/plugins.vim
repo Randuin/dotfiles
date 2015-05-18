@@ -55,11 +55,9 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 
 Plug 'lambdalisue/vim-gita'
-Plug 'kassio/neoterm'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-bundler'
 
-call plug#end()
-
-so ~/.dotfiles/vimscripts/fzf.vim
 
 autocmd User GoyoEnter LimeLight
 autocmd User GoyoLeave LimeLight!

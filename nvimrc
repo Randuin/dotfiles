@@ -1,4 +1,5 @@
 so ~/.dotfiles/vimscripts/plugins.vim
+Plug 'kassio/neoterm'
 so ~/.vimrc.common
 
 let test#strategy = "neoterm"
