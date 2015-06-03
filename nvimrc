@@ -14,4 +14,4 @@ nmap <silent> <leader>rl :call neoterm#test#rerun()<cr>
 nmap <silent> <leader>rc :call neoterm#close_all()<cr>
 nmap <silent> <leader>rx :call neoterm#clear()<cr>
 
-tnoremap <esc><esc> <C-\><C-n>
+tnoremap <s-esc> <C-\><C-n>
