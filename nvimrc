@@ -2,8 +2,8 @@ so ~/.dotfiles/vimscripts/plugins.vim
 Plug 'kassio/neoterm'
 so ~/.vimrc.common
 
-let test#strategy = "neoterm"
-let g:neoterm_size = '15'
+" let test#strategy = "neoterm"
+" let g:neoterm_size = '15'
 let g:neoterm_rspec_lib_cmd = 'bin/rspec'
 
 nmap <silent> <leader>rs :call neoterm#test#run('all')<cr>

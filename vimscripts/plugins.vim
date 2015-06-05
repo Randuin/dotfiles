@@ -4,7 +4,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'rking/ag.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-dispatch'
 Plug 'AndrewRadev/switch.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 't9md/vim-ruby-xmpfilter'
@@ -42,7 +41,6 @@ Plug 'mxw/vim-jsx', { 'for': 'jsx' }
 Plug 'othree/yajs.vim', { 'for': 'javascript' }
 Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
 
-Plug 'janko-m/vim-test'
 Plug 'scrooloose/syntastic'
 Plug 'ngmy/vim-rubocop'
 Plug 'yegappan/greplace'
@@ -57,7 +55,6 @@ Plug 'junegunn/limelight.vim'
 Plug 'lambdalisue/vim-gita'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-bundler'
-
 
 autocmd User GoyoEnter LimeLight
 autocmd User GoyoLeave LimeLight!
