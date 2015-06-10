@@ -55,6 +55,8 @@ Plug 'junegunn/limelight.vim'
 Plug 'lambdalisue/vim-gita'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-bundler'
+Plug 'kien/ctrlp.vim'
+Plug 'FelikZ/ctrlp-py-matcher'
 
 autocmd User GoyoEnter LimeLight
 autocmd User GoyoLeave LimeLight!

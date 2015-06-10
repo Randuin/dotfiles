@@ -30,3 +30,5 @@
 	required = true
 [credential]
 	helper = osxkeychain
+[push]
+	default = simple

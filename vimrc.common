@@ -244,3 +244,4 @@ au BufEnter *.js syn match error contained "\<console.log\>"
 au BufEnter *.coffee syn match error contained "\<console.log\>"
 
 so ~/.dotfiles/vimscripts/fzf.vim
+
