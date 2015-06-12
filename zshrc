@@ -1,8 +1,26 @@
-ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="miloshadzic"
+# ZSH=$HOME/.oh-my-zsh
+# ZSH_THEME="miloshadzic"
 DISABLE_AUTO_TITLE="true"
-plugins=(git osx ruby rails)
-source $ZSH/oh-my-zsh.sh
+# plugins=(git osx ruby rails)
+# source $ZSH/oh-my-zsh.sh
+source "$HOME/.antigen/antigen.zsh"
+
+antigen bundle robbyrussell/oh-my-zsh lib/
+
+antigen bundle git
+antigen bundle tmux
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle rupa/z
+
+antigen bundle brew
+antigen bundle brew-cask
+antigen bundle gem
+antigen bundle osx
+
+antigen bundle bundler
+
+antigen theme miloshadzic
+antigen-apply
 
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
 
