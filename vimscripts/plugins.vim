@@ -58,5 +58,7 @@ Plug 'tpope/vim-bundler'
 Plug 'kien/ctrlp.vim'
 Plug 'FelikZ/ctrlp-py-matcher'
 
+Plug 'zeis/vim-kolor'
+
 autocmd User GoyoEnter LimeLight
 autocmd User GoyoLeave LimeLight!
