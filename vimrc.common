@@ -12,7 +12,12 @@ filetype plugin indent on
 
 set background=dark
 let base16colorspace=256
-colorscheme base16-bright
+
+let g:kolor_italic=1
+let g:kolor_bold=1
+let g:kolor_underlined=1
+let g:kolor_alternative_matchparen=0
+colorscheme kolor
 
 set fileencoding=utf-8
 filetype plugin indent on
