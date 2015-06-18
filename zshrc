@@ -10,7 +10,6 @@ antigen bundle robbyrussell/oh-my-zsh lib/
 antigen bundle git
 antigen bundle tmux
 antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle rupa/z
 
 antigen bundle brew
 antigen bundle brew-cask
