@@ -40,6 +40,7 @@ Plug 'wavded/vim-stylus', { 'for': 'stylus' }
 Plug 'mxw/vim-jsx', { 'for': 'jsx' }
 Plug 'othree/yajs.vim', { 'for': 'javascript' }
 Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
+Plug 'slim-template/vim-slim', { 'for': 'slim' }
 
 Plug 'scrooloose/syntastic'
 Plug 'ngmy/vim-rubocop'
