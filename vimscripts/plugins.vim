@@ -58,6 +58,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-bundler'
 Plug 'kien/ctrlp.vim'
 Plug 'FelikZ/ctrlp-py-matcher'
+Plug 'janko-m/vim-test'
 
 Plug 'zeis/vim-kolor'
 
