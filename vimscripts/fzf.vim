@@ -4,38 +4,9 @@ else
   let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 endif
 
-" nnoremap [FuzzySearch] <Nop>
-" nmap <space> [FuzzySearch]
-" nnoremap [FuzzySearch]t :<C-u>FZF<cr>
-" nnoremap <silent> [FuzzySearch]e :call fzf#run({
-" \   'source':      reverse(BufList()),
-" \   'sink':        function('BufOpen'),
-" \   'options':     '+m',
-" \   'tmux_height': '40%'
-" \ })<CR>
-" nnoremap <silent> [FuzzySearch]/ :<C-u>Ag 
-" nnoremap [FuzzySearch]rm :<C-u>FZF app/models<cr>
-" nnoremap [FuzzySearch]rv :<C-u>FZF app/views<cr>
-" nnoremap [FuzzySearch]rc :<C-u>FZF app/controllers<cr>
-" nnoremap [FuzzySearch]ra :<C-u>FZF app/assets<cr>
-" nnoremap [FuzzySearch]rh :<C-u>FZF app/helpers<cr>
-" nnoremap [FuzzySearch]rl :<C-u>FZF app/<cr>
-" nnoremap [FuzzySearch]rs :<C-u>FZF spec/<cr>
-" 
-" function! BufList()
-"   redir => ls
-"   silent ls
-"   redir END
-"   return split(ls, '\n')
-" endfunction
-" 
-" function! BufOpen(e)
-"   execute 'buffer '. matchstr(a:e, '^[ 0-9]*')
-" endfunction
-
 nnoremap [FuzzySearch] <Nop>
 nmap <space> [FuzzySearch]
-nnoremap [FuzzySearch]t :<C-u>CtrlP<cr>
+nnoremap [FuzzySearch]t :<C-u>FZF<cr>
 nnoremap <silent> [FuzzySearch]e :call fzf#run({
 \   'source':      reverse(BufList()),
 \   'sink':        function('BufOpen'),
@@ -43,13 +14,31 @@ nnoremap <silent> [FuzzySearch]e :call fzf#run({
 \   'tmux_height': '40%'
 \ })<CR>
 nnoremap <silent> [FuzzySearch]/ :<C-u>Ag 
-nnoremap [FuzzySearch]rm :<C-u>CtrlP app/models<cr>
-nnoremap [FuzzySearch]rv :<C-u>CtrlP app/views<cr>
-nnoremap [FuzzySearch]rc :<C-u>CtrlP app/controllers<cr>
-nnoremap [FuzzySearch]ra :<C-u>CtrlP app/assets<cr>
-nnoremap [FuzzySearch]rh :<C-u>CtrlP app/helpers<cr>
-nnoremap [FuzzySearch]rl :<C-u>CtrlP app/<cr>
-nnoremap [FuzzySearch]rs :<C-u>CtrlP spec/<cr>
+nnoremap [FuzzySearch]rm :<C-u>FZF app/models<cr>
+nnoremap [FuzzySearch]rv :<C-u>FZF app/views<cr>
+nnoremap [FuzzySearch]rc :<C-u>FZF app/controllers<cr>
+nnoremap [FuzzySearch]ra :<C-u>FZF app/assets<cr>
+nnoremap [FuzzySearch]rh :<C-u>FZF app/helpers<cr>
+nnoremap [FuzzySearch]rl :<C-u>FZF app/<cr>
+nnoremap [FuzzySearch]rs :<C-u>FZF spec/<cr>
+
+" nnoremap [FuzzySearch] <Nop>
+" nmap <space> [FuzzySearch]
+" nnoremap [FuzzySearch]t :<C-u>CtrlP<cr>
+" nnoremap <silent> [FuzzySearch]e :call fzf#run({
+" \   'source':      reverse(BufList()),
+" \   'sink':        function('BufOpen'),
+" \   'options':     '+m',
+" \   'tmux_height': '40%'
+" \ })<CR>
+" nnoremap <silent> [FuzzySearch]/ :<C-u>Ag 
+" nnoremap [FuzzySearch]rm :<C-u>CtrlP app/models<cr>
+" nnoremap [FuzzySearch]rv :<C-u>CtrlP app/views<cr>
+" nnoremap [FuzzySearch]rc :<C-u>CtrlP app/controllers<cr>
+" nnoremap [FuzzySearch]ra :<C-u>CtrlP app/assets<cr>
+" nnoremap [FuzzySearch]rh :<C-u>CtrlP app/helpers<cr>
+" nnoremap [FuzzySearch]rl :<C-u>CtrlP app/<cr>
+" nnoremap [FuzzySearch]rs :<C-u>CtrlP spec/<cr>
 
 function! BufList()
   redir => ls
