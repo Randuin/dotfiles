@@ -56,9 +56,18 @@ fe() {
 
 fbr() {
   local branches branch
+  branches=$(git branch --all | grep -v HEAD) &&
+  branch=$(echo "$branches" |
+           fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
+  git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+}
+
+fbdd() {
+  local branches branch
   branches=$(git branch) &&
-    branch=$(echo "$branches" | fzf +s +m) &&
-    git checkout $(echo "$branch" | sed "s/.* //")
+  branch=$(echo "$branches" | fzf +m) &&
+  gp origin :$(echo "$branch" | sed "s/.* //") &&
+  gb -D $(echo "$branch" | sed "s/.* //")
 }
 
 ftags() {

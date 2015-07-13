@@ -60,7 +60,7 @@ Plug 'kien/ctrlp.vim'
 Plug 'FelikZ/ctrlp-py-matcher'
 Plug 'janko-m/vim-test'
 
-Plug 'zeis/vim-kolor'
+Plug 'abra/vim-abra'
 
 autocmd User GoyoEnter LimeLight
 autocmd User GoyoLeave LimeLight!
