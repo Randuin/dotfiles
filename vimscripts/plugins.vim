@@ -5,18 +5,13 @@ Plug 'rking/ag.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'AndrewRadev/switch.vim'
-Plug 'terryma/vim-multiple-cursors'
-Plug 't9md/vim-ruby-xmpfilter'
 Plug 'airblade/vim-gitgutter'
 Plug 'itchyny/lightline.vim'
-
-Plug 'w0ng/vim-hybrid'
-Plug 'nanotech/jellybeans.vim'
-Plug 'chriskempson/base16-vim'
 
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 Plug 'kyuhi/vim-emoji-complete'
+Plug 'mhumeSF/one-dark.vim'
 
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tpope/vim-vinegar'
@@ -45,7 +40,7 @@ Plug 'slim-template/vim-slim', { 'for': 'slim' }
 Plug 'scrooloose/syntastic'
 Plug 'ngmy/vim-rubocop'
 Plug 'yegappan/greplace'
-Plug 'idanarye/vim-merginal'
+Plug 'lambdalisue/vim-gita'
 
 Plug 'einars/js-beautify'
 Plug 'maksimr/vim-jsbeautify'
@@ -53,14 +48,9 @@ Plug 'maksimr/vim-jsbeautify'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 
-Plug 'lambdalisue/vim-gita'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-bundler'
-Plug 'kien/ctrlp.vim'
-Plug 'FelikZ/ctrlp-py-matcher'
 Plug 'janko-m/vim-test'
-
-Plug 'abra/vim-abra'
 
 autocmd User GoyoEnter LimeLight
 autocmd User GoyoLeave LimeLight!

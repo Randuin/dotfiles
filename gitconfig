@@ -19,10 +19,12 @@
 [diff]
 	tool = vimdiff
 [merge]
-	tool = vimdiff
+  tool = vimdiff
 	conflictstyle = diff3
+[mergetool "vimdiff"]
+  cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [mergetool]
-	prompt = false
+	prompt = true
 	keepBackup = false
 [filter "hawser"]
 	clean = git hawser clean %f

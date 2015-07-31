@@ -3,21 +3,15 @@ call plug#end()
 " vim:set ts=2 sts=2 sw=2 expandtab:
 set shell=zsh
 
-let g:reek_on_loading = 0
-set synmaxcol=200
 set clipboard=unnamed
 
 " Required:
 filetype plugin indent on
 
-set background=dark
+" set background=dark
 let base16colorspace=256
 
-let g:kolor_italic=1
-let g:kolor_bold=1
-let g:kolor_underlined=1
-let g:kolor_alternative_matchparen=0
-colorscheme abra
+colorscheme onedark
 
 set fileencoding=utf-8
 filetype plugin indent on
@@ -55,7 +49,7 @@ set expandtab
 " Searching *******************************************************************
 set incsearch  " incremental search, search as you type
 set hlsearch
-highlight Search ctermbg=NONE ctermfg=NONE cterm=underline gui=underline guifg=NONE guibg=NONE
+" highlight Search ctermbg=NONE ctermfg=NONE cterm=underline gui=underline guifg=NONE guibg=NONE
 set wrapscan
 
 " Status Line *****************************************************************
@@ -177,60 +171,11 @@ function! RemoveFancyCharacters()
   :exe ":%s/".join(keys(typo), '\|').'/\=typo[submatch(0)]/ge'
 endfunction
 command! RemoveFancyCharacters :call RemoveFancyCharacters()
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" InsertTime COMMAND
-" Insert the current time
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 command! InsertTime :normal a<c-r>=strftime('%F %H:%M:%S.0 %z')<cr>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" FindConditionals COMMAND
-" Start a search for conditional branches, both implicit and explicit
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 command! FindConditionals :normal /\<if\>\|\<unless\>\|\<and\>\|\<or\>\|||\|&&<cr>
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Diff tab management: open the current git diff in a tab
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-command! GdiffInTab tabedit %|vsplit|Gdiff
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" MAPS TO JUMP TO SPECIFIC COMMAND-T TARGETS AND FILES
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <leader>gr :topleft :split config/routes.rb<cr>
-function! ShowRoutes()
-  " Requires 'scratch' plugin
-  :topleft 100 :split __Routes__
-  " Make sure Vim doesn't write __Routes__ as a file
-  :set buftype=nofile
-  " Delete everything
-  :normal 1GdG
-  " Put routes output in buffer
-  :0r! bin/rake -s routes
-  " Size window to number of lines (1 plus rake output length)
-  :exec ":normal " . line("$") . "_ "
-  " Move cursor to bottom
-  :normal 1GG
-  " Delete empty trailing line
-  :normal dd
-endfunction
-map <leader>gR :call ShowRoutes()<cr>
-
-map <leader>xm <Plug>(xmpfilter-mark)
-map <leader>xr <Plug>(xmpfilter-run)
 map <C-c> :NERDTreeToggle<CR>
 map <C-t> :TagbarToggle<CR>
-
-let g:airline#extensions#tabline#enabled = 0
-let g:airline_powerline_fonts = 0
-
-nmap <silent> <leader>rr :TestNearest<CR>
-nmap <silent> <leader>ra :TestFile<CR>
-nmap <silent> <leader>rs :TestSuite<CR>
-nmap <silent> <leader>rl :TestLast<CR>
-
-let g:test#strategy = 'dispatch'
 
 nnoremap <leader>gt :GitGutterLineHighlightsToggle<cr>
 nmap ]h <Plug>GitGutterNextHunk
