@@ -2,7 +2,6 @@ set nocompatible
 call plug#begin('~/.vim/plugged')
 
 Plug 'rking/ag.vim'
-Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'AndrewRadev/switch.vim'
 Plug 'airblade/vim-gitgutter'
@@ -37,7 +36,7 @@ Plug 'othree/yajs.vim', { 'for': 'javascript' }
 Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
 Plug 'slim-template/vim-slim', { 'for': 'slim' }
 
-Plug 'scrooloose/syntastic'
+Plug 'benekastah/neomake'
 Plug 'ngmy/vim-rubocop'
 Plug 'yegappan/greplace'
 Plug 'lambdalisue/vim-gita'
@@ -51,6 +50,10 @@ Plug 'junegunn/limelight.vim'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-bundler'
 Plug 'janko-m/vim-test'
+
+Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/neco-syntax'
+Plug 'Shougo/neoinclude.vim'
 
 autocmd User GoyoEnter LimeLight
 autocmd User GoyoLeave LimeLight!

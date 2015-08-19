@@ -20,3 +20,7 @@ nmap <silent> <leader>rc :call neoterm#close_all()<cr>
 nmap <silent> <leader>rx :call neoterm#clear()<cr>
 
 tnoremap <s-esc> <C-\><C-n>
+
+let g:deoplete#enable_at_startup = 1
+let g:python_host_prog = '/usr/local/bin/python'
+let g:python_host_prog = '/usr/local/bin/python3'

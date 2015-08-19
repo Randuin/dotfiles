@@ -67,6 +67,13 @@ fbr() {
   git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
 }
 
+fbd() {
+  local branches branch
+  branches=$(git branch) &&
+  branch=$(echo "$branches" | fzf +m) &&
+  gb -D $(echo "$branch" | sed "s/.* //")
+}
+
 fbdd() {
   local branches branch
   branches=$(git branch) &&
