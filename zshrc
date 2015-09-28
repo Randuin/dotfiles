@@ -51,7 +51,13 @@ source /usr/local/opt/chruby/share/chruby/auto.sh
 
 export DOCKER_HOST=tcp://192.168.59.103:2375
 export FZF_DEFAULT_COMMAND='ag -l -g ""'
-export FZF_DEFAULT_OPTIONS='--ansi'
+export FZF_DEFAULT_OPTS='
+  --ansi
+  --extended
+  --bind ctrl-f:page-down,ctrl-b:page-up
+  --color fg:188,bg:233,hl:103,fg+:222,bg+:234,hl+:104
+  --color info:183,prompt:110,spinner:107,pointer:167,marker:215
+'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 fe() {
