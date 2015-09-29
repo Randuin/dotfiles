@@ -101,4 +101,4 @@ ftags() {
 
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 [[ -s ~/.gvm/scripts/gvm ]] && source ~/.gvm/scripts/gvm
-
+[[ -f docker-machine ]] && eval "$(docker-machine env dev)"
