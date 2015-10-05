@@ -11,7 +11,7 @@ filetype plugin indent on
 " set background=dark
 let base16colorspace=256
 
-colorscheme onedark
+colorscheme yowish
 
 set fileencoding=utf-8
 filetype plugin indent on

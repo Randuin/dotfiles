@@ -10,6 +10,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 Plug 'kyuhi/vim-emoji-complete'
 Plug 'mhumeSF/one-dark.vim'
+Plug 'KabbAmine/yowish.vim'
 
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tpope/vim-vinegar'
@@ -49,8 +50,6 @@ Plug 'junegunn/limelight.vim'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-bundler'
 Plug 'janko-m/vim-test'
-
-Plug 'Shougo/deoplete.nvim'
 
 autocmd User GoyoEnter LimeLight
 autocmd User GoyoLeave LimeLight!
