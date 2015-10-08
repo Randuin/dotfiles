@@ -32,6 +32,7 @@ railstags() {
 
 alias be="bundle exec"
 alias vi="nvim"
+alias grrh='git reset --hard origin/$(current_branch)'
 export EDITOR="nvim"
 
 export RUBYOPT=-rrubygems
