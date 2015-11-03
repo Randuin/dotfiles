@@ -40,6 +40,7 @@ Plug 'lambdalisue/vim-gita'
 
 Plug 'tpope/vim-unimpaired'
 Plug 'janko-m/vim-test'
+Plug 'Shougo/deoplete.nvim'
 
 autocmd User GoyoEnter LimeLight
 autocmd User GoyoLeave LimeLight!
