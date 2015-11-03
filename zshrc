@@ -15,6 +15,7 @@ antigen bundle brew
 antigen bundle brew-cask
 antigen bundle gem
 antigen bundle osx
+antigen-bundle b4b4r07/enhancd
 
 antigen bundle bundler
 
