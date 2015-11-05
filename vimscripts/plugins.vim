@@ -5,7 +5,7 @@ Plug 'rking/ag.vim'
 Plug 'tpope/vim-surround'
 Plug 'AndrewRadev/switch.vim'
 Plug 'airblade/vim-gitgutter'
-Plug 'itchyny/lightline.vim'
+Plug 'tpope/vim-flagship'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 Plug 'mhumeSF/one-dark.vim'
@@ -13,7 +13,6 @@ Plug 'KabbAmine/yowish.vim'
 
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tpope/vim-vinegar'
-Plug 'junegunn/rainbow_parentheses.vim'
 
 Plug 'junegunn/vim-peekaboo'
 Plug 'osyo-manga/vim-over'
