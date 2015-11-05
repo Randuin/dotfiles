@@ -123,8 +123,6 @@ nmap <Leader>R :source $MYVIMRC<cr>
 
 nnoremap <leader>d :noh<cr>
 
-set noswapfile
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " OPEN FILES IN DIRECTORY OF CURRENT FILE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -202,3 +200,6 @@ noremap <Leader>db :diffget BASE<CR>
 au BufWritePost * Neomake
 let g:neomake_javascript_enabled_checkers = ['jshint', 'jscs', 'eslint']
 let g:neomake_javascript_jscs_options = '--esnext'
+
+let g:tablabel =
+      \ "%N%{flagship#tabmodified()} %{flagship#tabcwds('shorten',',')}"
