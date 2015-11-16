@@ -8,11 +8,12 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-flagship'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
-Plug 'mhumeSF/one-dark.vim'
 Plug 'KabbAmine/yowish.vim'
 
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tpope/vim-vinegar'
+Plug 'gregsexton/gitv', { 'on': 'Gitv' }
+Plug 'tpope/vim-fugitive'
 
 Plug 'junegunn/vim-peekaboo'
 Plug 'osyo-manga/vim-over'
@@ -35,7 +36,6 @@ Plug 'slim-template/vim-slim', { 'for': 'slim' }
 
 Plug 'benekastah/neomake'
 Plug 'yegappan/greplace'
-Plug 'lambdalisue/vim-gita'
 
 Plug 'tpope/vim-unimpaired'
 Plug 'janko-m/vim-test'

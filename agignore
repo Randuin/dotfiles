@@ -2,8 +2,8 @@ log/
 logs/
 app/assets/images
 tmp/
-public/
-vendor/
+./public/
+./vendor/
 *.sql
 *.tags*
 *.gemtags*
