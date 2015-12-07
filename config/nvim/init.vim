@@ -23,3 +23,4 @@ tnoremap <s-esc> <C-\><C-n>
 
 let g:python_host_prog = '/usr/local/bin/python'
 let g:python_host_prog = '/usr/local/bin/python3'
+let g:deoplete#enable_at_startup = 1

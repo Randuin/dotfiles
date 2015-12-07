@@ -611,7 +611,7 @@ function! s:prepare()
     silent %d _
   else
     call s:new_window()
-    nnoremap <silent> <buffer> q  :if b:plug_preview==1<bar>pc<bar>endif<bar>echo<bar>q<cr>
+    nnoremap <silent> <buffer> q  :if b:plug_preview==1<bar>pc<bar>endif<bar>bd<cr>
     nnoremap <silent> <buffer> R  :silent! call <SID>retry()<cr>
     nnoremap <silent> <buffer> D  :PlugDiff<cr>
     nnoremap <silent> <buffer> S  :PlugStatus<cr>
@@ -903,7 +903,13 @@ function! s:job_handler(job_id, data, event) abort
   endif
 
   if a:event == 'stdout'
-    let self.result .= substitute(s:to_s(a:data), '[\r\n]', '', 'g') . "\n"
+    let complete = empty(a:data[-1])
+    let lines = map(filter(a:data, 'len(v:val) > 0'), 'split(v:val, "[\r\n]")[-1]')
+    call extend(self.lines, lines)
+    let self.result = join(self.lines, "\n")
+    if !complete
+      call remove(self.lines, -1)
+    endif
     " To reduce the number of buffer updates
     let self.tick = get(self, 'tick', -1) + 1
     if self.tick % len(s:jobs) == 0
@@ -920,7 +926,7 @@ function! s:job_handler(job_id, data, event) abort
 endfunction
 
 function! s:spawn(name, cmd, opts)
-  let job = { 'name': a:name, 'running': 1, 'error': 0, 'result': '',
+  let job = { 'name': a:name, 'running': 1, 'error': 0, 'lines': [], 'result': '',
             \ 'new': get(a:opts, 'new', 0),
             \ 'on_stdout': function('s:job_handler'),
             \ 'on_exit' : function('s:job_handler'),
@@ -1061,7 +1067,7 @@ endwhile
 endfunction
 
 function! s:update_python()
-let py_exe = has('python3') ? 'python3' : 'python'
+let py_exe = has('python') ? 'python' : 'python3'
 execute py_exe "<< EOF"
 """ Due to use of signals this function is POSIX only. """
 import datetime
@@ -1090,14 +1096,10 @@ G_CLONE_OPT = vim.eval('s:clone_opt')
 G_PROGRESS = vim.eval('s:progress_opt(1)')
 G_LOG_PROB = 1.0 / int(vim.eval('s:update.threads'))
 G_STOP = thr.Event()
-G_THREADS = {}
 
 class PlugError(Exception):
   def __init__(self, msg):
-    self._msg = msg
-  @property
-  def msg(self):
-    return self._msg
+    self.msg = msg
 class CmdTimedOut(PlugError):
   pass
 class CmdFailed(PlugError):
@@ -1171,7 +1173,8 @@ class Buffer(object):
 class Command(object):
   def __init__(self, cmd, cmd_dir=None, timeout=60, cb=None, clean=None):
     self.cmd = cmd
-    self.cmd_dir = cmd_dir
+    if cmd_dir:
+      self.cmd = 'cd {0} && {1}'.format(cmd_dir, self.cmd)
     self.timeout = timeout
     self.callback = cb if cb else (lambda msg: None)
     self.clean = clean if clean else (lambda: None)
@@ -1221,7 +1224,7 @@ class Command(object):
 
     try:
       tfile = tempfile.NamedTemporaryFile(mode='w+b')
-      self.proc = subprocess.Popen(self.cmd, cwd=self.cmd_dir, stdout=tfile,
+      self.proc = subprocess.Popen(self.cmd, stdout=tfile,
                                    stderr=subprocess.STDOUT, shell=True,
                                    preexec_fn=os.setsid)
       thrd = thr.Thread(target=(lambda proc: proc.wait()), args=(self.proc,))
@@ -1371,10 +1374,6 @@ class PlugThread(thr.Thread):
         work_q.task_done()
     except queue.Empty:
       pass
-    finally:
-      global G_THREADS
-      with lock:
-        del G_THREADS[thr.current_thread().name]
 
 class RefreshThread(thr.Thread):
   def __init__(self, lock):
@@ -1428,17 +1427,16 @@ def main():
   for work in plugs.items():
     work_q.put(work)
 
-  global G_THREADS
+  start_cnt = thr.active_count()
   for num in range(nthreads):
     tname = 'PlugT-{0:02}'.format(num)
     thread = PlugThread(tname, (buf_q, work_q, lock))
     thread.start()
-    G_THREADS[tname] = thread
   if mac_gui:
     rthread = RefreshThread(lock)
     rthread.start()
 
-  while not buf_q.empty() or len(G_THREADS) != 0:
+  while not buf_q.empty() or thr.active_count() != start_cnt:
     try:
       action, name, msg = buf_q.get(True, 0.25)
       buf.write(action, name, msg)

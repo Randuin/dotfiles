@@ -16,10 +16,10 @@ Plug 'gregsexton/gitv', { 'on': 'Gitv' }
 Plug 'tpope/vim-fugitive'
 
 Plug 'junegunn/vim-peekaboo'
-Plug 'osyo-manga/vim-over'
+Plug 'osyo-manga/vim-over', { 'on': 'OverCommandLine' }
 
 " File type specific
-Plug 'mustache/vim-mustache-handlebars'
+Plug 'mustache/vim-mustache-handlebars', { 'for': 'html.handlebars' }
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 Plug 'tpope/vim-rails'
@@ -35,11 +35,12 @@ Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
 Plug 'slim-template/vim-slim', { 'for': 'slim' }
 
 Plug 'benekastah/neomake'
-Plug 'yegappan/greplace'
+Plug 'yegappan/greplace', { 'on': 'Gsearch' }
 
 Plug 'tpope/vim-unimpaired'
 Plug 'janko-m/vim-test'
 Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/neco-syntax'
 
 autocmd User GoyoEnter LimeLight
 autocmd User GoyoLeave LimeLight!
