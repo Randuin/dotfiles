@@ -21,7 +21,9 @@ set ignorecase smartcase
 set winwidth=80
 set t_ti= t_te=
 set lazyredraw
+set ttyfast
 set nojoinspaces
+set mouse=
 
 " Turn off the bell
 set vb

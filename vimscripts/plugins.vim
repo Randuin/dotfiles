@@ -40,7 +40,8 @@ Plug 'yegappan/greplace', { 'on': 'Gsearch' }
 Plug 'tpope/vim-unimpaired'
 Plug 'janko-m/vim-test'
 Plug 'Shougo/deoplete.nvim'
-Plug 'Shougo/neco-syntax'
+" Plug 'Shougo/neco-syntax'
+Plug 'Shougo/neoinclude.vim'
 
 autocmd User GoyoEnter LimeLight
 autocmd User GoyoLeave LimeLight!
