@@ -8,7 +8,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-flagship'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
-Plug 'KabbAmine/yowish.vim'
+Plug 'hewo/vim-colorscheme-deepsea'
 
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tpope/vim-vinegar'
