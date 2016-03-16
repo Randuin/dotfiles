@@ -13,7 +13,6 @@ tmp/
 *.old
 *.plist
 *.pdf
-*.md
 *.log
 *.png
 *.jpg

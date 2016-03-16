@@ -3,10 +3,10 @@
 network() {
   if scutil -r 8.8.8.8 | grep "^Reachable$" > /dev/null; then
     if [[ $quiet -eq 0 ]]; then
-      echo -n "  "
+      echo -n " 📶 "
     fi
   else
-    echo -n " ❗️ "
+    echo -n " ❗️📶 "
   fi
 }
 
@@ -15,15 +15,15 @@ power() {
 
   if [[ $remaining == "" ]]; then
     if [[ $quiet -eq 0 ]]; then
-      echo -n " "
+      echo -n " 🔌"
     fi
   else
     if [[ $remaining == "(no" ]]; then remaining="?:??"; fi
 
     if [[ $remaining =~ ^0: ]]; then
-      echo -n " ~$remaining "
+      echo -n " ~$remaining 🔋"
     else
-      echo -n " ~$remaining "
+      echo -n " ~$remaining 🔋"
     fi
   fi
 }

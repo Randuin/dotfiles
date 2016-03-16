@@ -39,6 +39,7 @@ alias be="bundle exec"
 alias vi="nvim"
 alias grrh='git reset --hard origin/$(current_branch)'
 export EDITOR="nvim"
+# export TERM=xterm-256color-italic
 
 export RUBYOPT=-rrubygems
 export RUBY_GC_MALLOC_LIMIT=8000000
