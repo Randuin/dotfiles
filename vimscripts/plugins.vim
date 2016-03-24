@@ -10,6 +10,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 " Plug 'hewo/vim-colorscheme-deepsea'
 Plug 'jaimebuelta/jaime-vim-colorscheme'
+Plug 'mkarmona/colorsbox'
 
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tpope/vim-vinegar'
