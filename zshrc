@@ -23,6 +23,8 @@ antigen theme miloshadzic
 antigen-apply
 
 export PATH=~/.bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
+export GOPATH=~/code/go
+# export GO15VENDOREXPERIMENT=1
 
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 # alias railstags="ripper-tags -R --exclude=.git --exclude=log --exclude=node_modules --exclude=vendor --exclude=tmp --exclude=db --exclude=coverage *"

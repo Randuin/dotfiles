@@ -41,6 +41,7 @@ Plug 'yegappan/greplace', { 'on': 'Gsearch' }
 
 Plug 'tpope/vim-unimpaired'
 Plug 'janko-m/vim-test'
+Plug 'benekastah/neomake', { 'on': 'Neomake' }
 
 autocmd User GoyoEnter LimeLight
 autocmd User GoyoLeave LimeLight!
