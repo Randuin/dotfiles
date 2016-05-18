@@ -1,6 +1,10 @@
 [[plugins]]
 repo = 'scrooloose/nerdtree'
 on_cmd = 'NERDTreeToggle'
+hook_add = '''
+  let g:NERDTreeMinimalUI=1
+  map <C-c> :NERDTreeToggle<CR>
+'''
 
 [[plugins]]
 repo = 'rking/ag.vim'
