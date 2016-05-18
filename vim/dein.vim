@@ -45,13 +45,11 @@ function! s:source_file(path) abort
 endfunction
 
 let s:path = expand($VARPATH . '/dein')
-if dein#load_state(s:path)
-  call dein#begin(s:path)
-  call s:source_file('dein/plugins.vim')
-  call s:source_file('dein/pluginslazy.vim')
-  call dein#end()
-  call dein#save_state()
-endif
+call dein#begin(s:path)
+call s:source_file('dein/plugins.vim')
+call dein#load_toml('~/.vim/dein/lazy.toml', {'lazy' : 1})
+" call s:source_file('dein/pluginslazy.vim')
+call dein#end()
 
 if has('vim_starting') && dein#check_install()
   call dein#install()
