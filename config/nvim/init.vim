@@ -1,6 +1,5 @@
-so ~/.dotfiles/vimscripts/plugins.vim
-Plug 'kassio/neoterm'
-so ~/.vimrc.common
+so ~/.vim/dein.vim
+so ~/.vim/common.vim
 
 let test#strategy = "neoterm"
 " let g:neoterm_size = '15'

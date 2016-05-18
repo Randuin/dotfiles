@@ -1,12 +1,6 @@
-call plug#end()
-
-" vim:set ts=2 sts=2 sw=2 expandtab:
 set shell=zsh
 
 set clipboard=unnamed
-
-" Required:
-filetype plugin indent on
 
 " set background=dark
 let base16colorspace=256
@@ -194,15 +188,19 @@ au BufEnter *.coffee syn match error contained "\<debugger\>"
 au BufEnter *.js syn match error contained "\<console.log\>"
 au BufEnter *.coffee syn match error contained "\<console.log\>"
 
-so ~/.dotfiles/vimscripts/fzf.vim
+so ~/.vim/fzf.vim
 
 noremap <Leader>dr :diffget REMOTE<CR>
 noremap <Leader>dl :diffget LOCAL<CR>
 noremap <Leader>db :diffget BASE<CR>
 
-au BufWritePost * Neomake
+" au BufWritePost * Neomake
 let g:neomake_javascript_enabled_checkers = ['jshint', 'jscs', 'eslint']
 let g:neomake_javascript_jscs_options = '--esnext'
 
 let g:tablabel =
       \ "%N%{flagship#tabmodified()} %{flagship#tabcwds('shorten',',')}"
+
+set hidden
+let g:racer_cmd = "/Users/randuin/.cargo/bin/racer"
+let $RUST_SRC_PATH="<path-to-rust-srcdir>/src/"
