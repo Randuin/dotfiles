@@ -1,0 +1,95 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo = 'mkarmona/colorsbox'
+
+[[plugins]]
+repo = 'junegunn/fzf'
+build = './install'
+merge = 0
+
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+depends = 'junegunn/fzf'
+
+# TOML
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = 'toml'
+
+# CSS
+[[plugins]]
+repo = 'hail2u/vim-css3-syntax'
+on_ft = ['css', 'scss', 'sass']
+
+# Javascript
+[[plugins]]
+repo = 'mxw/vim-jsx'
+on_ft = 'javascript'
+
+[[plugins]]
+repo = 'jiangmiao/simple-javascript-indenter'
+on_ft = 'javascript'
+
+[[plugins]]
+repo = 'othree/yajs.vim'
+on_ft = 'javascript'
+
+[[plugins]]
+repo = 'othree/javascript-libraries-syntax.vim'
+on_ft = 'javascript'
+
+[[plugins]]
+repo = 'jelera/vim-javascript-syntax'
+on_ft = 'javascript'
+
+[[plugins]]
+repo = 'thinca/vim-ft-diff_fold'
+on_ft = 'diff'
+
+[[plugins]]
+repo = 'thinca/vim-ft-vim_fold'
+on_ft = 'vim'
+
+[[plugins]]
+repo = 'thinca/vim-ft-help_fold'
+on_ft = 'help'
+
+[[plugins]]
+repo = 'elzr/vim-json'
+on_ft = 'json'
+
+[[plugins]]
+repo = 'vim-jp/autofmt'
+
+[[plugins]]
+repo = 'kana/vim-textobj-user'
+
+# Operators
+[[plugins]]
+repo = 'kana/vim-operator-user'
+
+[[plugins]]
+repo = 'rcmdnk/vim-markdown'
+on_ft = ['markdown', 'mkd']
+
+# " [[plugins]]
+# " repo = 'marijnh/tern_for_vim'
+# " on_ft = 'javascript'
+# " build = 'npm install'
+
+[[plugins]]
+repo = 'vim-ruby/vim-ruby'
+on_map = '<Plug>'
+on_ft = 'ruby'
+
+# " [[plugins]]
+# " repo = 'thinca/vim-themis'
+# " 
+# " [[plugins]]
+# " repo = 'cocopon/iceberg.vim'
+
+[[plugins]]
+repo = 'kchmck/vim-coffee-script'
+on_ft = 'coffee'

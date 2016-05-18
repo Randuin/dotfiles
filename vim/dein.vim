@@ -46,7 +46,7 @@ endfunction
 
 let s:path = expand($VARPATH . '/dein')
 call dein#begin(s:path)
-call s:source_file('dein/plugins.vim')
+call dein#load_toml('~/.vim/dein/default.toml', {'lazy' : 0})
 call dein#load_toml('~/.vim/dein/lazy.toml', {'lazy' : 1})
 " call s:source_file('dein/pluginslazy.vim')
 call dein#end()
