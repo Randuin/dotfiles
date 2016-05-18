@@ -2,7 +2,7 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
-repo = 'mkarmona/colorsbox'
+repo = 'jacoborus/tender'
 
 [[plugins]]
 repo = 'junegunn/fzf'

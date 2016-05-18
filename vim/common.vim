@@ -5,7 +5,7 @@ set clipboard=unnamed
 " set background=dark
 let base16colorspace=256
 
-colorscheme colorsbox-material
+colorscheme tender
 
 set fileencoding=utf-8
 filetype plugin indent on
