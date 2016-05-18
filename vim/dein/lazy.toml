@@ -2,6 +2,22 @@
 repo = 'scrooloose/nerdtree'
 on_cmd = 'NERDTreeToggle'
 
+# Rust
+[[plugins]]
+repo = 'racer-rust/vim-racer'
+on_ft = 'rust'
+hook_source = '''
+  let $RUST_SRC_PATH = expand('~/src/rust/src')
+  let g:racer_experimental_completer = 1
+'''
+
+[[plugins]]
+repo = 'rust-lang/rust.vim'
+on_ft = 'rust'
+
+[[plugins]]
+repo = 'rhysd/rust-doc.vim'
+on_ft = 'rust'
 # [[plugins]]
 # repo = 'Shougo/context_filetype.vim'
 # 
@@ -112,21 +128,6 @@ on_cmd = 'NERDTreeToggle'
 #   let g:gista#directory = expand('$CACHE/gista')
 # '''
 # 
-# [[plugins]]
-# repo = 'racer-rust/vim-racer'
-# on_ft = 'rust'
-# hook_source = '''
-#   let $RUST_SRC_PATH = expand('~/src/rust/src')
-#   let g:racer_experimental_completer = 1
-# '''
-# 
-# [[plugins]]
-# repo = 'rust-lang/rust.vim'
-# on_ft = 'rust'
-# 
-# [[plugins]]
-# repo = 'rhysd/rust-doc.vim'
-# on_ft = 'rust'
 # 
 # [[plugins]]
 # repo = 'lambdalisue/vim-protocol'
