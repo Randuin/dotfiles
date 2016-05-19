@@ -93,3 +93,6 @@ on_ft = 'ruby'
 [[plugins]]
 repo = 'kchmck/vim-coffee-script'
 on_ft = 'coffee'
+
+[[plugins]]
+repo = 'ekalinin/Dockerfile.vim'

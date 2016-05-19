@@ -93,17 +93,17 @@ on_ft = 'go'
 # depends = 'vim-operator-user'
 # on_map = [['nx', '<Plug>']]
 # hook_add = 'xmap p <Plug>(operator-replace)'
-# 
-# [[plugins]]
-# repo = 'rhysd/vim-operator-surround'
-# depends = 'vim-operator-user'
-# on_map = [['n', '<Plug>']]
-# hook_add = '''
-#   nmap <silent>sa <Plug>(operator-surround-append)a
-#   nmap <silent>sd <Plug>(operator-surround-delete)a
-#   nmap <silent>sr <Plug>(operator-surround-replace)a
-#   nmap <silent>sc <Plug>(operator-surround-replace)a
-# '''
+
+[[plugins]]
+repo = 'rhysd/vim-operator-surround'
+depends = 'vim-operator-user'
+on_map = [['n', '<Plug>']]
+hook_add = '''
+  nmap <silent>sa <Plug>(operator-surround-append)a
+  nmap <silent>sd <Plug>(operator-surround-delete)a
+  nmap <silent>sr <Plug>(operator-surround-replace)a
+  nmap <silent>sc <Plug>(operator-surround-replace)a
+'''
 
 [[plugins]]
 repo = 'osyo-manga/vim-monster'
@@ -137,3 +137,11 @@ on_cmd = 'Gita'
 # [[plugins]]
 # repo = 'lambdalisue/vim-protocol'
 # on_path = '^https\?://'
+
+[[plugins]]
+repo = 'neomake/neomake'
+hook_add = '''
+  au BufWritePost * Neomake
+  let g:neomake_javascript_enabled_checkers = ['jshint', 'jscs', 'eslint']
+  let g:neomake_javascript_jscs_options = '--esnext'
+'''

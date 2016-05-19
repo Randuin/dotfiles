@@ -191,10 +191,6 @@ noremap <Leader>dr :diffget REMOTE<CR>
 noremap <Leader>dl :diffget LOCAL<CR>
 noremap <Leader>db :diffget BASE<CR>
 
-" au BufWritePost * Neomake
-let g:neomake_javascript_enabled_checkers = ['jshint', 'jscs', 'eslint']
-let g:neomake_javascript_jscs_options = '--esnext'
-
 let g:tablabel =
       \ "%N%{flagship#tabmodified()} %{flagship#tabcwds('shorten',',')}"
 
