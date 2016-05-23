@@ -145,3 +145,12 @@ hook_add = '''
   let g:neomake_javascript_enabled_checkers = ['jshint', 'jscs', 'eslint']
   let g:neomake_javascript_jscs_options = '--esnext'
 '''
+
+[[plugins]]
+repo = 'janko-m/vim-test'
+
+[[plugins]]
+repo = 'kassio/neoterm'
+
+[[plugins]]
+repo = 'tpope/vim-rails'
