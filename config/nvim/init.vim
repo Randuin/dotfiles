@@ -1,4 +1,4 @@
-so ~/.vim/dein.vim
+so ~/.vim/plug.vim
 so ~/.vim/common.vim
 
 let test#strategy = "neoterm"
