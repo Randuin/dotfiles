@@ -58,7 +58,6 @@ source /usr/local/opt/chruby/share/chruby/chruby.sh
 chruby 2.3.0
 source /usr/local/opt/chruby/share/chruby/auto.sh
 
-export DOCKER_HOST=tcp://192.168.59.103:2375
 export FZF_DEFAULT_COMMAND='ag -l -g ""'
 export FZF_DEFAULT_OPTS='
   --ansi
@@ -110,4 +109,3 @@ ftags() {
 
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 [[ -s ~/.gvm/scripts/gvm ]] && source ~/.gvm/scripts/gvm
-[[ -f /usr/local/bin/docker-machine ]] && eval "$(docker-machine env local)"
