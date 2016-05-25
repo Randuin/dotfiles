@@ -11,10 +11,10 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'jacoborus/tender'
 Plug 'rking/ag.vim', { 'on': 'Ag' }
 
+" Code quality
 Plug 'neomake/neomake'
 au BufWritePost * Neomake
-let g:neomake_javascript_enabled_checkers = ['jshint', 'jscs', 'eslint']
-let g:neomake_javascript_jscs_options = '--esnext'
+let g:neomake_javascript_enabled_checkers = ['eslint']
 Plug 'ngmy/vim-rubocop', { 'on': 'Rubocop' }
 
 Plug 'janko-m/vim-test'
