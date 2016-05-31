@@ -2,14 +2,18 @@ if &compatible
   set nocompatible               " Be iMproved
 endif
 
-silent execute '!curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-
 call plug#begin('~/.nvim/plugged')
 
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+" Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'jacoborus/tender'
+Plug 'AlexMax/.vim'
 Plug 'rking/ag.vim', { 'on': 'Ag' }
+Plug 'kana/vim-operator-user'
+Plug 'rhysd/vim-operator-surround'
+nmap <silent>sa <Plug>(operator-surround-append)a
+nmap <silent>sd <Plug>(operator-surround-delete)a
+nmap <silent>sr <Plug>(operator-surround-replace)a
+nmap <silent>sc <Plug>(operator-surround-replace)a
 
 " Code quality
 Plug 'neomake/neomake'
@@ -21,12 +25,6 @@ Plug 'janko-m/vim-test'
 Plug 'kassio/neoterm'
 Plug 'vim-jp/autofmt'
 
-Plug 'Shougo/deoplete.nvim'
-let g:deoplete#enable_at_startup = 1
-Plug 'Shougo/neoinclude.vim'
-Plug 'Shougo/neco-vim'
-Plug 'Shougo/neco-syntax'
-Plug 'ujihisa/neco-look'
 Plug 'lambdalisue/vim-gita'
 nnoremap <silent> [Space]gs  :<C-u>Gita status<CR>
 nnoremap <silent> [Space]gc  :<C-u>Gita commit<CR>
@@ -38,6 +36,7 @@ nnoremap <silent> [Space]gl  :<C-u>Gita blame<CR>
 autocmd FileType gita-status
       \ nmap <buffer> cc    <Plug>(gita-commit-open) |
       \ nmap <buffer> cA    <Plug>(gita-commit-open-amend)
+Plug 'airblade/vim-gitgutter'
 
 " Ruby
 Plug 'tpope/vim-rails'
