@@ -6,7 +6,7 @@ call plug#begin('~/.nvim/plugged')
 
 " Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'AlexMax/.vim'
+Plug 'juanedi/predawn.vim'
 Plug 'rking/ag.vim', { 'on': 'Ag' }
 Plug 'kana/vim-operator-user'
 Plug 'rhysd/vim-operator-surround'
