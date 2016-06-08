@@ -55,7 +55,7 @@ BASE16_SHELL="$HOME/.config/base16-shell/base16-$BASE16_SCHEME.sh"
 [[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
 
 source /usr/local/opt/chruby/share/chruby/chruby.sh
-chruby 2.3.0
+chruby 2.3.1
 source /usr/local/opt/chruby/share/chruby/auto.sh
 
 export FZF_DEFAULT_COMMAND='ag -l -g ""'

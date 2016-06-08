@@ -48,8 +48,8 @@ Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 Plug 'mxw/vim-jsx', { 'for': 'javascript' }
 Plug 'jiangmiao/simple-javascript-indenter', { 'for': 'javascript' }
 Plug 'othree/yajs.vim', { 'for': 'javascript' }
-Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
-Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
+
+let g:jsx_ext_required = 0
 
 " Misc
 Plug 'rcmdnk/vim-markdown', { 'for': 'markdown' }
