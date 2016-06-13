@@ -21,6 +21,7 @@ Plug 'neomake/neomake'
 au BufWritePost * Neomake
 let g:neomake_javascript_enabled_checkers = ['eslint']
 Plug 'ngmy/vim-rubocop', { 'on': 'Rubocop' }
+Plug 'tpope/vim-vinegar'
 
 Plug 'janko-m/vim-test'
 Plug 'kassio/neoterm'
