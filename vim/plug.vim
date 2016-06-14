@@ -46,7 +46,7 @@ Plug 'osyo-manga/vim-monster', { 'for': 'ruby' }
 
 " JS
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
-Plug 'othree/yajs.vim', { 'for': 'javascript' }
+Plug 'isRuslan/vim-es6', { 'for': ['javascript.jsx', 'javascript'] }
 Plug 'mxw/vim-jsx', { 'for': ['javascript.jsx', 'javascript'] }
 let g:jsx_ext_required = 0
 
