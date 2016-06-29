@@ -2,10 +2,10 @@ set shell=zsh
 
 set clipboard=unnamed
 
-" set background=dark
+set background=dark
 let base16colorspace=256
 
-colorscheme predawn
+colorscheme OceanicNext
 
 set fileencoding=utf-8
 filetype plugin indent on
