@@ -15,6 +15,7 @@ nmap <silent>sa <Plug>(operator-surround-append)a
 nmap <silent>sd <Plug>(operator-surround-delete)a
 nmap <silent>sr <Plug>(operator-surround-replace)a
 nmap <silent>sc <Plug>(operator-surround-replace)a
+Plug 'tpope/vim-unimpaired'
 
 " Code quality
 Plug 'neomake/neomake'
@@ -38,6 +39,7 @@ autocmd FileType gita-status
       \ nmap <buffer> cc    <Plug>(gita-commit-open) |
       \ nmap <buffer> cA    <Plug>(gita-commit-open-amend)
 Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
 
 " Ruby
 Plug 'tpope/vim-rails'
