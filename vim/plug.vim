@@ -7,7 +7,7 @@ call plug#begin('~/.nvim/plugged')
 " Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'tpope/vim-vinegar'
-Plug 'mhartington/oceanic-next'
+Plug 'tyrannicaltoucan/vim-deep-space'
 Plug 'rking/ag.vim', { 'on': 'Ag' }
 Plug 'kana/vim-operator-user'
 Plug 'rhysd/vim-operator-surround'
@@ -55,5 +55,6 @@ let g:jsx_ext_required = 0
 " Misc
 Plug 'rcmdnk/vim-markdown', { 'for': 'markdown' }
 Plug 'slim-template/vim-slim', { 'for': 'slim' }
+Plug 'mustache/vim-mustache-handlebars'
 
 call plug#end()
