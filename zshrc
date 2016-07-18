@@ -17,10 +17,12 @@ export FZF_DEFAULT_OPTS='
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 
+zplug "lib/theme-and-appearance", from:oh-my-zsh
 zplug "themes/miloshadzic", from:oh-my-zsh
-zplug "plugins/git",   from:oh-my-zsh, if:"(( $+commands[git] ))", nice:19
-zplug "plugins/tmux",   from:oh-my-zsh, nice:19
-zplug "plugins/osx",   from:oh-my-zsh, nice:19
+zplug "plugins/git",   from:oh-my-zsh, if:"(( $+commands[git] ))", nice:11
+zplug "plugins/colorize", from:oh-my-zsh
+zplug "plugins/tmux",   from:oh-my-zsh, nice:11
+zplug "plugins/osx",   from:oh-my-zsh, nice:11
 
 export ENHANCD_FILTER="fzf"
 zplug "b4b4r07/enhancd", use:"init.sh"
@@ -31,9 +33,9 @@ zplug "stedolan/jq", \
 zplug "b4b4r07/emoji-cli", \
     on:"stedolan/jq"
 
-zplug "zsh-users/zsh-completions", nice:19
-zplug "zsh-users/zsh-history-substring-search", nice:19
-zplug "zsh-users/zsh-syntax-highlighting", nice:19
+zplug "zsh-users/zsh-completions", nice:11
+zplug "zsh-users/zsh-history-substring-search", nice:11
+zplug "zsh-users/zsh-syntax-highlighting", nice:11
 
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
