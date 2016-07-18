@@ -18,6 +18,7 @@ export FZF_DEFAULT_OPTS='
 
 
 zplug "lib/theme-and-appearance", from:oh-my-zsh
+zplug "lib/key-bindings", from:oh-my-zsh
 zplug "themes/miloshadzic", from:oh-my-zsh
 zplug "plugins/git",   from:oh-my-zsh, if:"(( $+commands[git] ))", nice:11
 zplug "plugins/colorize", from:oh-my-zsh
