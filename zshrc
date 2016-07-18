@@ -1,30 +1,48 @@
-# ZSH=$HOME/.oh-my-zsh
-# ZSH_THEME="miloshadzic"
-DISABLE_AUTO_TITLE="true"
-# plugins=(git osx ruby rails)
-# source $ZSH/oh-my-zsh.sh
-source "$HOME/.antigen/antigen.zsh"
-
-antigen bundle robbyrussell/oh-my-zsh lib/
-
-antigen bundle git
-antigen bundle tmux
-antigen bundle zsh-users/zsh-syntax-highlighting
-
-antigen bundle brew
-antigen bundle brew-cask
-antigen bundle gem
-antigen bundle osx
-antigen-bundle b4b4r07/enhancd
-
-antigen bundle bundler
-
-antigen theme miloshadzic
-antigen-apply
-
 export PATH=~/.bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
-export GOPATH=~/code/go
-# export GO15VENDOREXPERIMENT=1
+BASE16_SCHEME="bright.dark"
+BASE16_SHELL="$HOME/.config/base16-shell/base16-$BASE16_SCHEME.sh"
+[[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
+
+DISABLE_AUTO_TITLE="true"
+source ~/.zplug/init.zsh
+
+export FZF_DEFAULT_COMMAND='ag -l -g ""'
+export FZF_DEFAULT_OPTS='
+  --ansi
+  --extended
+  --bind ctrl-f:page-down,ctrl-b:page-up
+  --color fg:188,bg:233,hl:103,fg+:222,bg+:234,hl+:104
+  --color info:183,prompt:110,spinner:107,pointer:167,marker:215
+'
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+
+zplug "themes/miloshadzic", from:oh-my-zsh
+zplug "plugins/git",   from:oh-my-zsh, if:"(( $+commands[git] ))", nice:19
+zplug "plugins/tmux",   from:oh-my-zsh, nice:19
+zplug "plugins/osx",   from:oh-my-zsh, nice:19
+
+export ENHANCD_FILTER="fzf"
+zplug "b4b4r07/enhancd", use:"init.sh"
+zplug "stedolan/jq", \
+    from:gh-r, \
+    as:command, \
+    rename-to:jq
+zplug "b4b4r07/emoji-cli", \
+    on:"stedolan/jq"
+
+zplug "zsh-users/zsh-completions", nice:19
+zplug "zsh-users/zsh-history-substring-search", nice:19
+zplug "zsh-users/zsh-syntax-highlighting", nice:19
+
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
+zplug load
 
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 # alias railstags="ripper-tags -R --exclude=.git --exclude=log --exclude=node_modules --exclude=vendor --exclude=tmp --exclude=db --exclude=coverage *"
@@ -48,25 +66,10 @@ export RUBY_GC_MALLOC_LIMIT=8000000
 export RUBY_GC_HEAP_INIT_SLOTS=10000
 export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1,8
 export RUBY_HEAP_SLOTS_INCREMENT=1
-export NVIM_TUI_ENABLE_TRUE_COLOR=1
-
-BASE16_SCHEME="bright.dark"
-BASE16_SHELL="$HOME/.config/base16-shell/base16-$BASE16_SCHEME.sh"
-[[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
 
 source /usr/local/opt/chruby/share/chruby/chruby.sh
 chruby 2.3.1
 source /usr/local/opt/chruby/share/chruby/auto.sh
-
-export FZF_DEFAULT_COMMAND='ag -l -g ""'
-export FZF_DEFAULT_OPTS='
-  --ansi
-  --extended
-  --bind ctrl-f:page-down,ctrl-b:page-up
-  --color fg:188,bg:233,hl:103,fg+:222,bg+:234,hl+:104
-  --color info:183,prompt:110,spinner:107,pointer:167,marker:215
-'
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 fe() {
   local file

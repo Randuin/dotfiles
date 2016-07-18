@@ -8,6 +8,7 @@ call plug#begin('~/.nvim/plugged')
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'tpope/vim-vinegar'
 Plug 'tyrannicaltoucan/vim-deep-space'
+Plug 'dracula/vim'
 Plug 'rking/ag.vim', { 'on': 'Ag' }
 Plug 'kana/vim-operator-user'
 Plug 'rhysd/vim-operator-surround'
@@ -24,6 +25,7 @@ let g:neomake_javascript_enabled_checkers = ['eslint']
 Plug 'ngmy/vim-rubocop', { 'on': 'Rubocop' }
 
 Plug 'janko-m/vim-test'
+let g:neoterm_shell = "zsh"
 Plug 'kassio/neoterm'
 Plug 'vim-jp/autofmt'
 

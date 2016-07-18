@@ -5,7 +5,7 @@ set clipboard=unnamed
 set background=dark
 let base16colorspace=256
 
-colorscheme deep-space
+colorscheme dracula
 
 set fileencoding=utf-8
 filetype plugin indent on
