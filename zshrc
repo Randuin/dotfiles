@@ -1,8 +1,3 @@
-export PATH=~/.bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
-BASE16_SCHEME="bright.dark"
-BASE16_SHELL="$HOME/.config/base16-shell/base16-$BASE16_SCHEME.sh"
-[[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
-
 DISABLE_AUTO_TITLE="true"
 source ~/.zplug/init.zsh
 
@@ -16,63 +11,39 @@ export FZF_DEFAULT_OPTS='
 '
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-
 zplug "lib/theme-and-appearance", from:oh-my-zsh
 zplug "lib/key-bindings", from:oh-my-zsh
-zplug "themes/miloshadzic", from:oh-my-zsh
 zplug "plugins/git",   from:oh-my-zsh, if:"(( $+commands[git] ))", nice:11
-zplug "plugins/colorize", from:oh-my-zsh
 zplug "plugins/tmux",   from:oh-my-zsh, nice:11
 zplug "plugins/osx",   from:oh-my-zsh, nice:11
 
 export ENHANCD_FILTER="fzf"
 zplug "b4b4r07/enhancd", use:"init.sh"
-zplug "stedolan/jq", \
-    from:gh-r, \
-    as:command, \
-    rename-to:jq
-zplug "b4b4r07/emoji-cli", \
-    on:"stedolan/jq"
+
+zplug "nojhan/liquidprompt"
 
 zplug "zsh-users/zsh-completions", nice:11
-zplug "zsh-users/zsh-history-substring-search", nice:11
 zplug "zsh-users/zsh-syntax-highlighting", nice:11
-
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
-fi
 
 zplug load
 
+[[ $- = *i* ]] && source ~/.zplug/repos/nojhan/liquidprompt/liquidprompt
+
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-# alias railstags="ripper-tags -R --exclude=.git --exclude=log --exclude=node_modules --exclude=vendor --exclude=tmp --exclude=db --exclude=coverage *"
 
 railstags() {
   ctags -R  --exclude=.git --exclude=log --exclude=node_modules --exclude=vendor --exclude=tmp --exclude=db --exclude=coverage --extra=+q . $(bundle list --paths)
 }
 
-# railstags() {
-#   ripper-tags -R  --exclude=.git --exclude=log --exclude=node_modules --exclude=vendor --exclude=tmp --exclude=db --exclude=coverage --extra=+q . $(bundle list --paths)
-# }
-
 alias be="bundle exec"
+alias bs="brew services"
 alias vi="nvim"
 alias grrh='git reset --hard origin/$(current_branch)'
 export EDITOR="nvim"
-# export TERM=xterm-256color-italic
-
-export RUBYOPT=-rrubygems
-export RUBY_GC_MALLOC_LIMIT=8000000
-export RUBY_GC_HEAP_INIT_SLOTS=10000
-export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1,8
-export RUBY_HEAP_SLOTS_INCREMENT=1
 
 source /usr/local/opt/chruby/share/chruby/chruby.sh
-chruby 2.3.1
 source /usr/local/opt/chruby/share/chruby/auto.sh
+chruby 2.3.1
 
 fe() {
   local file
@@ -114,4 +85,3 @@ ftags() {
 }
 
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
-[[ -s ~/.gvm/scripts/gvm ]] && source ~/.gvm/scripts/gvm
