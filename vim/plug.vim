@@ -4,7 +4,7 @@ endif
 
 call plug#begin('~/.nvim/plugged')
 
-" Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'tpope/vim-vinegar'
 Plug 'tyrannicaltoucan/vim-deep-space'
@@ -53,6 +53,7 @@ Plug 'othree/yajs.vim', { 'for': 'javascript' }
 Plug 'othree/jsdoc-syntax.vim', { 'for': ['javascript', 'typescript'] }
 Plug 'othree/es.next.syntax.vim', { 'for': 'javascript' }
 let g:jsx_ext_required = 0
+Plug 'kchmck/vim-coffee-script'
 
 " Misc
 Plug 'rcmdnk/vim-markdown', { 'for': 'markdown' }
