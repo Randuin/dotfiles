@@ -22,7 +22,6 @@ zplug "b4b4r07/enhancd", use:"init.sh"
 
 zplug "nojhan/liquidprompt"
 
-zplug "zsh-users/zsh-completions", nice:11
 zplug "zsh-users/zsh-syntax-highlighting", nice:11
 
 zplug load

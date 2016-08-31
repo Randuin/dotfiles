@@ -52,6 +52,7 @@ Plug 'osyo-manga/vim-monster', { 'for': 'ruby' }
 Plug 'othree/yajs.vim', { 'for': 'javascript' }
 Plug 'othree/jsdoc-syntax.vim', { 'for': ['javascript', 'typescript'] }
 Plug 'othree/es.next.syntax.vim', { 'for': 'javascript' }
+Plug 'mxw/vim-jsx'
 let g:jsx_ext_required = 0
 Plug 'kchmck/vim-coffee-script'
 
