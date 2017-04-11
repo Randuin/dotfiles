@@ -1,12 +1,17 @@
 set shell=zsh
-
 set clipboard=unnamed
 
-set background=dark
-let base16colorspace=256
+" Colors
+syntax enable
 
-colorscheme dracula
+let ayucolor="dark"
+colorscheme ayu
 
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+set termguicolors
+
+" Setup
 set fileencoding=utf-8
 filetype plugin indent on
 set hidden
@@ -18,6 +23,7 @@ set lazyredraw
 set ttyfast
 set nojoinspaces
 set mouse=
+set inccommand=split
 
 " Turn off the bell
 set vb
@@ -110,7 +116,6 @@ nmap <leader>l :w\|:silent !chrome-cli reload<cr>
 " set paste
 set cpoptions+=$
 set t_Co=256
-nmap <C-k> i<CR><Esc>
 
 set laststatus=2
 set cursorline
@@ -197,3 +202,21 @@ let g:tablabel =
 set hidden
 let g:racer_cmd = "/Users/randuin/.cargo/bin/racer"
 let $RUST_SRC_PATH="<path-to-rust-srcdir>/src/"
+
+let g:deoplete#enable_at_startup=1
+
+let g:deoplete#sources={}
+" let g:deoplete#sources._    = ['buffer', 'file', 'ultisnips']
+" let g:deoplete#sources.ruby = ['buffer', 'member', 'file', 'tag', 'ultisnips']
+" let g:deoplete#sources.vim  = ['buffer', 'member', 'file', 'ultisnips']
+" let g:deoplete#sources['javascript.jsx'] = ['buffer', 'file', 'ultisnips', 'ternjs']
+" let g:deoplete#sources.css  = ['buffer', 'member', 'file', 'omni', 'ultisnips']
+" let g:deoplete#sources.scss = ['buffer', 'member', 'file', 'omni', 'ultisnips']
+" let g:deoplete#sources.html = ['buffer', 'member', 'file', 'omni', 'ultisnips']
+
+let g:UltiSnipsUsePythonVersion=3
+inoremap <C-x><C-k> <NOP>
+let g:UltiSnipsExpandTrigger='<C-j>'
+let g:UltiSnipsListSnippets='<C-s>'
+let g:UltiSnipsJumpForwardTrigger='<C-j>'
+let g:UltiSnipsJumpBackwardTrigger='<C-k>'

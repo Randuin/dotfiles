@@ -4,7 +4,6 @@
 [core]
   editor = /usr/local/bin/nvim
   excludesfile = /Users/randuin/.gitignore_global
-  pager = zsh -lc 'diff-highlight | strip_diff_leading_symbols | less -r' -
 [color]
 	ui = always
 [color "branch"]
