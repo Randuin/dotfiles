@@ -9,16 +9,16 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'tpope/vim-vinegar'
 
 " Color
-Plug 'ayu-theme/ayu-vim' " or other package manager
+Plug 'ayu-theme/ayu-vim'
+Plug 'dracula/vim'
 
 Plug 'tweekmonster/startuptime.vim'
 Plug 'rking/ag.vim', { 'on': 'Ag' }
 Plug 'kana/vim-operator-user'
 Plug 'rhysd/vim-operator-surround'
-nmap <silent>sa <Plug>(operator-surround-append)a
-nmap <silent>sd <Plug>(operator-surround-delete)a
-nmap <silent>sr <Plug>(operator-surround-replace)a
-nmap <silent>sc <Plug>(operator-surround-replace)a
+nmap <silent>sa <Plug>(operator-surround-append)
+nmap <silent>sd <Plug>(operator-surround-delete)
+nmap <silent>sr <Plug>(operator-surround-replace)
 Plug 'tpope/vim-unimpaired'
 
 " Code quality
@@ -48,14 +48,14 @@ Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 Plug 'osyo-manga/vim-monster', { 'for': 'ruby' }
 
 " JS
-Plug 'othree/yajs.vim', { 'for': 'javascript' }
+Plug 'othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx']}
 Plug 'othree/jsdoc-syntax.vim', { 'for': ['javascript', 'typescript'] }
-Plug 'othree/es.next.syntax.vim', { 'for': 'javascript' }
-Plug 'mxw/vim-jsx', { 'for': ['javascript', 'jsx'] }
+Plug 'othree/es.next.syntax.vim', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
 let g:jsx_ext_required = 0
-Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'jsx'] }
+Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
 let g:javascript_plugin_flow = 1
-Plug 'fleischie/vim-styled-components', { 'for': ['javascript', 'jsx'] }
+Plug 'fleischie/vim-styled-components', { 'for': ['javascript', 'javascript.jsx'] }
 " Plug 'kchmck/vim-coffee-script'
 Plug 'slim-template/vim-slim'
 
@@ -63,13 +63,13 @@ Plug 'slim-template/vim-slim'
 Plug 'rcmdnk/vim-markdown', { 'for': 'markdown' }
 Plug 'fatih/vim-go', { 'for': 'go' }
 
-Plug 'jparise/vim-graphql'
+" Plug 'jparise/vim-graphql'
 
 function! DoRemote(arg)
   UpdateRemotePlugins
 endfunction
-Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
-Plug 'Shougo/deoplete-rct', { 'for': 'ruby' }
+" Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+" Plug 'Shougo/deoplete-rct', { 'for': 'ruby' }
 " Plug 'fishbullet/deoplete-ruby', { 'for': 'ruby' }
 " Plug 'steelsojka/deoplete-flow'
 
@@ -80,8 +80,14 @@ call plug#end()
 
 " augroup fmt
 "   autocmd!
-"   autocmd FileType javascript,javascript.jsx set formatprg=prettier\ --stdin\ --parser\ flow\ --single-quote
+"   " autocmd FileType javascript,javascript.jsx set formatprg=prettier\ --stdin\ --parser\ flow\ --single-quote
 "   autocmd BufWritePre * Neoformat
 " augroup END
 
-let g:neoformat_enabled_ruby = ['rubocop', 'rubybeautify']
+let g:neoformat_enabled_ruby = ['rubocop', 'ruby-beautify']
+augroup go
+  autocmd!
+  autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
+  autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
+  autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
+augroup END

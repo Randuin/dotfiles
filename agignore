@@ -18,3 +18,5 @@ tmp/
 *.jpg
 *.bmp
 *.jpeg
+/Library/**/*
+~/Library/**/*

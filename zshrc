@@ -14,7 +14,12 @@ export CLICOLOR=true
 # source <(antibody init)
 # antibody bundle < ~/.config/antibody/bundles
 
-source ~/.bundles
+source $DOTFILES/config/zsh/aliases.zsh
+source $DOTFILES/config/zsh/fzf.zsh
+source $DOTFILES/config/zsh/git.zsh
+source $DOTFILES/config/zsh/keybindings.zsh
+
+source $HOME/.bundles
 # railstags() {
 #   ctags -R  --exclude=.git --exclude=log --exclude=node_modules --exclude=vendor --exclude=tmp --exclude=db --exclude=coverage --extra=+q . $(bundle list --paths)
 # }
@@ -23,7 +28,9 @@ railstags() {
   ctags -R  --exclude=.git --exclude=log --exclude=node_modules --exclude=vendor --exclude=tmp --exclude=db --exclude=coverage --extra=+q
 }
 
-export PATH=$PATH:$(yarn global bin)
+export GOPATH=$HOME/code/go
+export GOBIN=$HOME/code/go/bin
+export PATH=$PATH:$(yarn global bin):$GOBIN
 
 source /usr/local/opt/chruby/share/chruby/chruby.sh
 source /usr/local/opt/chruby/share/chruby/auto.sh
@@ -36,7 +43,7 @@ if [ -f '/usr/local/share/google-cloud-sdk/path.zsh.inc' ]; then source '/usr/lo
 # The next line enables shell command completion for gcloud.
 if [ -f '/usr/local/share/google-cloud-sdk/completion.zsh.inc' ]; then source '/usr/local/share/google-cloud-sdk/completion.zsh.inc'; fi
 
-source ~/.config/zsh/aliases.zsh
-source ~/.config/zsh/fzf.zsh
-source ~/.config/zsh/git.zsh
-source ~/.config/zsh/keybindings.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
