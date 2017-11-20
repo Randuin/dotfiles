@@ -5,10 +5,10 @@ set clipboard=unnamed
 syntax enable
 
 " let ayucolor="dark"
-colorscheme dracula
+colorscheme FlatColor
 
-" let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-" let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 " set termguicolors
 
 " Setup
@@ -63,14 +63,6 @@ set ruler " Show ruler
 set list listchars=tab:»·,trail:·
 autocmd BufNewFile,BufRead *.go set nolist
 set showbreak=↪
-
-if has("gui_running")
-  set guioptions=egmrt
-  " set guifont=Menlo
-  " set guifont=Source\ Code\ Pro\ for\ Powerline
-  " set guifont=Meslo\ LG\ S\ DZ\ Regular\ for\ Powerline:h13
-  set guifont=Fantasque\ Sans\ Mono
-endif
 
 " Turn backup off
 set nobackup
@@ -192,16 +184,7 @@ au BufEnter *.coffee syn match error contained "\<console.log\>"
 
 so ~/.vim/fzf.vim
 
-noremap <Leader>dr :diffget REMOTE<CR>
-noremap <Leader>dl :diffget LOCAL<CR>
-noremap <Leader>db :diffget BASE<CR>
-
-let g:tablabel =
-      \ "%N%{flagship#tabmodified()} %{flagship#tabcwds('shorten',',')}"
-
 set hidden
-let g:racer_cmd = "/Users/randuin/.cargo/bin/racer"
-let $RUST_SRC_PATH="<path-to-rust-srcdir>/src/"
 
 let g:deoplete#enable_at_startup=1
 
@@ -213,10 +196,3 @@ let g:deoplete#sources={}
 " let g:deoplete#sources.css  = ['buffer', 'member', 'file', 'omni', 'ultisnips']
 " let g:deoplete#sources.scss = ['buffer', 'member', 'file', 'omni', 'ultisnips']
 " let g:deoplete#sources.html = ['buffer', 'member', 'file', 'omni', 'ultisnips']
-
-let g:UltiSnipsUsePythonVersion=3
-inoremap <C-x><C-k> <NOP>
-let g:UltiSnipsExpandTrigger='<C-j>'
-let g:UltiSnipsListSnippets='<C-s>'
-let g:UltiSnipsJumpForwardTrigger='<C-j>'
-let g:UltiSnipsJumpBackwardTrigger='<C-k>'

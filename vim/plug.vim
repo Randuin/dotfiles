@@ -9,8 +9,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'tpope/vim-vinegar'
 
 " Color
-Plug 'ayu-theme/ayu-vim'
-Plug 'dracula/vim'
+Plug 'MaxSt/FlatColor'
 
 Plug 'tweekmonster/startuptime.vim'
 Plug 'rking/ag.vim', { 'on': 'Ag' }
@@ -51,13 +50,18 @@ Plug 'osyo-manga/vim-monster', { 'for': 'ruby' }
 Plug 'othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx']}
 Plug 'othree/jsdoc-syntax.vim', { 'for': ['javascript', 'typescript'] }
 Plug 'othree/es.next.syntax.vim', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascript.jsx'] }
+let g:used_javascript_libs = 'underscore,react'
 Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
 let g:jsx_ext_required = 0
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
 let g:javascript_plugin_flow = 1
 Plug 'fleischie/vim-styled-components', { 'for': ['javascript', 'javascript.jsx'] }
-" Plug 'kchmck/vim-coffee-script'
-Plug 'slim-template/vim-slim'
+
+augroup javascript_folding
+    au!
+    au FileType javascript,javascript.jsx setlocal foldmethod=syntax
+augroup END
 
 " Misc
 Plug 'rcmdnk/vim-markdown', { 'for': 'markdown' }
@@ -68,10 +72,11 @@ Plug 'fatih/vim-go', { 'for': 'go' }
 function! DoRemote(arg)
   UpdateRemotePlugins
 endfunction
-" Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'wokalski/autocomplete-flow'
+
 " Plug 'Shougo/deoplete-rct', { 'for': 'ruby' }
 " Plug 'fishbullet/deoplete-ruby', { 'for': 'ruby' }
-" Plug 'steelsojka/deoplete-flow'
 
 Plug 'dyng/ctrlsf.vim', { 'on': ['CtrlSF', 'CtrlSFToggle'] }
 Plug 'Shougo/neoinclude.vim'
@@ -85,6 +90,14 @@ call plug#end()
 " augroup END
 
 let g:neoformat_enabled_ruby = ['rubocop', 'ruby-beautify']
+<<<<<<< HEAD
+=======
+
+" function! neoformat#formatters#eruby#enabled() abort
+"     return ['tidy']
+" endfunction
+
+>>>>>>> Update
 augroup go
   autocmd!
   autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
