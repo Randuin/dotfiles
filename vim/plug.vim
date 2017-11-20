@@ -90,14 +90,6 @@ call plug#end()
 " augroup END
 
 let g:neoformat_enabled_ruby = ['rubocop', 'ruby-beautify']
-<<<<<<< HEAD
-=======
-
-" function! neoformat#formatters#eruby#enabled() abort
-"     return ['tidy']
-" endfunction
-
->>>>>>> Update
 augroup go
   autocmd!
   autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
