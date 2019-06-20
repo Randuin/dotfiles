@@ -1,5 +1,9 @@
+caarlos0/git-add-remote kind:path
+caarlos0/zsh-git-fetch-merge kind:path
+caarlos0/zsh-git-sync kind:path
 mafredri/zsh-async
 zsh-users/zsh-completions
+zsh-users/zsh-autosuggestions
 b4b4r07/enhancd
 
 # these should be at last!

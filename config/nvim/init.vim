@@ -18,6 +18,8 @@ nmap <silent> <leader>rl :TestLast<cr>
 nmap <silent> <leader>rc :call neoterm#close_all()<cr>
 nmap <silent> <leader>rx :call neoterm#clear()<cr>
 
+let g:neoterm_default_mod = 'belowright'
+
 tnoremap <s-esc> <C-\><C-n>
 
 let g:python_host_prog = '/usr/local/bin/python'

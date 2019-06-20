@@ -5,10 +5,24 @@ set clipboard=unnamed
 syntax enable
 
 " let ayucolor="dark"
-colorscheme FlatColor
+" set t_Co=256
+set background=dark
+colorscheme focuspoint
 
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
+" if empty($TMUX) && empty($STY)
+"   " See https://gist.github.com/XVilka/8346728.
+"   if $COLORTERM =~# 'truecolor' || $COLORTERM =~# '24bit'
+"     if has('termguicolors')
+"       if $TERM =~# '^screen'
+"         let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+"         let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+"       endif
+"     endif
+"   endif
+" endif
 " set termguicolors
 
 " Setup
@@ -186,7 +200,7 @@ so ~/.vim/fzf.vim
 
 set hidden
 
-let g:deoplete#enable_at_startup=1
+let g:deoplete#enable_at_startup=0
 
 let g:deoplete#sources={}
 " let g:deoplete#sources._    = ['buffer', 'file', 'ultisnips']
