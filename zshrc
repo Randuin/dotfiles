@@ -5,6 +5,7 @@ export PROJECTS="$HOME/code"
 # Set default to neovim
 export EDITOR="nvim"
 alias vi="nvim"
+alias xclip="xclip -selection c"
 
 DISABLE_AUTO_TITLE=true
 DISABLE_UPDATE_PROMPT=true
