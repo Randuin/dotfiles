@@ -4,7 +4,7 @@ caarlos0/zsh-git-sync kind:path
 mafredri/zsh-async
 zsh-users/zsh-completions
 zsh-users/zsh-autosuggestions
-b4b4r07/enhancd
+# b4b4r07/enhancd
 
 # these should be at last!
 intelfx/pure

@@ -6,24 +6,12 @@ syntax enable
 
 " let ayucolor="dark"
 " set t_Co=256
+set termguicolors
 set background=dark
-colorscheme focuspoint
+colorscheme vimterial_dark
 
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-
-" if empty($TMUX) && empty($STY)
-"   " See https://gist.github.com/XVilka/8346728.
-"   if $COLORTERM =~# 'truecolor' || $COLORTERM =~# '24bit'
-"     if has('termguicolors')
-"       if $TERM =~# '^screen'
-"         let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-"         let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-"       endif
-"     endif
-"   endif
-" endif
-" set termguicolors
 
 " Setup
 set fileencoding=utf-8
@@ -99,10 +87,6 @@ set wildignore+=*/.nx/**,*.app
 
 let g:netrw_localrmdir='rm -r'
 " Use , as the leader *********************************************************
-let mapleader = ","
-let g:mapleader = ","
-let maplocalleader = ","
-let g:maplocalleader = ","
 
 " Put the cursor at the beginning of the edit after . macro *******************
 nmap . .`[
@@ -121,14 +105,10 @@ nmap <leader>l :w\|:silent !chrome-cli reload<cr>
 
 " set paste
 set cpoptions+=$
-set t_Co=256
-
 set laststatus=2
 set cursorline
-nnoremap <leader>s :Switch<cr>
+
 nmap <Leader>R :source $MYVIMRC<cr>
-
-
 nnoremap <leader>d :noh<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -192,21 +172,34 @@ let g:grep_cmd_opts = '--line-numbers --noheading'
 
 au BufEnter *.rb syn match error contained "\<binding.pry\>"
 au BufEnter *.js syn match error contained "\<debugger\>"
+au BufEnter *.ts syn match error contained "\<debugger\>"
+au BufEnter *.tsx syn match error contained "\<debugger\>"
 au BufEnter *.coffee syn match error contained "\<debugger\>"
 au BufEnter *.js syn match error contained "\<console.log\>"
+au BufEnter *.ts syn match error contained "\<console.log\>"
+au BufEnter *.tsx syn match error contained "\<console.log\>"
 au BufEnter *.coffee syn match error contained "\<console.log\>"
-
-so ~/.vim/fzf.vim
 
 set hidden
 
-let g:deoplete#enable_at_startup=0
-
-let g:deoplete#sources={}
-" let g:deoplete#sources._    = ['buffer', 'file', 'ultisnips']
-" let g:deoplete#sources.ruby = ['buffer', 'member', 'file', 'tag', 'ultisnips']
-" let g:deoplete#sources.vim  = ['buffer', 'member', 'file', 'ultisnips']
-" let g:deoplete#sources['javascript.jsx'] = ['buffer', 'file', 'ultisnips', 'ternjs']
-" let g:deoplete#sources.css  = ['buffer', 'member', 'file', 'omni', 'ultisnips']
-" let g:deoplete#sources.scss = ['buffer', 'member', 'file', 'omni', 'ultisnips']
-" let g:deoplete#sources.html = ['buffer', 'member', 'file', 'omni', 'ultisnips']
+hi tsxTagName guifg=#00ff00
+hi tsxCloseTag guifg=#00ff00
+hi tsxCloseString guifg=#007700
+hi tsxString guifg=#e8ce77 guibg=#2b2719
+hi tsxAttributeBraces guifg=#F99575
+hi tsxEqual guifg=#F99575
+hi tsxTypeBraces guifg=#999999
+hi tsxTypes guifg=#666666
+hi tsxAttrib guifg=#f3836f cterm=italic
+hi ReactState guifg=#ddbdff guibg=#362e40
+hi ReactProps guifg=#D19A66
+hi Events ctermfg=204 guifg=#56B6C2
+hi ReduxKeywords ctermfg=204 guifg=#C678DD
+hi WebBrowser ctermfg=204 guifg=#56B6C2
+hi ReactLifecycleMethods ctermfg=204 guifg=#D19A66
+hi typescriptStringD guifg=#e8ce77 guibg=#2b2719
+hi typescriptNumber guifg=#e8ce77 guibg=#2b2719
+hi typescriptBoolean guifg=#e8ce77 guibg=#2b2719
+hi! link CocErrorSign WarningMsg
+hi! link CocWarningSign Number
+hi! link CocInfoSign Type
