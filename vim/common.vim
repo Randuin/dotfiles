@@ -1,3 +1,5 @@
+so ~/.vim/fzf.vim
+
 set shell=zsh
 set clipboard=unnamed
 
@@ -8,7 +10,7 @@ syntax enable
 " set t_Co=256
 set termguicolors
 set background=dark
-colorscheme vimterial_dark
+colorscheme dracula
 
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
@@ -203,3 +205,23 @@ hi typescriptBoolean guifg=#e8ce77 guibg=#2b2719
 hi! link CocErrorSign WarningMsg
 hi! link CocWarningSign Number
 hi! link CocInfoSign Type
+
+
+let test#strategy = "neoterm"
+" let g:neoterm_size = '15'
+let g:neoterm_rspec_lib_cmd = 'bin/rspec'
+
+" nmap <silent> <leader>rs :call neoterm#test#run('all')<cr>
+" nmap <silent> <leader>ra :call neoterm#test#run('file')<cr>
+" nmap <silent> <leader>rr :call neoterm#test#run('current')<cr>
+" nmap <silent> <leader>rl :call neoterm#test#rerun()<cr>
+
+nmap <silent> <leader>rs :TestSuite<cr>
+nmap <silent> <leader>ra :TestFile<cr>
+nmap <silent> <leader>rr :TestNearest<cr>
+nmap <silent> <leader>rl :TestLast<cr>
+
+nmap <silent> <leader>rc :call neoterm#close_all()<cr>
+nmap <silent> <leader>rx :call neoterm#clear()<cr>
+
+let g:ruby_path = system('echo $HOME/.rbenv/shims')

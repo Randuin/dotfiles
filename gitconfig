@@ -2,8 +2,8 @@
 	email = hi@robinliao.com
 	name = Robin Liao
 [core]
-  editor = nvim
-  excludesfile = /Users/randuin/.gitignore_global
+  editor = vim
+  excludesfile = /home/randuin/.gitignore_global
 	pager = diff-so-fancy | less --tabs=4 -RFX
 [color]
 	ui = always
@@ -64,4 +64,4 @@
 
 # This next lines include Netlify's Git Credential Helper configuration in your Git configuration.
 [include]
-  path = /Users/randuin/.netlify/helper/git-config
+  path = /home/randuin/.netlify/helper/git-config

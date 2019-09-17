@@ -1,0 +1,85 @@
+##############################################################################
+## This is the example configuration file. Copy it to $HOME/.ncmpcpp/config ##
+## or $XDG_CONFIG_HOME/ncmpcpp/config and set up your preferences.          ##
+##############################################################################
+#
+##### directories ######
+##
+## Directory for storing ncmpcpp related files.  Changing it is useful if you
+## want to store everything somewhere else and provide command line setting for
+## alternative location to config file which defines that while launching
+## ncmpcpp.
+##
+#
+ncmpcpp_directory = ~/.ncmpcpp
+#
+##
+## Directory for storing downloaded lyrics. It defaults to ~/.lyrics since other
+## MPD clients (eg. ncmpc) also use that location.
+##
+#
+lyrics_directory = ~/.ncmpcpp/lyrics
+#
+##### connection settings #####
+#
+#mpd_host = localhost
+#
+#mpd_port = 6600
+#
+#mpd_connection_timeout = 5
+#
+## Needed for tag editor and file operations to work.
+##
+mpd_music_dir = /mnt/microwave/Downloads/Music
+screen_switcher_mode = playlist,media_library
+media_library_primary_tag = album_artist
+media_library_albums_split_by_date = no
+
+####songs####
+#([cyan,date],[cyan, length], [cyan,title] | [cyan,date],[blue,title],[cyan])
+song_list_format = "{$7%a $7%l $7%t}|{$7%a $5%t $7}"
+#([red,artist],[magenta],[red,length])
+song_status_format = "$2%a $7• $4%t $7• $3%b {}$7• $5%y$7"
+#([cyan,length],[blue,title],[end current color])
+song_library_format = "$7%l $5%t$9"
+#([magenta,blue,magenta]|[blue]
+now_playing_prefix = "$b$8»$2»$4»$3» "
+now_playing_suffix = "$/b"
+#([blue],[cyan,artist],[blue,title],[yellow,album],[magenta,length] 
+song_columns_list_format = "(4)[]{} (15)[cyan]{a} (30)[blue]{t} (46)[white]{b} (5)[magenta]{l}"
+
+# Playlist ..
+browser_playlist_prefix = "$2 ♥ $0 "
+
+# Delays .. 
+playlist_disable_highlight_delay = "1"
+message_delay_time= "1"
+
+playlist_separate_albums = "no"
+playlist_display_mode = "columns" (classic/columns)
+browser_display_mode = "columns"
+volume_change_step = "2"
+progressbar_look = "─╼─"
+#user_interface = "alternative"
+data_fetching_delay = "yes"
+default_find_mode = "wrapped"
+header_visibility = "no"
+titles_visibility = "no"
+header_text_scrolling = "yes" 
+cyclic_scrolling = "yes"
+#startup_screen = "media_library"
+clock_display_seconds = "yes"
+display_volume_level = "yes"
+display_remaining_time = "yes"
+ignore_leading_the = "no"
+#use_console_editor = "yes"
+
+# Misc ..   
+display_bitrate = "yes"
+autocenter_mode = "yes"
+centered_cursor = "yes"
+statusbar_visibility = "yes"
+empty_tag_marker=" -- ‼ -- " 
+mouse_support = "no"
+ask_before_clearing_playlists = "no"
+discard_colors_if_item_is_selected = "yes"

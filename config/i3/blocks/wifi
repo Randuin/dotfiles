@@ -28,26 +28,26 @@ fi
 if [[ "$(cat /sys/class/net/$INTERFACE/operstate)" = 'down' ]]; then
     echo "down"
     echo "down"
-    echo "#FF0000"
+    echo "#FF686B"
     exit
 fi
 
-#------------------------------------------------------------------------
 
+SSID=$(/sbin/iw dev $INTERFACE info | grep -Po 'ssid(.*)' | cut -c 6-)
 QUALITY=$(grep $INTERFACE /proc/net/wireless | awk '{ print int($3 * 100 / 70) }')
 
 #------------------------------------------------------------------------
 
-echo $QUALITY% # full text
-echo $QUALITY% # short text
+echo $SSID # full text
+echo $SSID # short text
 
 # color
 if [[ $QUALITY -ge 80 ]]; then
-    echo "#00FF00"
+    echo "#A5FFD6"
 elif [[ $QUALITY -ge 60 ]]; then
-    echo "#FFF600"
+    echo "#84DCC6"
 elif [[ $QUALITY -ge 40 ]]; then
-    echo "#FFAE00"
+    echo "#FFA69E"
 else
-    echo "#FF0000"
+    echo "#FF686B"
 fi

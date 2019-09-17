@@ -5,5 +5,5 @@ Xft.hintstyle:  hintfull
 Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
-Xcursor.size: 96
+Xcursor.size: 50
 Xcursor.theme: Pop

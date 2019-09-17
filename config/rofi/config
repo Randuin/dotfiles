@@ -1,4 +1,5 @@
-rofi.combi-modi:    window,drun
-rofi.theme:         solarized
-rofi.font:          FantasqueSansMono NF 20
+rofi.combi-modi:    drun
+rofi.theme:         android_notification
+rofi.font:          FantasqueSansMono NF 14
 rofi.modi:          combi
+rofi.dpi: 192

@@ -12,5 +12,5 @@ let g:mapleader = ","
 let maplocalleader = ","
 let g:maplocalleader = ","
 
-so ~/.vim/dein.vim
+so ~/.vim/plug.vim
 so ~/.vim/common.vim

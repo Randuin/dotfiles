@@ -33,7 +33,7 @@ else:
                 time = re.match(r"(\d+):(\d+)", time)
                 if time:
                     time = ":".join(time.groups())
-                    timeleft = " ({})".format(time)
+                    timeleft = " [{}]".format(time)
                 else:
                     timeleft = ""
 
@@ -49,52 +49,52 @@ else:
         percentleft = 0
 
     # stands for charging
-    FA_LIGHTNING = "<span color='yellow'><span font='FontAwesome'>\uf0e7</span></span>"
+    FA_LIGHTNING = "\uf0e7"
 
     # stands for plugged in
-    FA_PLUG = "<span font='FontAwesome'>\uf1e6</span>"
+    FA_PLUG = "\uf1e6"
 
     # stands for using battery
-    FA_BATTERY = "<span font='FontAwesome'>\uf240</span>"
+    FA_BATTERY = "\uf240"
 
     # stands for unknown status of battery
-    FA_QUESTION = "<span font='FontAwesome'>\uf128</span>"
+    FA_QUESTION = "\uf128"
 
+    fulltext = ""
 
     if state == "Discharging":
-        fulltext = FA_BATTERY + " "
+        icon = FA_BATTERY
     elif state == "Full":
-        fulltext = FA_PLUG + " "
+        icon = FA_PLUG
         timeleft = ""
     elif state == "Unknown":
-        fulltext = FA_QUESTION + " " + FA_BATTERY + " "
+        icon = FA_QUESTION + " " + FA_BATTERY
         timeleft = ""
     else:
-        fulltext = FA_LIGHTNING + " " + FA_PLUG + " "
+        icon = FA_PLUG
 
     def color(percent):
         if percent < 10:
             # exit code 33 will turn background red
-            return "#FFFFFF"
+            return "#F45D4C"
         if percent < 20:
-            return "#FF3300"
+            return "#F7A541"
         if percent < 30:
-            return "#FF6600"
+            return "#F7A541"
         if percent < 40:
-            return "#FF9900"
+            return "#FACA66"
         if percent < 50:
-            return "#FFCC00"
+            return "#FACA66"
         if percent < 60:
-            return "#FFFF00"
+            return "#FEE5AD"
         if percent < 70:
-            return "#FFFF33"
+            return "#FEE5AD"
         if percent < 80:
-            return "#FFFF66"
-        return "#FFFFFF"
+            return "#A1DBB2"
+        return "#88C100"
 
-    form =  '<span color="{}">{}%</span>'
-    fulltext += form.format(color(percentleft), percentleft)
-    fulltext += timeleft
+    form =  '<span color="{}">{} {}%</span><span color="#AAAAAA">{}</span>'
+    fulltext = form.format(color(percentleft), icon, percentleft, timeleft)
 
 print(fulltext)
 print(fulltext)

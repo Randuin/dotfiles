@@ -69,7 +69,24 @@ format() {
   perl_filter+=$([[ $STEP = *dB ]] && echo '$3' || echo '$1')
   perl_filter+='"; exit}'
   output=$(perl -ne "$perl_filter")
-  echo "$LABEL$output"
+  echo "$output"
+  echo "$output"
+  VOL=${output::-1}
+  if [[ $VOL -ge 100 ]]; then
+    echo "#FACA66"
+  elif [[ $VOL -ge 80 ]]; then
+    echo "#88C100"
+  elif [[ $VOL -ge 60 ]]; then
+    echo "#FEE5AD"
+  elif [[ $VOL -ge 40 ]]; then
+    echo "#FACA66"
+  elif [[ $VOL -ge 20 ]]; then
+    echo "#F7A541"
+  elif [[ $VOL -eq 0 ]]; then
+    echo "#F45D4C"
+  elif [[ $output -eq "MUTE" ]]; then
+    echo "#F45D4C"
+  fi
 }
 
 #------------------------------------------------------------------------
