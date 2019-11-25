@@ -5,14 +5,15 @@ endif
 call plug#begin('~/.nvim/plugged')
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'liuchengxu/vim-clap'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-surround'
 
 " Color
 Plug 'yous/vim-open-color'
-Plug 'chase/focuspoint-vim'
-Plug 'larsbs/vimterial_dark'
+" Plug 'chase/focuspoint-vim'
+" Plug 'larsbs/vimterial_dark'
 Plug 'dracula/vim', { 'as': 'dracula' }
 
 " Plug 'tweekmonster/startuptime.vim'
@@ -29,17 +30,22 @@ let g:neoterm_shell = "zsh"
 Plug 'kassio/neoterm'
 Plug 'mustache/vim-mustache-handlebars'
 
-" Plug 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter'
 
 " Ruby
-" Plug 'tpope/vim-rails', { 'for': ['ruby', 'eruby'] }
+Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
+Plug 'tpope/vim-rails', { 'for': ['ruby', 'eruby'] }
 
 " JS
 Plug 'jason0x43/vim-js-indent', {'for': ['javascript','typescript','javascript.jsx','typescript.tsx']}
-Plug 'leafgarland/typescript-vim', {'for': ['javascript','typescript','javascript.jsx','typescript.tsx']}
-Plug 'MaxMEllon/vim-jsx-pretty', {'for': ['javascript','typescript','javascript.jsx','typescript.tsx']}
-Plug 'peitalin/vim-jsx-typescript', {'for': ['javascript','typescript','javascript.jsx','typescript.tsx']}
 Plug 'jparise/vim-graphql', {'for': ['javascript','typescript','javascript.jsx','typescript.tsx','graphql']}
+Plug 'pangloss/vim-javascript'
+Plug 'MaxMEllon/vim-jsx-pretty'
+Plug 'posva/vim-vue'
+Plug 'leafgarland/typescript-vim'
+"Plug 'HerringtonDarkholme/yats.vim'
+
+let g:vue_pre_processors = ['scss']
 
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
 
@@ -55,10 +61,16 @@ augroup END
 " Misc
 " Plug 'gabrielelana/vim-markdown'
 " Plug 'rcmdnk/vim-markdown', { 'for': 'markdown' }
-" Plug 'fatih/vim-go', { 'for': 'go' }
+Plug 'fatih/vim-go', { 'for': 'go' }
 
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" function! NearestMethodOrFunction() abort
+"   return get(b:, 'vista_nearest_method_or_function', '')
+" endfunction
+" 
+" set statusline+=%{NearestMethodOrFunction()}
+Plug 'liuchengxu/vista.vim'
 inoremap <silent><expr> <c-s-space> coc#refresh()
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)

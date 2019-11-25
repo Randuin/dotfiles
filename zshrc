@@ -48,10 +48,3 @@ if [ -f '/usr/local/share/google-cloud-sdk/completion.zsh.inc' ]; then source '/
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 eval "$(rbenv init -)"
-
-export NVM_DIR="$HOME/.nvm"
-source /usr/share/nvm/init-nvm.sh
-if [ "$(uname 2> /dev/null)" != "Linux" ]; then
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-fi
-

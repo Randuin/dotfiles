@@ -5,6 +5,7 @@ set clipboard=unnamed
 
 " Colors
 syntax enable
+set re=1
 
 " let ayucolor="dark"
 " set t_Co=256
@@ -184,11 +185,40 @@ au BufEnter *.coffee syn match error contained "\<console.log\>"
 
 set hidden
 
-hi tsxTagName guifg=#00ff00
+hi tsxTagName guifg=#d45750
+hi! link jsxTagName tsxTagName
 hi tsxCloseTag guifg=#00ff00
-hi tsxCloseString guifg=#007700
-hi tsxString guifg=#e8ce77 guibg=#2b2719
+hi tsxCloseString guifg=#6272a4
+hi! link jsxCloseTag tsxCloseTag
+hi! link jsxCloseString tsxCloseString
+hi tsxOpenPunct guifg=#a1d9e3
+hi! link tsxClosePunct tsxOpenPunct
+hi! link jsxOpenPunct tsxOpenPunct
+hi! link jsxClosePunct tsxOpenPunct
+hi tsxComponentName guifg=#ff473d
+hi! link jsxComponentName tsxComponentName
+
+hi! link javaScriptLineComment typescriptLineComment
+
+hi jsObjectValue guifg=#e8ce77 guibg=#2b2719
+hi! link tsxString jsObjectValue
+hi! link jsxString jsObjectValue
+hi! link jsString jsObjectValue
+hi! link graphqlVariable jsObjectValue
+
+hi jsObjectKey guifg=#dadada
+hi jsFuncCall guifg=#a3e080
+hi! link jsFuncName jsFuncCall
+hi! link graphqlName jsFuncCall
+hi jsObjectBraces guifg=#6272a4
+
+hi jsAsyncKeyword guifg=#9c64a1
+
 hi tsxAttributeBraces guifg=#F99575
+hi! link jsBraces tsxAttributeBraces
+hi! link jsDestructuringBraces tsxAttributeBraces
+hi! link graphqlBraces tsxAttributeBraces
+
 hi tsxEqual guifg=#F99575
 hi tsxTypeBraces guifg=#999999
 hi tsxTypes guifg=#666666
@@ -202,6 +232,11 @@ hi ReactLifecycleMethods ctermfg=204 guifg=#D19A66
 hi typescriptStringD guifg=#e8ce77 guibg=#2b2719
 hi typescriptNumber guifg=#e8ce77 guibg=#2b2719
 hi typescriptBoolean guifg=#e8ce77 guibg=#2b2719
+hi jsFuncBraces guifg=#ffb86c
+hi jsBrackets guifg=#50fa7b
+hi jsFrom guifg=#9d6fde
+hi jsImport guifg=#bd93f9
+hi! link jsModuleBraces jsFuncBraces
 hi! link CocErrorSign WarningMsg
 hi! link CocWarningSign Number
 hi! link CocInfoSign Type
