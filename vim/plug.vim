@@ -5,16 +5,17 @@ endif
 call plug#begin('~/.nvim/plugged')
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'liuchengxu/vim-clap'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-surround'
 
 " Color
-Plug 'yous/vim-open-color'
+" Plug 'yous/vim-open-color'
 " Plug 'chase/focuspoint-vim'
 " Plug 'larsbs/vimterial_dark'
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'chriskempson/base16-vim'
 
 " Plug 'tweekmonster/startuptime.vim'
 Plug 'rking/ag.vim', { 'on': 'Ag' }
@@ -42,6 +43,7 @@ Plug 'jparise/vim-graphql', {'for': ['javascript','typescript','javascript.jsx',
 Plug 'pangloss/vim-javascript'
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'posva/vim-vue'
+Plug 'evanleck/vim-svelte'
 Plug 'leafgarland/typescript-vim'
 "Plug 'HerringtonDarkholme/yats.vim'
 

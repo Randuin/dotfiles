@@ -1,5 +1,5 @@
 rofi.combi-modi:    drun
 rofi.theme:         android_notification
-rofi.font:          FantasqueSansMono NF 14
+rofi.font:          Cascadia Code 14
 rofi.modi:          combi
-rofi.dpi: 192
+# rofi.dpi: 192

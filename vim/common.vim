@@ -8,13 +8,14 @@ syntax enable
 set re=1
 
 " let ayucolor="dark"
-" set t_Co=256
+set t_Co=256
+colorscheme dracula
 set termguicolors
 set background=dark
-colorscheme dracula
+let base16colorspace=256
 
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+" let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+" let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 " Setup
 set fileencoding=utf-8

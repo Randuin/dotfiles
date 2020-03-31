@@ -48,3 +48,4 @@ if [ -f '/usr/local/share/google-cloud-sdk/completion.zsh.inc' ]; then source '/
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 eval "$(rbenv init -)"
+source /usr/share/nvm/init-nvm.sh
