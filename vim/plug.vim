@@ -45,11 +45,12 @@ Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'posva/vim-vue'
 Plug 'evanleck/vim-svelte'
 Plug 'leafgarland/typescript-vim'
+Plug 'ianks/vim-tsx'
 "Plug 'HerringtonDarkholme/yats.vim'
 
 let g:vue_pre_processors = ['scss']
 
-autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
+autocmd BufNewFile,BufRead *.tsx,*.jsx,*.ts set filetype=typescript.tsx
 
 Plug 'styled-components/vim-styled-components', { 'for': ['javascript', 'js', 'jsx', 'ts', 'typescript'], 'branch': 'main'}
 
@@ -65,6 +66,9 @@ augroup END
 " Plug 'rcmdnk/vim-markdown', { 'for': 'markdown' }
 Plug 'fatih/vim-go', { 'for': 'go' }
 
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
+
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " function! NearestMethodOrFunction() abort
@@ -73,12 +77,13 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " 
 " set statusline+=%{NearestMethodOrFunction()}
 Plug 'liuchengxu/vista.vim'
+
 inoremap <silent><expr> <c-s-space> coc#refresh()
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 command! -nargs=0 Format :call CocAction('format')
-" command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
-command! -nargs=0 OR   :call     CocAction('runCommand', 'tsserver.organizeImports')
+command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+" command! -nargs=0 OR   :call     CocAction('runCommand', 'tsserver.organizeImports')
 " autocmd BufWritePre *.jsx Format
 " autocmd BufWritePre *.tsx Format
 nmap <leader>qf  <Plug>(coc-fix-current)

@@ -11,6 +11,7 @@ DISABLE_AUTO_TITLE=true
 DISABLE_UPDATE_PROMPT=true
 export LSCOLORS='exfxcxdxbxegedabagacad'
 export CLICOLOR=true
+export TERM=screen-256color
 
 source <(antibody init)
 antibody bundle < ~/.config/antibody/bundles
@@ -31,8 +32,7 @@ railstags() {
 
 export GOPATH=$HOME/code/go
 export GOBIN=$HOME/code/go/bin
-export PATH="$HOME/.bin:$HOME/.local/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-# export PATH=$PATH:$(yarn global bin):$GOBIN
+export PATH="$HOME/.bin:$HOME/.local/bin:$GOBIN:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 # export PATH=$PATH:$HOME/code/flutter/bin
 
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
@@ -48,4 +48,7 @@ if [ -f '/usr/local/share/google-cloud-sdk/completion.zsh.inc' ]; then source '/
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 eval "$(rbenv init -)"
-source /usr/share/nvm/init-nvm.sh
+
+if [ "$(uname 2> /dev/null)" = "Linux" ]; then
+  source /usr/share/nvm/init-nvm.sh
+fi
