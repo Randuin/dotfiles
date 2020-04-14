@@ -47,8 +47,10 @@ if [ -f '/usr/local/share/google-cloud-sdk/completion.zsh.inc' ]; then source '/
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-eval "$(rbenv init -)"
 
 if [ "$(uname 2> /dev/null)" = "Linux" ]; then
+  source /usr/share/chruby/chruby.sh
   source /usr/share/nvm/init-nvm.sh
+else
+  eval "$(rbenv init -)"
 fi
