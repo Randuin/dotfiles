@@ -8,16 +8,35 @@ syntax enable
 set re=1
 
 " let ayucolor="dark"
-set t_Co=256
-colorscheme dracula
-set termguicolors
-set background=dark
-colorscheme dracula
+" set t_Co=256
+" colorscheme dracula
+" set termguicolors
 set t_ZH=^[[3m
 set t_ZR=^[[23m
 
-" let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-" let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+if empty($TMUX) && empty($STY)
+  " See https://gist.github.com/XVilka/8346728.
+  if $COLORTERM =~# 'truecolor' || $COLORTERM =~# '24bit'
+    if has('termguicolors')
+      " See :help xterm-true-color
+      if $TERM =~# '^screen'
+        let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+        let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+      endif
+      set termguicolors
+    endif
+  endif
+endif
+
+set background=light
+colorscheme open-color
+
+highlight Cursor ctermfg=white ctermbg=black guifg=white guibg=black
+highlight iCursor guifg=white guibg=steelblue
+set guicursor=n-v-c:block-Cursor
+set guicursor+=i:ver100-iCursor
+set guicursor+=n-v-c:blinkon0
+set guicursor+=i:blinkwait10
 
 " Setup
 set fileencoding=utf-8
@@ -98,7 +117,7 @@ let g:netrw_localrmdir='rm -r'
 nmap . .`[
 
 " Show syntax highlighting groups for word under cursor ***********************
-nmap <C-S-P> :call <SID>SynStack()<CR>
+nmap <F10> :call <SID>SynStack()<CR>
 function! <SID>SynStack()
   if !exists("*synstack")
     return
@@ -203,14 +222,14 @@ hi! link jsxComponentName tsxComponentName
 
 hi! link javaScriptLineComment typescriptLineComment
 
-hi jsObjectValue guifg=#e8ce77 guibg=#2b2719
-hi! link tsxString jsObjectValue
-hi! link jsxString jsObjectValue
-hi! link jsString jsObjectValue
+hi jsObjectValue guifg=#b49551
+hi jsString guifg=#b49551 guibg=#fff5de
+hi! link tsxString jsxString
+hi! link jsxString jsxString
 hi! link graphqlVariable jsObjectValue
 
-hi jsObjectKey guifg=#dadada
-hi jsFuncCall guifg=#a3e080
+hi jsObjectKey guifg=#7a6537
+hi jsFuncCall guifg=#769863
 hi! link jsFuncName jsFuncCall
 hi! link graphqlName jsFuncCall
 hi jsObjectBraces guifg=#6272a4

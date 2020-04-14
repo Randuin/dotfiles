@@ -15,7 +15,8 @@ Plug 'tpope/vim-surround'
 " Plug 'chase/focuspoint-vim'
 " Plug 'larsbs/vimterial_dark'
 Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'chriskempson/base16-vim'
+" Plug 'chriskempson/base16-vim'
+Plug 'yous/vim-open-color'
 
 " Plug 'tweekmonster/startuptime.vim'
 Plug 'rking/ag.vim', { 'on': 'Ag' }

@@ -55,5 +55,6 @@ yabai -m rule --add label="Alfred Preferences" app="^Alfred Preferences$" manage
 yabai -m rule --add label="Installer" app="^installer$" manage=off
 yabai -m rule --add label="Zoom" app="^zoom.us$" manage=off
 yabai -m rule --add label="FaceTime" app="^FaceTime$" manage=off
+yabai -m rule --add label="mpv" app="^mpv$" manage=off
 
 echo "yabai configuration loaded.."
