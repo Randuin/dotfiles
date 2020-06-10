@@ -50,7 +50,9 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 if [ "$(uname 2> /dev/null)" = "Linux" ]; then
   source /usr/share/chruby/chruby.sh
+  source /usr/share/chruby/auto.sh
   source /usr/share/nvm/init-nvm.sh
+  # eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 else
   eval "$(rbenv init -)"
 fi

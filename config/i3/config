@@ -175,7 +175,7 @@ for_window [class=".*"] border pixel 0
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-  font pango:Cascadia Code,Font Awesome 5 Free 9
+  font pango:Cascadia Code,Font Awesome 5 Free 8
   status_command i3blocks -c ~/.config/i3/i3blocks.conf
   colors {
     background #282c37
@@ -195,4 +195,4 @@ client.background       #000000
 
 for_window [class="Yad"] floating enable
 
-exec --no-startup-id picom --config ~/.config/picom/config -b
+# exec --no-startup-id picom --config ~/.config/picom/config -b
