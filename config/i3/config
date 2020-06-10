@@ -172,7 +172,6 @@ bindsym Shift+Print exec "scrot -z /tmp/screenshot-$(date +%F_%T).png -e 'xclip 
 default_border pixel 0
 for_window [class=".*"] border pixel 0
 
-
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {

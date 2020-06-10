@@ -6,13 +6,12 @@ call plug#begin('~/.nvim/plugged')
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'glacambre/firenvim'
 Plug 'liuchengxu/vim-clap'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-surround'
 
 " Color
-" Plug 'yous/vim-open-color'
+Plug 'yous/vim-open-color'
 " Plug 'chase/focuspoint-vim'
 " Plug 'larsbs/vimterial_dark'
 Plug 'dracula/vim', { 'as': 'dracula' }
@@ -67,7 +66,6 @@ augroup END
 " Plug 'gabrielelana/vim-markdown'
 " Plug 'rcmdnk/vim-markdown', { 'for': 'markdown' }
 Plug 'fatih/vim-go', { 'for': 'go' }
-
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
 
