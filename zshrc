@@ -37,12 +37,6 @@ export PATH="$HOME/.bin:$HOME/.local/bin:$GOBIN:$HOME/.yarn/bin:$HOME/.config/ya
 
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/usr/local/share/google-cloud-sdk/path.zsh.inc' ]; then source '/usr/local/share/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/usr/local/share/google-cloud-sdk/completion.zsh.inc' ]; then source '/usr/local/share/google-cloud-sdk/completion.zsh.inc'; fi
-
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -56,3 +50,12 @@ if [ "$(uname 2> /dev/null)" = "Linux" ]; then
 else
   eval "$(rbenv init -)"
 fi
+
+export DENO_INSTALL="/Users/randuin/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/randuin/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/randuin/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/randuin/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/randuin/Downloads/google-cloud-sdk/completion.zsh.inc'; fi

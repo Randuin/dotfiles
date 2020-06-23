@@ -28,7 +28,7 @@ if empty($TMUX) && empty($STY)
   endif
 endif
 
-set background=light
+set background=dark
 colorscheme open-color
 
 highlight Cursor ctermfg=white ctermbg=black guifg=white guibg=black
@@ -225,7 +225,8 @@ hi! link javaScriptLineComment typescriptLineComment
 hi jsObjectValue guifg=#b49551
 hi jsString guifg=#b49551 guibg=#fff5de
 hi! link tsxString jsxString
-hi! link jsxString jsxString
+hi! link typescriptStringD jsString
+hi! link jsxString jsString
 hi! link graphqlVariable jsObjectValue
 
 hi jsObjectKey guifg=#7a6537
