@@ -49,6 +49,9 @@ if [ "$(uname 2> /dev/null)" = "Linux" ]; then
   # eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 else
   eval "$(rbenv init -)"
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 fi
 
 export DENO_INSTALL="/Users/randuin/.deno"
