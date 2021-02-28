@@ -11,7 +11,7 @@ DISABLE_AUTO_TITLE=true
 DISABLE_UPDATE_PROMPT=true
 export LSCOLORS='exfxcxdxbxegedabagacad'
 export CLICOLOR=true
-export TERM=screen-256color
+# export TERM=screen-256color
 
 source <(antibody init)
 antibody bundle < ~/.config/antibody/bundles
