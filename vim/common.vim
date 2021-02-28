@@ -230,7 +230,8 @@ hi! link javaScriptLineComment typescriptLineComment
 hi jsObjectValue guifg=#b49551
 hi jsString guifg=#b49551 guibg=#fff5de
 hi! link tsxString jsxString
-hi! link jsxString jsxString
+hi! link typescriptStringD jsString
+hi! link jsxString jsString
 hi! link graphqlVariable jsObjectValue
 
 hi jsObjectKey guifg=#7a6537
