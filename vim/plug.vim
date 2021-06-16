@@ -10,6 +10,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'liuchengxu/vim-clap'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-surround'
+Plug 'delphinus/vim-firestore'
 
 " Color
 Plug 'yous/vim-open-color'
@@ -41,13 +42,15 @@ Plug 'tpope/vim-rails', { 'for': ['ruby', 'eruby'] }
 " JS
 Plug 'jason0x43/vim-js-indent', {'for': ['javascript','typescript','javascript.jsx','typescript.tsx']}
 Plug 'jparise/vim-graphql', {'for': ['javascript','typescript','javascript.jsx','typescript.tsx','graphql']}
-Plug 'pangloss/vim-javascript'
+" Plug 'pangloss/vim-javascript'
+Plug 'yuezk/vim-js'
 Plug 'MaxMEllon/vim-jsx-pretty'
+Plug 'chemzqm/vim-jsx-improve'
 Plug 'posva/vim-vue'
 Plug 'evanleck/vim-svelte'
 Plug 'tpope/vim-liquid'
+Plug 'peitalin/vim-jsx-typescript'
 Plug 'leafgarland/typescript-vim'
-Plug 'ianks/vim-tsx'
 "Plug 'HerringtonDarkholme/yats.vim'
 Plug 'rodrigore/coc-tailwind-intellisense', {'do': 'npm install'}
 
@@ -61,8 +64,8 @@ Plug 'styled-components/vim-styled-components', { 'for': ['javascript', 'js', 'j
 autocmd BufNewFile,BufRead *.md set filetype=markdown
 
 augroup javascript_folding
-    au!
-    au FileType javascript,javascript.jsx setlocal foldmethod=syntax
+  au!
+  au FileType javascript,javascript.jsx setlocal foldmethod=syntax
 augroup END
 
 " Misc
@@ -74,10 +77,13 @@ let g:go_info_mode='gopls'
 
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+let g:coc_global_extensions = [
+      \ 'coc-tsserver'
+      \ ]
 " function! NearestMethodOrFunction() abort
 "   return get(b:, 'vista_nearest_method_or_function', '')
 " endfunction
-" 
+"
 " set statusline+=%{NearestMethodOrFunction()}
 Plug 'liuchengxu/vista.vim'
 
@@ -111,5 +117,7 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
+nmap <leader>do <Plug>(coc-codeaction)
+nmap <leader>rn <Plug>(coc-rename)
 
 call plug#end()

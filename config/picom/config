@@ -1,9 +1,8 @@
 # basic configuration
 backend = "glx";
-vsync = "opengl-swc";
+vsync = true;
 
 glx-swap-method = 2;
-xrender-sync = true;
 xrender-sync-fence = true;
 
 # Opacity
@@ -12,8 +11,7 @@ xrender-sync-fence = true;
 # active-opacity = 0.8;
 frame-opacity = 0.7;
 inactive-opacity-override = false;
-alpha-step = 0.06;
-inactive-dim = 0.5;
+# inactive-dim = 0.5;
 # inactive-dim-fixed = true;
 # blur-background = true;
 # blur-background-frame = true;
@@ -36,10 +34,7 @@ fade-in-step = 0.03;
 fade-out-step = 0.03;
 
 # window shadows for i3
-shadow = true;
-no-dock-shadow = true;
-no-dnd-shadow = true;
-clear-shadow = true;
+shadow = false;
 shadow-radius = 7;
 shadow-offset-x = -7;
 shadow-offset-y = -7;

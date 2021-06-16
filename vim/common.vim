@@ -29,6 +29,11 @@ if empty($TMUX) && empty($STY)
       endif
       set termguicolors
     endif
+    if exists('+termguicolors')
+      let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+      let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+      set termguicolors
+    endif
   endif
 endif
 
@@ -269,6 +274,14 @@ nmap <silent> <leader>rl :TestLast<cr>
 
 nmap <silent> <leader>rc :call neoterm#close_all()<cr>
 nmap <silent> <leader>rx :call neoterm#clear()<cr>
+
+if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
+  let g:coc_global_extensions += ['coc-prettier']
+endif
+
+if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
+  let g:coc_global_extensions += ['coc-eslint']
+endif
 
 let g:ruby_path = system('echo $HOME/.rbenv/shims')
 
