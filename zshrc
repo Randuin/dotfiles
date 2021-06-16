@@ -6,6 +6,7 @@ export PROJECTS="$HOME/code"
 export EDITOR="nvim"
 alias vi="nvim"
 alias xclip="xclip -selection c"
+alias dc="docker-compose"
 
 DISABLE_AUTO_TITLE=true
 DISABLE_UPDATE_PROMPT=true

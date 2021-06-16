@@ -65,3 +65,10 @@
 # This next lines include Netlify's Git Credential Helper configuration in your Git configuration.
 [include]
   path = /home/randuin/.netlify/helper/git-config
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+[init]
+	defaultBranch = main
