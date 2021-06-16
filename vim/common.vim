@@ -15,7 +15,7 @@ set t_ZH=^[[3m
 set t_ZR=^[[23m
 
 set background=dark
-colorscheme open-color
+" colorscheme open-color
 
 
 if empty($TMUX) && empty($STY)

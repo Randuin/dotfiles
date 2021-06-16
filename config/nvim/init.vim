@@ -25,12 +25,13 @@ EOF
 
 lua require('plugins')
 lua require('keys')
+lua require('lspconfig')
 
-autocmd BufWritePost plugins.lua PackerCompile
-augroup fmt
-  autocmd!
-  autocmd BufWritePre * undojoin | Neoformat
-augroup END
+" autocmd BufWritePost plugins.lua PackerCompile
+" augroup fmt
+"   autocmd!
+"   autocmd BufWritePre * undojoin | Neoformat
+" augroup END
 
 let g:neoformat_basic_format_align = 1
 let g:neoformat_basic_format_retab = 1

@@ -7,19 +7,14 @@ call plug#begin('~/.nvim/plugged')
 " Plug 'kyazdani42/nvim-web-devicons' " for file icons
 " Plug 'kyazdani42/nvim-tree.lua'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'liuchengxu/vim-clap'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-surround'
 Plug 'delphinus/vim-firestore'
 
 " Color
-Plug 'yous/vim-open-color'
-" Plug 'chase/focuspoint-vim'
-" Plug 'larsbs/vimterial_dark'
 Plug 'dracula/vim', { 'as': 'dracula' }
 " Plug 'chriskempson/base16-vim'
 Plug 'yous/vim-open-color'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " Plug 'tweekmonster/startuptime.vim'
 Plug 'rking/ag.vim', { 'on': 'Ag' }
@@ -52,7 +47,7 @@ Plug 'tpope/vim-liquid'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'leafgarland/typescript-vim'
 "Plug 'HerringtonDarkholme/yats.vim'
-Plug 'rodrigore/coc-tailwind-intellisense', {'do': 'npm install'}
+" Plug 'rodrigore/coc-tailwind-intellisense', {'do': 'npm install'}
 
 
 let g:vue_pre_processors = ['scss']
@@ -76,10 +71,10 @@ let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
 
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-let g:coc_global_extensions = [
-      \ 'coc-tsserver'
-      \ ]
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" let g:coc_global_extensions = [
+"       \ 'coc-tsserver'
+"       \ ]
 " function! NearestMethodOrFunction() abort
 "   return get(b:, 'vista_nearest_method_or_function', '')
 " endfunction
@@ -87,37 +82,37 @@ let g:coc_global_extensions = [
 " set statusline+=%{NearestMethodOrFunction()}
 Plug 'liuchengxu/vista.vim'
 
-inoremap <silent><expr> <c-s-space> coc#refresh()
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-command! -nargs=? Fold :call     CocAction('fold', <f-args>)
-command! -nargs=0 Format :call CocAction('format')
-command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+" inoremap <silent><expr> <c-s-space> coc#refresh()
+" inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+" command! -nargs=0 Format :call CocAction('format')
+" command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 " command! -nargs=0 OR   :call     CocAction('runCommand', 'tsserver.organizeImports')
 " autocmd BufWritePre *.jsx Format
 " autocmd BufWritePre *.tsx Format
-nmap <leader>qf  <Plug>(coc-fix-current)
-vmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+" nmap <leader>qf  <Plug>(coc-fix-current)
+" vmap <leader>f  <Plug>(coc-format-selected)
+" nmap <leader>f  <Plug>(coc-format-selected)
 " autocmd CursorHold * silent call CocActionAsync('highlight')
 " autocmd CursorHoldI,CursorMovedI * silent! call CocActionAsync('showSignatureHelp')
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-function! s:show_documentation()
-  if &filetype == 'vim'
-    execute 'h '.expand('<cword>')
-  else
-    call CocActionAsync('doHover')
-  endif
-endfunction
-nmap <silent> [c <Plug>(coc-diagnostic-prev)
-nmap <silent> ]c <Plug>(coc-diagnostic-next)
+" nnoremap <silent> K :call <SID>show_documentation()<CR>
+" function! s:show_documentation()
+"   if &filetype == 'vim'
+"     execute 'h '.expand('<cword>')
+"   else
+"     call CocActionAsync('doHover')
+"   endif
+" endfunction
+" nmap <silent> [c <Plug>(coc-diagnostic-prev)
+" nmap <silent> ]c <Plug>(coc-diagnostic-next)
 
 " Remap keys for gotos
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-nmap <leader>do <Plug>(coc-codeaction)
-nmap <leader>rn <Plug>(coc-rename)
+" nmap <silent> gd <Plug>(coc-definition)
+" nmap <silent> gy <Plug>(coc-type-definition)
+" nmap <silent> gi <Plug>(coc-implementation)
+" nmap <silent> gr <Plug>(coc-references)
+"
+" nmap <leader>do <Plug>(coc-codeaction)
+" nmap <leader>rn <Plug>(coc-rename)
 
 call plug#end()

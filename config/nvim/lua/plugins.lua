@@ -20,8 +20,14 @@
 -- 
 --   -- {'dracula/vim', as='dracula'};    -- Use `as` to alias a package name (here `vim`)
 -- }
-return require('packer').startup(function()
+local packer = require("packer")
+local use = packer.use
+
+return packer.startup(function()
     use 'wbthomason/packer.nvim'
+    use "norcalli/nvim.lua"
+    use "siduck76/nvim-base16.lua"
+    use "norcalli/nvim-colorizer.lua"
     use {
         'windwp/nvim-autopairs',
         config = function()
@@ -32,12 +38,17 @@ return require('packer').startup(function()
     }
     use 'kyazdani42/nvim-web-devicons'
     use 'kyazdani42/nvim-tree.lua'
+    use 'nvim-treesitter/nvim-treesitter'
+    use {'neovim/nvim-lspconfig', opt=false}
+    use "hrsh7th/nvim-compe"
+    use "onsails/lspkind-nvim"
     use 'sbdchd/neoformat'
     use {
         'lewis6991/gitsigns.nvim',
         requires = {'nvim-lua/plenary.nvim'},
         config = function() require('gitsigns').setup() end
     }
+    use 'kabouzeid/nvim-lspinstall'
 
     -- Lazy loading:
     -- Load on specific commands
@@ -45,5 +56,10 @@ return require('packer').startup(function()
 
     -- Load on an autocommand event
     -- use {'andymass/vim-matchup', event = 'VimEnter'}
-end)
+end, {
+    display = {
+        border = {"┌", "─", "┐", "│", "┘", "─", "└", "│"}
+    }
+} -- Default to using opt (as opposed to start) plugins
+)
 
