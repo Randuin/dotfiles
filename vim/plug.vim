@@ -4,7 +4,8 @@ endif
 
 call plug#begin('~/.nvim/plugged')
 
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+" Plug 'kyazdani42/nvim-web-devicons' " for file icons
+" Plug 'kyazdani42/nvim-tree.lua'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'liuchengxu/vim-clap'
 Plug 'tpope/vim-vinegar'
@@ -17,6 +18,7 @@ Plug 'yous/vim-open-color'
 Plug 'dracula/vim', { 'as': 'dracula' }
 " Plug 'chriskempson/base16-vim'
 Plug 'yous/vim-open-color'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " Plug 'tweekmonster/startuptime.vim'
 Plug 'rking/ag.vim', { 'on': 'Ag' }
@@ -32,8 +34,6 @@ let g:neoterm_shell = "zsh"
 Plug 'kassio/neoterm'
 Plug 'mustache/vim-mustache-handlebars'
 
-Plug 'airblade/vim-gitgutter'
-
 " Ruby
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 Plug 'tpope/vim-rails', { 'for': ['ruby', 'eruby'] }
@@ -45,9 +45,12 @@ Plug 'pangloss/vim-javascript'
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'posva/vim-vue'
 Plug 'evanleck/vim-svelte'
+Plug 'tpope/vim-liquid'
 Plug 'leafgarland/typescript-vim'
 Plug 'ianks/vim-tsx'
 "Plug 'HerringtonDarkholme/yats.vim'
+Plug 'rodrigore/coc-tailwind-intellisense', {'do': 'npm install'}
+
 
 let g:vue_pre_processors = ['scss']
 

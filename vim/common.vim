@@ -14,6 +14,10 @@ set re=1
 set t_ZH=^[[3m
 set t_ZR=^[[23m
 
+set background=dark
+colorscheme open-color
+
+
 if empty($TMUX) && empty($STY)
   " See https://gist.github.com/XVilka/8346728.
   if $COLORTERM =~# 'truecolor' || $COLORTERM =~# '24bit'
@@ -27,9 +31,6 @@ if empty($TMUX) && empty($STY)
     endif
   endif
 endif
-
-set background=dark
-colorscheme open-color
 
 highlight Cursor ctermfg=white ctermbg=black guifg=white guibg=black
 highlight iCursor guifg=white guibg=steelblue
@@ -143,19 +144,6 @@ cnoremap %% <C-R>=expand('%:h').'/'<cr>
 nmap <leader>fe :edit %%
 nmap <leader>fv :view %%
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" RENAME CURRENT FILE
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! RenameFile()
-    let old_name = expand('%')
-    let new_name = input('New file name: ', expand('%'), 'file')
-    if new_name != '' && new_name != old_name
-        exec ':saveas ' . new_name
-        exec ':silent !rm ' . old_name
-        redraw!
-    endif
-endfunction
-map <leader>fm :call RenameFile()<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " COPY CURRENT FILE
@@ -283,3 +271,11 @@ nmap <silent> <leader>rc :call neoterm#close_all()<cr>
 nmap <silent> <leader>rx :call neoterm#clear()<cr>
 
 let g:ruby_path = system('echo $HOME/.rbenv/shims')
+
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+  enable = true,
+  },
+}
+EOF
