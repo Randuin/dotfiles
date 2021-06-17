@@ -24,8 +24,11 @@ end
 EOF
 
 lua require('plugins')
+lua require('plugins/nvim-lspconfig')
+lua require('plugins/compe-completion')
+lua require('plugins/telescope')
 lua require('keys')
-lua require('lspconfig')
+" lua require('lspconfig')
 
 " autocmd BufWritePost plugins.lua PackerCompile
 " augroup fmt
@@ -38,5 +41,5 @@ let g:neoformat_basic_format_retab = 1
 let g:neoformat_basic_format_trim = 1
 
 
-so ~/.vim/plug.vim
+" so ~/.vim/plug.vim
 so ~/.vim/common.vim

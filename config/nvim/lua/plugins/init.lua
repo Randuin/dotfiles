@@ -23,8 +23,15 @@
 local packer = require("packer")
 local use = packer.use
 
+local windows = function() return require'utils.environment'.isWindows() end
+
+local tmux = function() return vim.fn.exists('$TMUX') == 1 end
+
+local kitty = function() return vim.fn.exists('$KITTY_WINDOW_ID') == 1 end
+
 return packer.startup(function()
     use 'wbthomason/packer.nvim'
+    use 'svermeulen/vimpeccable'
     use "norcalli/nvim.lua"
     use "siduck76/nvim-base16.lua"
     use "norcalli/nvim-colorizer.lua"
@@ -38,28 +45,43 @@ return packer.startup(function()
     }
     use 'kyazdani42/nvim-web-devicons'
     use 'kyazdani42/nvim-tree.lua'
-    use 'nvim-treesitter/nvim-treesitter'
-    use {'neovim/nvim-lspconfig', opt=false}
+    -------------
+    -- Treesitter
+    -------------
+    use {
+        {
+            'nvim-treesitter/nvim-treesitter',
+            run = ':TSUpdate',
+            config = require 'plugins.treesitter',
+            disable = windows()
+        }, {
+            'JoosepAlviste/nvim-ts-context-commentstring',
+            requires = 'nvim-treesitter/nvim-treesitter',
+            disable = windows()
+        }, {
+            'windwp/nvim-ts-autotag',
+            requires = 'nvim-treesitter/nvim-treesitter',
+            disable = windows()
+        }
+    }
+    use {
+        'onsails/lspkind-nvim', 'neovim/nvim-lspconfig',
+        'nvim-lua/lsp-status.nvim', 'glepnir/lspsaga.nvim', 'folke/trouble.nvim'
+    }
     use "hrsh7th/nvim-compe"
-    use "onsails/lspkind-nvim"
     use 'sbdchd/neoformat'
+    use {
+        'nvim-telescope/telescope.nvim',
+        requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
+    }
     use {
         'lewis6991/gitsigns.nvim',
         requires = {'nvim-lua/plenary.nvim'},
         config = function() require('gitsigns').setup() end
     }
-    use 'kabouzeid/nvim-lspinstall'
-
-    -- Lazy loading:
-    -- Load on specific commands
-    -- use {'tpope/vim-dispatch', opt = true, cmd = {'Dispatch', 'Make', 'Focus', 'Start'}}
-
-    -- Load on an autocommand event
-    -- use {'andymass/vim-matchup', event = 'VimEnter'}
 end, {
     display = {
         border = {"┌", "─", "┐", "│", "┘", "─", "└", "│"}
     }
-} -- Default to using opt (as opposed to start) plugins
-)
+})
 

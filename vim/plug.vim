@@ -6,67 +6,62 @@ call plug#begin('~/.nvim/plugged')
 
 " Plug 'kyazdani42/nvim-web-devicons' " for file icons
 " Plug 'kyazdani42/nvim-tree.lua'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'tpope/vim-vinegar'
-Plug 'tpope/vim-surround'
-Plug 'delphinus/vim-firestore'
+" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" Plug 'tpope/vim-vinegar'
+" Plug 'tpope/vim-surround'
+" Plug 'delphinus/vim-firestore'
 
 " Color
-Plug 'dracula/vim', { 'as': 'dracula' }
+" Plug 'dracula/vim', { 'as': 'dracula' }
 " Plug 'chriskempson/base16-vim'
-Plug 'yous/vim-open-color'
+" Plug 'yous/vim-open-color'
 
 " Plug 'tweekmonster/startuptime.vim'
-Plug 'rking/ag.vim', { 'on': 'Ag' }
-Plug 'kana/vim-operator-user'
-Plug 'rhysd/vim-operator-surround'
-nmap <silent>sa <Plug>(operator-surround-append)
-nmap <silent>sd <Plug>(operator-surround-delete)
-nmap <silent>sr <Plug>(operator-surround-replace)
-Plug 'tpope/vim-unimpaired'
+" Plug 'rking/ag.vim', { 'on': 'Ag' }
+" Plug 'kana/vim-operator-user'
+" Plug 'rhysd/vim-operator-surround'
+" nmap <silent>sa <Plug>(operator-surround-append)
+" nmap <silent>sd <Plug>(operator-surround-delete)
+" nmap <silent>sr <Plug>(operator-surround-replace)
+" Plug 'tpope/vim-unimpaired'
 
-Plug 'janko-m/vim-test'
-let g:neoterm_shell = "zsh"
-Plug 'kassio/neoterm'
-Plug 'mustache/vim-mustache-handlebars'
+" Plug 'janko-m/vim-test'
+" let g:neoterm_shell = "zsh"
+" Plug 'kassio/neoterm'
+" Plug 'mustache/vim-mustache-handlebars'
 
 " Ruby
-Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
-Plug 'tpope/vim-rails', { 'for': ['ruby', 'eruby'] }
+" Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
+" Plug 'tpope/vim-rails', { 'for': ['ruby', 'eruby'] }
 
 " JS
-Plug 'jason0x43/vim-js-indent', {'for': ['javascript','typescript','javascript.jsx','typescript.tsx']}
-Plug 'jparise/vim-graphql', {'for': ['javascript','typescript','javascript.jsx','typescript.tsx','graphql']}
+" Plug 'jason0x43/vim-js-indent', {'for': ['javascript','typescript','javascript.jsx','typescript.tsx']}
+" Plug 'jparise/vim-graphql', {'for': ['javascript','typescript','javascript.jsx','typescript.tsx','graphql']}
 " Plug 'pangloss/vim-javascript'
-Plug 'yuezk/vim-js'
-Plug 'MaxMEllon/vim-jsx-pretty'
-Plug 'chemzqm/vim-jsx-improve'
-Plug 'posva/vim-vue'
-Plug 'evanleck/vim-svelte'
-Plug 'tpope/vim-liquid'
-Plug 'peitalin/vim-jsx-typescript'
-Plug 'leafgarland/typescript-vim'
+" Plug 'yuezk/vim-js'
+" Plug 'MaxMEllon/vim-jsx-pretty'
+" Plug 'chemzqm/vim-jsx-improve'
+" Plug 'posva/vim-vue'
+" Plug 'evanleck/vim-svelte'
+" Plug 'tpope/vim-liquid'
+" Plug 'peitalin/vim-jsx-typescript'
+" Plug 'leafgarland/typescript-vim'
 "Plug 'HerringtonDarkholme/yats.vim'
 " Plug 'rodrigore/coc-tailwind-intellisense', {'do': 'npm install'}
 
 
 let g:vue_pre_processors = ['scss']
 
-autocmd BufNewFile,BufRead *.tsx,*.jsx,*.ts set filetype=typescript.tsx
+" autocmd BufNewFile,BufRead *.tsx,*.jsx,*.ts set filetype=typescript.tsx
 
-Plug 'styled-components/vim-styled-components', { 'for': ['javascript', 'js', 'jsx', 'ts', 'typescript'], 'branch': 'main'}
+" Plug 'styled-components/vim-styled-components', { 'for': ['javascript', 'js', 'jsx', 'ts', 'typescript'], 'branch': 'main'}
 
 autocmd BufNewFile,BufRead *.md set filetype=markdown
-
-augroup javascript_folding
-  au!
-  au FileType javascript,javascript.jsx setlocal foldmethod=syntax
-augroup END
 
 " Misc
 " Plug 'gabrielelana/vim-markdown'
 " Plug 'rcmdnk/vim-markdown', { 'for': 'markdown' }
-Plug 'fatih/vim-go', { 'for': 'go' }
+" Plug 'fatih/vim-go', { 'for': 'go' }
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
 
@@ -80,7 +75,7 @@ let g:go_info_mode='gopls'
 " endfunction
 "
 " set statusline+=%{NearestMethodOrFunction()}
-Plug 'liuchengxu/vista.vim'
+" Plug 'liuchengxu/vista.vim'
 
 " inoremap <silent><expr> <c-s-space> coc#refresh()
 " inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"

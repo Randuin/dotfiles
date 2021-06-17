@@ -122,21 +122,6 @@ end
 
 local servers = {
     bashls = {},
-    clangd = {
-        cmd = {
-            'clangd', -- '--background-index',
-            '--clang-tidy', '--completion-style=bundled',
-            '--header-insertion=iwyu', '--suggest-missing-includes',
-            '--cross-file-rename'
-        },
-        handlers = lsp_status.extensions.clangd.setup(),
-        init_options = {
-            clangdFileStatus = true,
-            usePlaceholders = true,
-            completeUnimported = true,
-            semanticHighlighting = true
-        }
-    },
     cssls = {
         filetypes = {"css", "scss", "less", "sass"},
         root_dir = lspconfig.util.root_pattern("package.json", ".git")
@@ -144,43 +129,8 @@ local servers = {
     ghcide = {},
     html = {},
     jsonls = {cmd = {'json-languageserver', '--stdio'}},
-    julials = {settings = {julia = {format = {indent = 2}}}},
-    ocamllsp = {},
     pyright = {settings = {python = {formatting = {provider = 'yapf'}}}},
     rust_analyzer = {},
-    sumneko_lua = function()
-        return require('lua-dev').setup({
-            lspconfig = {cmd = {'lua-language-server'}}
-        })
-    end,
-    texlab = {
-        settings = {
-            texlab = {
-                chktex = {onOpenAndSave = true},
-                formatterLineLength = 100,
-                forwardSearch = {
-                    executable = 'okular',
-                    args = {'--unique', 'file:%p#src:%l%f'}
-                }
-            }
-        },
-        commands = {
-            TexlabForwardSearch = {
-                function()
-                    local pos = vim.api.nvim_win_get_cursor(0)
-                    local params = {
-                        textDocument = {uri = vim.uri_from_bufnr(0)},
-                        position = {line = pos[1] - 1, character = pos[2]}
-                    }
-                    lsp.buf_request(0, 'textDocument/forwardSearch', params,
-                                    function(err, _, _, _)
-                        if err then error(tostring(err)) end
-                    end)
-                end,
-                description = 'Run synctex forward search'
-            }
-        }
-    },
     tsserver = {},
     vimls = {}
 }
