@@ -27,6 +27,7 @@ lua require('plugins')
 lua require('plugins/nvim-lspconfig')
 lua require('plugins/compe-completion')
 lua require('plugins/telescope')
+lua require('plugins/lualine')
 lua require('keys')
 " lua require('lspconfig')
 

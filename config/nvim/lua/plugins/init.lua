@@ -69,6 +69,7 @@ return packer.startup(function()
         'nvim-lua/lsp-status.nvim', 'glepnir/lspsaga.nvim', 'folke/trouble.nvim'
     }
     use "hrsh7th/nvim-compe"
+    use "cespare/vim-toml"
     use 'sbdchd/neoformat'
     use {
         'nvim-telescope/telescope.nvim',
@@ -78,6 +79,11 @@ return packer.startup(function()
         'lewis6991/gitsigns.nvim',
         requires = {'nvim-lua/plenary.nvim'},
         config = function() require('gitsigns').setup() end
+    }
+    use 'folke/tokyonight.nvim'
+    use {
+        'hoob3rt/lualine.nvim',
+        requires = {'kyazdani42/nvim-web-devicons', opt = true}
     }
 end, {
     display = {
