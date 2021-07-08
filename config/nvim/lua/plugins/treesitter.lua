@@ -1,12 +1,6 @@
 return function()
   local prerequire = require'utils.prerequire'
-  local io = require'utils.io'
-
   local config = prerequire'nvim-treesitter.configs'
-  if not config then
-    io.warning"Couldn't load `nvim-treesitter.configs` package"
-    return
-  end
 
   config.setup {
     ensure_installed = 'maintained',
@@ -25,4 +19,5 @@ return function()
   }
   vim.cmd[[set foldmethod=expr]]
   vim.cmd[[set foldexpr=nvim_treesitter#foldexpr()]]
+  vim.cmd[[set nofoldenable]]
 end

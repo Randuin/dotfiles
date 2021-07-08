@@ -14,12 +14,6 @@ set re=1
 set t_ZH=^[[3m
 set t_ZR=^[[23m
 
-set background=dark
-" colorscheme open-color
-colorscheme tokyonight
-
-
-
 if empty($TMUX) && empty($STY)
   " See https://gist.github.com/XVilka/8346728.
   if $COLORTERM =~# 'truecolor' || $COLORTERM =~# '24bit'

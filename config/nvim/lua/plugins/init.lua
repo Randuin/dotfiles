@@ -23,17 +23,13 @@
 local packer = require("packer")
 local use = packer.use
 
-local windows = function() return require'utils.environment'.isWindows() end
-
 local tmux = function() return vim.fn.exists('$TMUX') == 1 end
-
 local kitty = function() return vim.fn.exists('$KITTY_WINDOW_ID') == 1 end
 
 return packer.startup(function()
     use 'wbthomason/packer.nvim'
     use 'svermeulen/vimpeccable'
     use "norcalli/nvim.lua"
-    use "siduck76/nvim-base16.lua"
     use "norcalli/nvim-colorizer.lua"
     use {
         'windwp/nvim-autopairs',
@@ -52,27 +48,33 @@ return packer.startup(function()
         {
             'nvim-treesitter/nvim-treesitter',
             run = ':TSUpdate',
-            config = require 'plugins.treesitter',
-            disable = windows()
+            config = require 'plugins.treesitter'
         }, {
             'JoosepAlviste/nvim-ts-context-commentstring',
-            requires = 'nvim-treesitter/nvim-treesitter',
-            disable = windows()
-        }, {
-            'windwp/nvim-ts-autotag',
-            requires = 'nvim-treesitter/nvim-treesitter',
-            disable = windows()
-        }
+            requires = 'nvim-treesitter/nvim-treesitter'
+        },
+        {'windwp/nvim-ts-autotag', requires = 'nvim-treesitter/nvim-treesitter'}
     }
     use {
-        'onsails/lspkind-nvim', 'neovim/nvim-lspconfig',
-        'nvim-lua/lsp-status.nvim', 'glepnir/lspsaga.nvim', 'folke/trouble.nvim'
+        'onsails/lspkind-nvim',
+        'neovim/nvim-lspconfig',
+        'nvim-lua/lsp-status.nvim',
+        'glepnir/lspsaga.nvim',
+        'folke/trouble.nvim',
+        config = require 'plugins.nvim-lspconfig'
     }
-    use "hrsh7th/nvim-compe"
+    use {
+        'kabouzeid/nvim-lspinstall',
+        config = function()
+            require'lspinstall'.setup() -- important
+        end
+    }
+    use {"hrsh7th/nvim-compe", config = require 'plugins.compe-completion'}
     use "cespare/vim-toml"
     use 'sbdchd/neoformat'
     use {
         'nvim-telescope/telescope.nvim',
+        config = require 'plugins.telescope',
         requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
     }
     use {
@@ -81,8 +83,10 @@ return packer.startup(function()
         config = function() require('gitsigns').setup() end
     }
     use 'folke/tokyonight.nvim'
+    use 'yashguptaz/calvera-dark.nvim'
     use {
         'hoob3rt/lualine.nvim',
+        config = require 'plugins.lualine',
         requires = {'kyazdani42/nvim-web-devicons', opt = true}
     }
 end, {
