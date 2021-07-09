@@ -9,6 +9,16 @@ local map_cmd = bind.map_cmd
 local map_args = bind.map_args
 -- require('keymap.config')
 
+vim.cmd([[
+  nnoremap [Space] <Nop>
+  nmap  <Space> [Space]
+  xmap  <Space> [Space]
+  
+  nnoremap [Space]t <cmd>Telescope find_files<cr>
+  nnoremap [Space]/ <cmd>Telescope live_grep<cr>
+  nnoremap [Space]e <cmd>Telescope buffers<cr>
+]])
+
 local plug_map = {
     ["i|<TAB>"]      = map_cmd('v:lua.tab_complete()'):with_expr():with_silent(),
     ["i|<S-TAB>"]    = map_cmd('v:lua.s_tab_complete()'):with_silent():with_expr(),
@@ -59,7 +69,7 @@ local plug_map = {
     ["n|<Leader>bb"]     = map_cu('Telescope buffers'):with_noremap():with_silent(),
     ["n|<Leader>fa"]     = map_cu('DashboardFindWord'):with_noremap():with_silent(),
     ["n|<Leader>fb"]     = map_cu('Telescope file_browser'):with_noremap():with_silent(),
-    ["n|<Leader>ff"]     = map_cu('DashboardFindFile'):with_noremap():with_silent(),
+    ["n|<Leader>ff"]     = map_cu('Telescope find_files'):with_noremap():with_silent(),
     ["n|<Leader>fg"]     = map_cu('Telescope git_files'):with_noremap():with_silent(),
     ["n|<Leader>fw"]     = map_cu('Telescope grep_string'):with_noremap():with_silent(),
     ["n|<Leader>fh"]     = map_cu('DashboardFindHistory'):with_noremap():with_silent(),
@@ -93,9 +103,9 @@ local plug_map = {
     -- ["x|F"]              = map_cmd("v:lua.enhance_ft_move('F')"):with_expr(),
     -- ["o|F"]              = map_cmd("v:lua.enhance_ft_move('F')"):with_expr(),
     -- Plugin vim_niceblock
-    ["x|I"]              = map_cmd("v:lua.enhance_nice_block('I')"):with_expr(),
-    ["x|gI"]             = map_cmd("v:lua.enhance_nice_block('gI')"):with_expr(),
-    ["x|A"]              = map_cmd("v:lua.enhance_nice_block('A')"):with_expr(),
+    -- ["x|I"]              = map_cmd("v:lua.enhance_nice_block('I')"):with_expr(),
+    -- ["x|gI"]             = map_cmd("v:lua.enhance_nice_block('gI')"):with_expr(),
+    -- ["x|A"]              = map_cmd("v:lua.enhance_nice_block('A')"):with_expr(),
 };
 
 bind.nvim_load_mapping(plug_map)
