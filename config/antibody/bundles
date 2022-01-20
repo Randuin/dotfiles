@@ -7,5 +7,5 @@ mafredri/zsh-async
 
 # these should be at last!
 intelfx/pure
-zdharma/fast-syntax-highlighting
+zdharma-continuum/fast-syntax-highlighting
 zsh-users/zsh-history-substring-search
