@@ -1,100 +1,112 @@
-#!/usr/bin/env bash
-# Copyright (C) 2014 Julien Bonjean <julien@bonjean.info>
-# Copyright (C) 2014 Alexander Keller <github@nycroth.com>
+#!/bin/bash
+# This project is libre, and licenced under the terms of the
+# DO WHAT THE FUCK YOU WANT TO PUBLIC LICENCE, version 3.1,
+# as published by dtf on July 2019. See the LICENSE file or
+# https://ph.dtf.wtf/w/wtfpl/#version-3-1 for more details.
 
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
+# Displays the default device, volume, and mute status for i3blocks
+# Required pkgs (voidlinux) are:
+#	pipewire
+#	pamixer
+#	pulseaudio-utils
 
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
+AUDIO_HIGH_SYMBOL=' '
 
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+AUDIO_MED_HIGH_THRESH=70
+AUDIO_MED_HIGH_SYMBOL=' '
 
-#------------------------------------------------------------------------
+AUDIO_MED_THRESH=30
+AUDIO_MED_SYMBOL=' '
 
-# The second parameter overrides the mixer selection
-# For PulseAudio users, eventually use "pulse"
-# For Jack/Jack2 users, use "jackplug"
-# For ALSA users, you may use "default" for your primary card
-# or you may use hw:# where # is the number of the card desired
-if [[ -z "$MIXER" ]] ; then
-    MIXER="default"
-    if command -v pulseaudio >/dev/null 2>&1 && pulseaudio --check ; then
-        # pulseaudio is running, but not all installations use "pulse"
-        if amixer -D pulse info >/dev/null 2>&1 ; then
-            MIXER="pulse"
-        fi
-    fi
-    [ -n "$(lsmod | grep jack)" ] && MIXER="jackplug"
-    MIXER="${2:-$MIXER}"
-fi
+AUDIO_LOW_THRESH=0
+AUDIO_LOW_SYMBOL=' '
 
-# The instance option sets the control to report and configure
-# This defaults to the first control of your selected mixer
-# For a list of the available, use `amixer -D $Your_Mixer scontrols`
-if [[ -z "$SCONTROL" ]] ; then
-    SCONTROL="${BLOCK_INSTANCE:-$(amixer -D $MIXER scontrols |
-                      sed -n "s/Simple mixer control '\([^']*\)',0/\1/p" |
-                      head -n1
-                    )}"
-fi
+AUDIO_MUTED_SYMBOL=' '
 
-# The first parameter sets the step to change the volume by (and units to display)
-# This may be in in % or dB (eg. 5% or 3dB)
-if [[ -z "$STEP" ]] ; then
-    STEP="${1:-5%}"
-fi
+AUDIO_INTERVAL=1
 
-#------------------------------------------------------------------------
+DEFAULT_COLOR="#00FF00"
+#DEFAULT_COLOR="#FFFFFF"
+MUTED_COLOR="#FF0000"
+#MUTED_COLOR="#a0a0a0"
 
-capability() { # Return "Capture" if the device is a capture device
-  amixer -D $MIXER get $SCONTROL |
-    sed -n "s/  Capabilities:.*cvolume.*/Capture/p"
+LONG_FORMAT=1
+SHORT_FORMAT=0
+USE_PERCENT=1
+USE_ALSA_NAME=0
+USE_DESCRIPTION=1
+
+while getopts F:f:pdH:M:L:X:T:t:C:c:i:h opt; do
+	case "$opt" in
+		F) LONG_FORMAT="$OPTARG" ;;
+		f) SHORT_FORMAT="$OPTARG" ;;
+		p) USE_PERCENT=0 ;;
+		d) USE_DESCRIPTION=1 ;;
+		H) AUDIO_HIGH_SYMBOL="$OPTARG" ;;
+		M) AUDIO_MED_SYMBOL="$OPTARG" ;;
+		L) AUDIO_LOW_SYMBOL="$OPTARG" ;;
+		X) AUDIO_MUTED_SYMBOL="$OPTARG" ;;
+		T) AUDIO_MED_THRESH="$OPTARG" ;;
+		t) AUDIO_LOW_THRESH="$OPTARG" ;;
+		C) DEFAULT_COLOR="$OPTARG" ;;
+		c) MUTED_COLOR="$OPTARG" ;;
+		i) AUDIO_INTERVAL="$OPTARG" ;;
+		h) printf "help" ;;
+	esac
+done
+
+function move_sinks_to_new_default {
+	DEFAULT_SINK=$1
+	pactl info | grep 'Default Sink' | while read SINK; do
+		pactl set-default-sink $SINK
+	done
 }
 
-volume() {
-  amixer -D $MIXER get $SCONTROL $(capability)
+function print_format {
+	[[ $USE_PERCENT == 0 ]] && PERCENT=""
+	case "$1" in
+		1) echo "$SYMBOL$VOL$PERCENT" ;;
+		2) echo "$SYMBOL$VOL$PERCENT [$INDEX]";;
+		3) echo "$SYMBOL$VOL$PERCENT" ;;
+		*) echo "$SYMBOL$VOL$PERCENT [$INDEX:$NAME]" ;;
+	esac
 }
 
-format() {
-  
-  perl_filter='if (/.*\[(\d+%)\] (\[(-?\d+.\d+dB)\] )?\[(on|off)\]/)'
-  perl_filter+='{CORE::say $4 eq "off" ? "MUTE" : "'
-  # If dB was selected, print that instead
-  perl_filter+=$([[ $STEP = *dB ]] && echo '$3' || echo '$1')
-  perl_filter+='"; exit}'
-  output=$(perl -ne "$perl_filter")
-  echo "$output"
-  echo "$output"
-  VOL=${output::-1}
-  if [[ $VOL -ge 100 ]]; then
-    echo "#FACA66"
-  elif [[ $VOL -ge 80 ]]; then
-    echo "#88C100"
-  elif [[ $VOL -ge 60 ]]; then
-    echo "#FEE5AD"
-  elif [[ $VOL -ge 40 ]]; then
-    echo "#FACA66"
-  elif [[ $VOL -ge 20 ]]; then
-    echo "#F7A541"
-  elif [[ $VOL -eq 0 ]]; then
-    echo "#F45D4C"
-  elif [[ $output -eq "MUTE" ]]; then
-    echo "#F45D4C"
-  fi
+function print_block {
+	for name in NAME; do
+		read $name
+	done < <(pactl info | grep 'Default Sink:')
+	NAME=$(echo "$NAME" | awk '{print $3}')
+	DESCRIPTION=$(pactl list sinks | grep -B2 -A1 "$NAME$" | grep Description | cut -f2- -d\ )
+	INDEX=$(pactl list sinks | grep -B2 -A1 "$NAME$" | grep Sink | cut -f2 -d\#)
+	
+	if [[ $USE_DESCRIPTION == 1 ]]; then
+		NAME="$DESCRIPTION"
+	fi
+
+	[[ $USE_PERCENT == 1 ]] && VOL="$(pamixer --get-volume-human)" || VOL=$(pamixer --get-volume)
+	
+	MUTED=$(pamixer --get-mute)
+
+	if [[ $MUTED =~ "false" ]] ; then
+		SYMBOL=$AUDIO_HIGH_SYMBOL
+		[[ ${VOL/\%/} -le $AUDIO_MED_HIGH_THRESH ]] && SYMBOL=$AUDIO_MED_HIGH_SYMBOL
+		[[ ${VOL/\%/} -le $AUDIO_MED_THRESH ]] && SYMBOL=$AUDIO_MED_SYMBOL
+		[[ ${VOL/\%/} -le $AUDIO_LOW_THRESH ]] && SYMBOL=$AUDIO_LOW_SYMBOL
+		COLOR=$DEFAULT_COLOR
+	else
+		SYMBOL=$AUDIO_MUTED_SYMBOL
+		COLOR=$MUTED_COLOR
+	fi
+
+	if [[ $SUBSCRIBE == 1 ]] ; then
+		print_format "$LONG_FORMAT"
+		echo "$COLOR"
+	else
+		print_format "$LONG_FORMAT"
+		print_format "$SHORT_FORMAT"
+		echo "$COLOR"
+	fi
 }
 
-#------------------------------------------------------------------------
-
-case $BLOCK_BUTTON in
-  3) amixer -q -D $MIXER sset $SCONTROL $(capability) toggle ;;  # right click, mute/unmute
-  4) amixer -q -D $MIXER sset $SCONTROL $(capability) ${STEP}+ unmute ;; # scroll up, increase
-  5) amixer -q -D $MIXER sset $SCONTROL $(capability) ${STEP}- unmute ;; # scroll down, decrease
-esac
-
-volume | format
+print_block

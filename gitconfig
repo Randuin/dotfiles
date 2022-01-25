@@ -28,7 +28,7 @@
 [filter "media"]
 	clean = git media clean %f
 	smudge = git media smudge %f
-	required = true
+required = true
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
@@ -72,7 +72,7 @@
 	process = git-lfs filter-process
 [init]
 	defaultBranch = main
-[url "git@github.com:"]
-	insteadOf = https://github.com/
 [pull]
 	rebase = true
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
