@@ -6,25 +6,28 @@
   excludesfile = /home/randuin/.gitignore_global
 	pager = diff-so-fancy | less --tabs=4 -RFX
 [color]
-	ui = always
+	ui = true
 [color "branch"]
 	current = yellow reverse
 	local = yellow
 	remote = green
 [color "diff"]
-	meta = yellow bold
+	meta = 11
 	frag = magenta bold
 	old = red bold
 	new = green bold
+	func = 146 bold
+	commit = yellow bold
+	whitespace = red reverse
 [color "status"]
 	added = yellow
 	changed = green
 	untracked = cyan
 [color "diff-highlight"]
-	oldNormal = "red bold"
-	oldHighlight = "red bold 52"
-	newNormal = "green bold"
-	newHighlight = "green bold 22"
+	oldNormal = red bold
+	oldHighlight = 9 bold 217
+	newNormal = green bold
+	newHighlight = green bold 151
 [filter "media"]
 	clean = git media clean %f
 	smudge = git media smudge %f
@@ -76,3 +79,5 @@ required = true
 	rebase = true
 [url "ssh://git@github.com/"]
 	insteadOf = https://github.com/
+[interactive]
+	diffFilter = diff-so-fancy --patch
