@@ -1,8 +1,8 @@
--- vim.g.calvera_italic_keywords = true
--- vim.g.calvera_borders = true
--- vim.g.calvera_contrast = true
--- vim.g.calvera_hide_eob = true
--- vim.g.calvera_custom_colors = {contrast = "#0f111a"}
+vim.g.calvera_italic_keywords = true
+vim.g.calvera_borders = true
+vim.g.calvera_contrast = true
+vim.g.calvera_hide_eob = true
+vim.g.calvera_custom_colors = {contrast = "#0f111a"}
 
 local opt = vim.opt
 
@@ -24,4 +24,4 @@ opt.smartindent = true
 vim.g.tokyonight_style = "day"
 vim.g.tokyonight_colors = { hint = "orange", error = "#ff0000" }
 vim.o.termguicolors = true
-vim.cmd[[colorscheme tokyonight]]
+vim.cmd[[colorscheme calvera]]

@@ -50,8 +50,11 @@ if [ "$(uname 2> /dev/null)" = "Linux" ]; then
   source /usr/share/chruby/auto.sh
   source /usr/share/nvm/init-nvm.sh
   # eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+  . /usr/local/opt/asdf/libexec/asdf.sh
 else
-  echo -e "\n. $(brew --prefix asdf)/libexec/asdf.sh" >> ${ZDOTDIR:-~}/.zshrc
+  # echo -e "\n. $(brew --prefix asdf)/libexec/asdf.sh" >> ${ZDOTDIR:-~}/.zshrc
+  . $(brew --prefix asdf)/libexec/asdf.sh
+  # . /opt/homebrew/opt/asdf/libexec/asdf.sh
 fi
 
 export DENO_INSTALL="/Users/randuin/.deno"
@@ -63,140 +66,5 @@ if [ -f '/Users/randuin/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Use
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/randuin/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/randuin/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
 
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
 
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
