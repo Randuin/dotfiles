@@ -3,7 +3,7 @@ return function()
   local config = prerequire'nvim-treesitter.configs'
 
   config.setup {
-    ensure_installed = 'maintained',
+    ensure_installed = { "lua", "rust", "ruby", "javascript", "typescript" },
     highlight = {
       enable = true,
     },

@@ -93,10 +93,7 @@ use({
 use("folke/tokyonight.nvim")
 use("yashguptaz/calvera-dark.nvim")
 use 'bluz71/vim-nightfly-guicolors'
-use({
-  "hoob3rt/tualine.nvim",
-  requires = { "kyazdani42/nvim-web-devicons", opt = true },
-})
+use("nvim-lualine/lualine.nvim")
 end, {
 display = {
   border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },

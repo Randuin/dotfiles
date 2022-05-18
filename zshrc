@@ -46,11 +46,11 @@ export PATH="$HOME/.bin:$HOME/.local/bin:$GOBIN:$HOME/.yarn/bin:$HOME/.config/ya
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 if [ "$(uname 2> /dev/null)" = "Linux" ]; then
-  source /usr/share/chruby/chruby.sh
-  source /usr/share/chruby/auto.sh
-  source /usr/share/nvm/init-nvm.sh
+  # source /usr/share/chruby/chruby.sh
+  # source /usr/share/chruby/auto.sh
+  # source /usr/share/nvm/init-nvm.sh
   # eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-  . /usr/local/opt/asdf/libexec/asdf.sh
+  . /opt/asdf-vm/asdf.sh
 else
   # echo -e "\n. $(brew --prefix asdf)/libexec/asdf.sh" >> ${ZDOTDIR:-~}/.zshrc
   . $(brew --prefix asdf)/libexec/asdf.sh

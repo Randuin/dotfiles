@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Cascadia Code 9
+font pango:VictorMono Nerd Font 9
 
 # gaps inner 4
 # gaps outer 0
@@ -163,8 +163,8 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl -- set-sink-volume 0 -5%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec sudo light -A 1 # increase screen brightness
-bindsym XF86MonBrightnessDown exec sudo light -U 1 # decrease screen br
+bindsym XF86MonBrightnessUp exec sudo xbacklight -inc 10 # increase screen brightness
+bindsym XF86MonBrightnessDown exec sudo xbacklight -dec 10 # decrease screen br
 
 bindsym $mod+Shift+s --release exec "scrot -s -z /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
 bindsym Shift+Print exec "scrot -z /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
