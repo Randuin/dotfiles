@@ -4,7 +4,7 @@
 [core]
   editor = vim
   excludesfile = /home/randuin/.gitignore_global
-	pager = diff-so-fancy | less --tabs=4 -RFX
+  pager = delta
 [color]
 	ui = true
 [color "branch"]
@@ -40,6 +40,7 @@ required = true
 	trustExitCode = true
 [diff]
 	tool = vimdiff
+	colorMoved = default
 [merge]
   tool = vimdiff
   conflicstyle = diff3
@@ -81,3 +82,6 @@ required = true
 	insteadOf = https://github.com/
 [interactive]
 	diffFilter = diff-so-fancy --patch
+[delta]
+    navigate = true  # use n and N to move between diff sections
+    light = false
