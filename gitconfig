@@ -59,6 +59,7 @@ required = true
 	helper = osxkeychain
 [push]
 	default = simple
+	autoSetupRemote = true
 [alias]
   l   = log -18 --color=always --all --topo-order --pretty='format:%Cgreen%h%Creset %s%Cred%d%Creset %C(black bold)(by %an)%Creset'
   ll  = log     --color=always --all --topo-order --pretty='format:%Cgreen%h%Creset %s%Cred%d%Creset %C(black bold)(by %an)%Creset'
@@ -80,6 +81,8 @@ required = true
 	rebase = true
 [url "ssh://git@github.com/"]
 	insteadOf = https://github.com/
+[url "git@github.com:"]
+	insteadOf = git://github.com/
 [interactive]
 	diffFilter = diff-so-fancy --patch
 [delta]
