@@ -18,10 +18,14 @@ opt.hidden = true
 opt.ignorecase = true
 opt.joinspaces = false
 opt.shiftwidth = 2
+opt.tabstop = 2
+opt.softtabstop = 2
 opt.number = true
 opt.smartindent = true
+opt.clipboard = 'unnamedplus'
+
 
 vim.g.tokyonight_style = "day"
-vim.g.tokyonight_colors = { hint = "orange", error = "#ff0000" }
+vim.g.tokyonight_colors = {hint = "orange", error = "#ff0000"}
 vim.o.termguicolors = true
-vim.cmd[[colorscheme calvera]]
+vim.cmd [[colorscheme nightfly]]

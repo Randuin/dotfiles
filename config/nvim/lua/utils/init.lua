@@ -24,6 +24,10 @@ M.buf_map = function(mode, target, source, opts, bufnr)
     api.nvim_buf_set_keymap(bufnr or 0, mode, target, source, get_map_options(opts))
 end
 
+M.buf_command = function(bufnr, name, fn, opts)
+    api.nvim_buf_create_user_command(bufnr, name, fn, opts or {})
+end
+
 M.command = function(name, fn)
     vim.cmd(string.format("command! %s %s", name, fn))
 end
@@ -43,5 +47,16 @@ end
 M.warn = function(msg)
     api.nvim_echo({ { msg, "WarningMsg" } }, true, {})
 end
+
+M.table = {
+    some = function(tbl, cb)
+        for k, v in pairs(tbl) do
+            if cb(k, v) then
+                return true
+            end
+        end
+        return false
+    end,
+}
 
 return M

@@ -1,53 +1,75 @@
-local u = require("utils")
+-- Setup nvim-cmp.
+local cmp = require 'cmp'
 
-local lsp = vim.lsp
+cmp.setup({
+  snippet = {
+    -- REQUIRED - you must specify a snippet engine
+    expand = function(args)
+      vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+      -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+      -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
+      -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+    end
+  },
+  window = {
+    -- completion = cmp.config.window.bordered(),
+    -- documentation = cmp.config.window.bordered(),
+  },
+  mapping = cmp.mapping.preset.insert({
+    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-e>'] = cmp.mapping.abort(),
+    ['<CR>'] = cmp.mapping.confirm({
+      select = true
+    }) -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+  }),
+  sources = cmp.config.sources({{
+    name = 'nvim_lsp'
+  }, {
+    name = 'vsnip'
+  } -- For vsnip users.
+  -- { name = 'luasnip' }, -- For luasnip users.
+  -- { name = 'ultisnips' }, -- For ultisnips users.
+  -- { name = 'snippy' }, -- For snippy users.
+  }, {{
+    name = 'buffer'
+  }})
+})
 
-local border_opts = { border = "single", focusable = false, scope = "line" }
+-- Set configuration for specific filetype.
+cmp.setup.filetype('gitcommit', {
+  sources = cmp.config.sources({{
+    name = 'cmp_git'
+  } -- You can specify the `cmp_git` source if you were installed it.
+  }, {{
+    name = 'buffer'
+  }})
+})
 
-vim.diagnostic.config({ virtual_text = false, float = border_opts })
+-- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline('/', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = {{
+    name = 'buffer'
+  }}
+})
 
-lsp.handlers["textDocument/signatureHelp"] = lsp.with(lsp.handlers.signature_help, border_opts)
-lsp.handlers["textDocument/hover"] = lsp.with(lsp.handlers.hover, border_opts)
+-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline(':', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = cmp.config.sources({{
+    name = 'path'
+  }}, {{
+    name = 'cmdline'
+  }})
+})
 
-local on_attach = function(client, bufnr)
-  -- commands
-  u.lua_command("LspFormatting", "vim.lsp.buf.formatting()")
-  u.lua_command("LspHover", "vim.lsp.buf.hover()")
-  u.lua_command("LspRename", "vim.lsp.buf.rename()")
-  u.lua_command("LspDiagPrev", "vim.diagnostic.goto_prev()")
-  u.lua_command("LspDiagNext", "vim.diagnostic.goto_next()")
-  --  u.lua_command("LspDiagLine", "vim.diagnostic.open_float(nil, global.lsp.border_opts)")
-  u.lua_command("LspSignatureHelp", "vim.lsp.buf.signature_help()")
-  u.lua_command("LspTypeDef", "vim.lsp.buf.type_definition()")
+-- Setup lspconfig.
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+-- Replace <YOUR_kjjLSP_SERVER> with each lsp server you've enabled.
+require('lspconfig')['tsserver'].setup {
+  capabilities = capabilities
+}
 
-  -- bindings
-  u.buf_map("n", "gi", ":LspRename<CR>", nil, bufnr)
-  u.buf_map("n", "gy", ":LspTypeDef<CR>", nil, bufnr)
-  u.buf_map("n", "K", ":LspHover<CR>", nil, bufnr)
-  u.buf_map("n", "[a", ":LspDiagPrev<CR>", nil, bufnr)
-  u.buf_map("n", "]a", ":LspDiagNext<CR>", nil, bufnr)
-  u.buf_map("n", "<Leader>a", ":LspDiagLine<CR>", nil, bufnr)
-  u.buf_map("i", "<C-x><C-x>", "<cmd> LspSignatureHelp<CR>", nil, bufnr)
-
-  -- telescope
-  u.buf_map("n", "gr", ":LspRef<CR>", nil, bufnr)
-  u.buf_map("n", "gd", ":LspDef<CR>", nil, bufnr)
-  u.buf_map("n", "ga", ":LspAct<CR>", nil, bufnr)
-  u.buf_map("v", "ga", "<Esc><cmd> LspRangeAct<CR>", nil, bufnr)
-
-  if client.resolved_capabilities.document_formatting then
-    vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
-  end
-
-  if client.resolved_capabilities.completion then
-    vim.opt_local.omnifunc = "v:lua.vim.lsp.omnifunc"
-  end
-
-  require("illuminate").on_attach(client)
-end
-
-require("plugins.lsp.tsserver").setup(on_attach)
--- require("lsp.sumneko").setup(on_attach)
--- require("lsp.jsonls").setup(on_attach)
--- require("lsp.bashls").setup(on_attach)
 require("plugins.lsp.null-ls")

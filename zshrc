@@ -1,3 +1,4 @@
+export POWERLEVEL9K_INSTANT_PROMPT=quiet
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -6,25 +7,40 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 export GOPATH=$HOME/code/go
+export GOSRC=$HOME/code/go/src
 export GOBIN=$HOME/code/go/bin
-export GOPATH=$HOME
-export PATH=/opt/homebrew/bin:$PATH
+# export GOPATH=$HOME
+export PATH=/opt/homebrew/bin:$GOBIN:$PATH
+export OPENSSL_CFLAGS=-Wno-error=implicit-function-declaration
 
-if [[ ! -f ~/.zpm/zpm.zsh ]]; then
-  git clone --recursive https://github.com/zpm-zsh/zpm ~/.zpm
+# if [[ ! -f ~/.zpm/zpm.zsh ]]; then
+#   git clone --recursive https://github.com/zpm-zsh/zpm ~/.zpm
+# fi
+# source ~/.zpm/zpm.zsh
+source ~/.zplug/init.zsh
+zplug "zsh-users/zsh-history-substring-search"
+zplug "junegunn/fzf", \
+    from:gh-r, \
+    as:command, \
+    use:"*darwin*amd64*"
+
+zplug "zpm-zsh/fast-syntax-highlighting", defer:2
+zplug "zpm-zsh/ls"
+zplug "zpm-zsh/colorize"
+zplug "mdumitru/git-aliases"
+
+zplug romkatv/powerlevel10k, as:theme, depth:1
+# Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
 fi
-source ~/.zpm/zpm.zsh
 
-zpm load zsh-users/zsh-completions
-zpm load zpm-zsh/ls
-zpm load zpm-zsh/colorize
-zpm load zpm-zsh/colors
-zpm load zpm-zsh/fast-syntax-highlighting
-zpm load peterhurford/git-aliases.zsh
-zpm load bigH/git-fuzzy
-zpm load robertzk/send.zsh
-
-source /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
+# Then, source plugins and add commands to $PATH
+zplug load
+source <(afx init)
 
 # zmodload zsh/zprof
 export DOTFILES="$HOME/.dotfiles"
