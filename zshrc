@@ -105,3 +105,6 @@ if [ -f '/Users/randuin/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then .
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Created by `pipx` on 2022-12-30 18:22:49
+export PATH="$PATH:/Users/randuin/.local/bin"
