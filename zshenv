@@ -14,3 +14,4 @@ rule () {
   printf "%$(tput cols)s\n"|tr " " "─"
 }
 
+. "$HOME/.cargo/env"
