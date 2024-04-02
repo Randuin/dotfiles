@@ -91,8 +91,8 @@ add_newline = true
 
 [character]
 format = "$symbol "
-success_symbol = "[◉](bold italic bright-yellow)"
-error_symbol = "[⊘](italic purple)"
+success_symbol = "[](bold green)"
+error_symbol = "[⊘](red)"
 
 [env_var.VIMSHELL] # vim subshell
 format = "[$env_value]($style)"
@@ -102,27 +102,33 @@ style = 'green italic'
 format = "[$symbol]($style)"
 style = "italic bright-purple"
 symbol = "◇┈"
-disabled = false
+disabled = true
 
 [username]
 style_user = "yellow bold"
 style_root = "purple bold italic"
 format = "[$user]($style) ▻ "
-disabled = false
+disabled = true
 
 [directory]
-home_symbol = "⌂"
+home_symbol = ""
 truncation_length = 2
 truncation_symbol = "…/"
 read_only = " ■"
 style = "italic blue"
-format = ' [$path]($style)[$read_only]($read_only_style) '
+format = '[$path]($style)[$read_only]($read_only_style) '
 
 [directory.substitutions]
 "Documents" = "󰈙 "
 "Downloads" = " "
 "Music" = " "
 "Pictures" = " "
+
+[hostname]
+ssh_only = false
+format = '[$ssh_symbol](bold blue) [$hostname](bold red) '
+disabled = false
+ssh_symbol = ""
 
 [cmd_duration]
 min_time = 500
@@ -136,7 +142,7 @@ symbol = "[▶ ](blue italic)"
 [localip]
 ssh_only = true
 format = " ◯[$localipv4](bold magenta)"
-disabled = false
+disabled = true
 
 [time]
 disabled = false
