@@ -90,9 +90,9 @@ $time\
 add_newline = true
 
 [character]
-format = "$symbol "
-success_symbol = "[](bold green)"
-error_symbol = "[⊘](red)"
+success_symbol = "[❯](purple)"
+error_symbol = "[❯](red)"
+vimcmd_symbol = "[❮](green)"
 
 [env_var.VIMSHELL] # vim subshell
 format = "[$env_value]($style)"
@@ -114,8 +114,8 @@ disabled = true
 home_symbol = ""
 truncation_length = 2
 truncation_symbol = "…/"
-read_only = " ■"
-style = "italic blue"
+read_only = "■"
+style = "blue"
 format = '[$path]($style)[$read_only]($read_only_style) '
 
 [directory.substitutions]
@@ -125,7 +125,7 @@ format = '[$path]($style)[$read_only]($read_only_style) '
 "Pictures" = " "
 
 [hostname]
-ssh_only = false
+ssh_only = true
 format = '[$ssh_symbol](bold blue) [$hostname](bold red) '
 disabled = false
 ssh_symbol = ""
@@ -189,7 +189,7 @@ symbol = "⨀ "
 style = "italic bright-yellow"
 
 [nodejs]
-format = " [${symbol}($version)](italic bright-green)"
+format = " [${symbol} ($version)](bright-green)"
 detect_files = ["package-lock.json", "yarn.lock"]
 version_format = "${major}.${minor}"
 symbol = ""
@@ -201,10 +201,10 @@ version_format = "${major}.${minor}"
 style = "italic bright-yellow"
 
 [ruby]
-format = " [${symbol}${version}]($style)"
+format = " [${symbol} ${version}]($style)"
 symbol = ""
 version_format = "${major}.${minor}"
-style = "italic red"
+style = "red"
 
 [rust]
 format = " rs [$symbol$version]($style)"
@@ -228,6 +228,7 @@ version_format = "${major}.${minor}"
 format = " [$symbol $region]($style)"
 style = "italic blue"
 symbol = "▲"
+disabled = true
 
 [buf]
 symbol = "■ "
