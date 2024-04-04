@@ -12,17 +12,12 @@
 
 shell = "zsh"
 
-[templates]
-defer = """{{ hooks?.pre | nl }}{% for file in files %}zsh-defer source "{{ file }}"\n{% endfor %}{{ hooks?.post | nl }}"""
-defer-more = """{{ hooks?.pre | nl }}{% for file in files %}zsh-defer -t 0.5 source "{{ file }}"\n{% endfor %}{{ hooks?.post | nl }}"""
-
 [plugins]
 
 [plugins.base16]
 git = "https://git@github.com/chriskempson/base16-shell.git"
 
-[plugins.ohmyzsh-plugins]
-github = "ohmyzsh/ohmyzsh"
-dir = "plugins"
-use = ["{copybuffer,git,pip}/*.plugin.zsh"]
-apply = ["defer"]
+# [plugins.ohmyzsh-plugins]
+# github = "ohmyzsh/ohmyzsh"
+# dir = "plugins"
+# use = ["{copybuffer,git,pip}/*.plugin.zsh"]

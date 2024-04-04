@@ -79,10 +79,6 @@ required = true
 	defaultBranch = main
 [pull]
 	rebase = true
-[url "ssh://git@github.com/"]
-	insteadOf = https://github.com/
-[url "git@github.com:"]
-	insteadOf = git://github.com/
 [interactive]
 	diffFilter = diff-so-fancy --patch
 [delta]
