@@ -1,6 +1,6 @@
-export GOPATH=$HOME/code/go
+export GOPATH=$HOME/.go
 export GOSRC=$HOME/code/go/src
-export GOBIN=$HOME/code/go/bin
+export GOBIN=$GOPATH/bin
 export PATH=$HOME/.bin:$HOME/.local/bin:/opt/homebrew/bin:$GOBIN:$PATH
 export OPENSSL_CFLAGS=-Wno-error=implicit-function-declaration
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
