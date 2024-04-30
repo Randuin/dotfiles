@@ -67,9 +67,6 @@ required = true
   gll = log     --color=always --all --graph --topo-order --pretty='format:%Cgreen%h%Creset %s %C(black bold)(%cr by %an)%Creset%C(yellow bold)%d%Creset' --abbrev-commit
   d = !git diff --color | diff-highlight | less -r
 
-# This next lines include Netlify's Git Credential Helper configuration in your Git configuration.
-[include]
-  path = /home/randuin/.netlify/helper/git-config
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f

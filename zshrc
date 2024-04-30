@@ -44,7 +44,8 @@ source $DOTFILES/config/zsh/aliases.zsh
 if [ "$(uname 2> /dev/null)" = "Linux" ]; then
   . /opt/asdf-vm/asdf.sh
 else
-  . $(brew --prefix asdf)/libexec/asdf.sh
+  # . $(brew --prefix asdf)/libexec/asdf.sh
+  eval "$(/Users/randuin/.local/bin/mise activate zsh)"
 fi
 
 export PATH="$PATH:$HOME/.local/bin"
