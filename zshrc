@@ -21,6 +21,7 @@ alias ls='eza --git --icons --color=always --group-directories-first'
 alias cd='z'
 alias lg='lazygit'
 alias cs='cursor'
+alias ws='windsurf'
 alias tf='terraform'
 
 DISABLE_AUTO_TITLE=true
@@ -56,3 +57,4 @@ export PATH="$PATH:$HOME/.local/bin"
 
 # autoload -U +X bashcompinit && bashcompinit
 # complete -o nospace -C /opt/homebrew/bin/terraform terraform
+export PATH="/Users/randuin/.pixi/bin:$PATH"

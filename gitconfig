@@ -4,7 +4,7 @@
 [core]
   editor = vim
   excludesfile = /home/randuin/.gitignore_global
-  pager = delta
+  # pager = delta
 [color]
 	ui = true
 [color "branch"]
